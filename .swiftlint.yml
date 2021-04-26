@@ -1,0 +1,98 @@
+ disabled_rules:
+   - trailing_whitespace
+   - vertical_parameter_alignment
+   - function_body_length
+   - switch_case_on_newline
+   - function_parameter_count
+   - switch_case_alignment
+   - type_body_length
+   - empty_count
+   - nesting
+   - force_try
+   - line_length
+
+ opt_in_rules:
+   - empty_count
+   - explicit_init
+   - first_where
+   - implicit_return
+   - literal_expression_end_indentation
+   - private_action
+   - private_outlet
+   - sorted_first_last
+   - sorted_imports
+   - switch_case_on_newline
+   - yoda_condition
+   - force_unwrapping
+
+ excluded:
+   - Carthage
+   - Pods
+   - ApiClient
+   
+ warning_threshold: 20
+
+ first_where: error
+ class_delegate_protocol: error
+ weak_delegate: error
+ for_where: error
+
+ large_tuple:
+   warning: 4
+   error: 5
+
+ cyclomatic_complexity:
+   warning: 20
+   error: 30
+
+ file_length:
+   warning: 800
+   error: 1000
+
+ identifier_name:
+   min_length: 2
+   max_length: 50
+   excluded:
+       - x
+       - y
+       - a
+       - b
+       - i
+       - n
+       - j
+
+ type_name:
+   min_length: 2
+   max_length: 50
+   
+ reporter: "xcode"
+
+ custom_rules:
+    comments_space:
+        name: 'Space After Comment'
+        regex: '(^ *//\w+)'
+        message: 'There should be a space after //'
+        severity: warning
+
+    empty_line_after_super:
+        name: 'Empty Line After Super'
+        regex: '(^ *super\.[ a-zA-Z0-9=?.\(\)\{\}:,><!`\"]*\n *(?!(?:\}|return))\S+)'
+        message: 'There should be an empty line after super'
+        severity: warning
+
+    final_class:
+        included: ".*.swift"
+        name: "Final class requrement"
+        regex: '^class'
+        message: "All classes must be final or nonfinal"
+        saverity: error
+
+    print_using:
+        included: ".*.swift"
+        regex: 'print('
+        message: "Print decrease performance of the app"
+
+    class_protocol:
+        included: ".*.swift"
+        regex: ': class'
+        message: "Use Anyobject instead"

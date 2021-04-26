@@ -1,0 +1,14 @@
+//
+//  AppStore.xcconfig
+//  AeroPlan
+//
+//  Created by Alena Nesterkina on 25.04.21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = AeroPlan
+APP_MARKETING_NAME = $APP_NAME
+APP_BUNDLE_ID = com.bn.software.aeroplan
+APP_ICON = AppIcon

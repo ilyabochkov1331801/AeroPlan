@@ -3,27 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02452ED048EDC97EFB6A5C8A /* Pods_AeroPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */; };
 		33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AA92635A9C700A3FCD4 /* AppDelegate.swift */; };
-		33833AAC2635A9C700A3FCD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AAB2635A9C700A3FCD4 /* SceneDelegate.swift */; };
-		33833AAE2635A9C700A3FCD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AAD2635A9C700A3FCD4 /* ViewController.swift */; };
-		33833AB12635A9C700A3FCD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AAF2635A9C700A3FCD4 /* Main.storyboard */; };
 		33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Assets.xcassets */; };
 		33833AB62635A9C900A3FCD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
+		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA92635A9C700A3FCD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33833AAB2635A9C700A3FCD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		33833AAD2635A9C700A3FCD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		33833AB02635A9C700A3FCD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33833AB22635A9C900A3FCD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33833AB52635A9C900A3FCD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33833AB72635A9C900A3FCD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33833ACD2635B03D00A3FCD4 /* Develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Develop.xcconfig; sourceTree = "<group>"; };
+		33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
+		CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AeroPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.appstore.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.appstore.xcconfig"; sourceTree = "<group>"; };
+		DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.debug-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.debug-develop.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02452ED048EDC97EFB6A5C8A /* Pods_AeroPlan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				33833AA82635A9C700A3FCD4 /* AeroPlan */,
 				33833AA72635A9C700A3FCD4 /* Products */,
+				DEB85252C2B620D46BC7EAAF /* Pods */,
+				C7826676F50E3D0F0975D37D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,73 @@
 		33833AA82635A9C700A3FCD4 /* AeroPlan */ = {
 			isa = PBXGroup;
 			children = (
-				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
-				33833AAB2635A9C700A3FCD4 /* SceneDelegate.swift */,
-				33833AAD2635A9C700A3FCD4 /* ViewController.swift */,
-				33833AAF2635A9C700A3FCD4 /* Main.storyboard */,
+				33833AC72635AFDB00A3FCD4 /* Classes */,
+				33833AC62635AFD400A3FCD4 /* Resources */,
+			);
+			path = AeroPlan;
+			sourceTree = "<group>";
+		};
+		33833AC62635AFD400A3FCD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33833AD12635B51200A3FCD4 /* Generated */,
+				33833AD02635B50D00A3FCD4 /* Fonts */,
+				33833ACC2635B01100A3FCD4 /* Configurations */,
 				33833AB22635A9C900A3FCD4 /* Assets.xcassets */,
 				33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */,
 				33833AB72635A9C900A3FCD4 /* Info.plist */,
 			);
-			path = AeroPlan;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		33833AC72635AFDB00A3FCD4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		33833ACC2635B01100A3FCD4 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */,
+				33833ACD2635B03D00A3FCD4 /* Develop.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		33833AD02635B50D00A3FCD4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		33833AD12635B51200A3FCD4 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		C7826676F50E3D0F0975D37D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				333657E72635BC4300517E2B /* SnapKit.framework */,
+				CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEB85252C2B620D46BC7EAAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */,
+				23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */,
+				D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33833ABA2635A9C900A3FCD4 /* Build configuration list for PBXNativeTarget "AeroPlan" */;
 			buildPhases = (
+				FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */,
+				333657CA2635B8B600517E2B /* SwiftLint */,
 				33833AA22635A9C700A3FCD4 /* Sources */,
 				33833AA32635A9C700A3FCD4 /* Frameworks */,
 				33833AA42635A9C700A3FCD4 /* Resources */,
+				01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +192,83 @@
 			files = (
 				33833AB62635A9C900A3FCD4 /* LaunchScreen.storyboard in Resources */,
 				33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */,
-				33833AB12635A9C700A3FCD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		333657CA2635B8B600517E2B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug-Develop\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint\n    else\n        sh setup.sh\n    fi\nfi\n";
+		};
+		FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AeroPlan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33833AA22635A9C700A3FCD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33833AAE2635A9C700A3FCD4 /* ViewController.swift in Sources */,
 				33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */,
-				33833AAC2635A9C700A3FCD4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		33833AAF2635A9C700A3FCD4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				33833AB02635A9C700A3FCD4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -165,8 +280,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		33833AB82635A9C900A3FCD4 /* Debug */ = {
+		33833AB82635A9C900A3FCD4 /* Debug-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33833ACD2635B03D00A3FCD4 /* Develop.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -216,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -224,10 +340,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug-Develop";
 		};
-		33833AB92635A9C900A3FCD4 /* Release */ = {
+		33833AB92635A9C900A3FCD4 /* Release-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33833ACD2635B03D00A3FCD4 /* Develop.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -271,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -279,45 +396,129 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release-Develop";
 		};
-		33833ABB2635A9C900A3FCD4 /* Debug */ = {
+		33833ABB2635A9C900A3FCD4 /* Debug-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RB7NH47H2;
-				INFOPLIST_FILE = AeroPlan/Info.plist;
+				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bn.software.AeroPlan;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = "Debug-Develop";
 		};
-		33833ABC2635A9C900A3FCD4 /* Release */ = {
+		33833ABC2635A9C900A3FCD4 /* Release-Develop */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6RB7NH47H2;
-				INFOPLIST_FILE = AeroPlan/Info.plist;
+				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bn.software.AeroPlan;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = "Release-Develop";
+		};
+		33833ABE2635AEC500A3FCD4 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		33833ABF2635AEC500A3FCD4 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6RB7NH47H2;
+				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = AppStore;
 		};
 /* End XCBuildConfiguration section */
 
@@ -325,20 +526,22 @@
 		33833AA12635A9C700A3FCD4 /* Build configuration list for PBXProject "AeroPlan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33833AB82635A9C900A3FCD4 /* Debug */,
-				33833AB92635A9C900A3FCD4 /* Release */,
+				33833AB82635A9C900A3FCD4 /* Debug-Develop */,
+				33833AB92635A9C900A3FCD4 /* Release-Develop */,
+				33833ABE2635AEC500A3FCD4 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Develop";
 		};
 		33833ABA2635A9C900A3FCD4 /* Build configuration list for PBXNativeTarget "AeroPlan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33833ABB2635A9C900A3FCD4 /* Debug */,
-				33833ABC2635A9C900A3FCD4 /* Release */,
+				33833ABB2635A9C900A3FCD4 /* Debug-Develop */,
+				33833ABC2635A9C900A3FCD4 /* Release-Develop */,
+				33833ABF2635AEC500A3FCD4 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Release-Develop";
 		};
 /* End XCConfigurationList section */
 	};
