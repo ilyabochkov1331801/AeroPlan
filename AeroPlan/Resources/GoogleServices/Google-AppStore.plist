@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>381318345279-noj24h2dkqkk7ccf3sgbm2vbohra5jpi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.381318345279-noj24h2dkqkk7ccf3sgbm2vbohra5jpi</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>381318345279-lckhd9dumm1r4695krnmubn4u4g3bg6u.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCxn0pww9nJ50VOeBqhwObaKvACpnUSq94</string>
+	<key>GCM_SENDER_ID</key>
+	<string>381318345279</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bn.software.aeroplan</string>
+	<key>PROJECT_ID</key>
+	<string>aeroplan-279114</string>
+	<key>STORAGE_BUCKET</key>
+	<string>aeroplan-279114.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:381318345279:ios:18d4262be77497dc5bbe8a</string>
+</dict>
+</plist>

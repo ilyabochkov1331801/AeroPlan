@@ -5,6 +5,9 @@ inhibit_all_warnings!
 target 'AeroPlan' do
    pod 'SwiftLint'
    pod 'SnapKit'
+   pod 'Firebase/Analytics'
+
+   project 'AeroPlan.xcodeproj'
 end
 
 post_install do |installer|

@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		02452ED048EDC97EFB6A5C8A /* Pods_AeroPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */; };
+		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 		33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AA92635A9C700A3FCD4 /* AppDelegate.swift */; };
 		33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Assets.xcassets */; };
-		33833AB62635A9C900A3FCD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22E2DE1A2636CD58009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
+		22E2DE2D2636CE24009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
 		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22E2DDFC2636CB93009B38AC /* GoogleServices */ = {
+			isa = PBXGroup;
+			children = (
+				22E2DE2D2636CE24009B38AC /* Google-Develop.plist */,
+				22E2DE1A2636CD58009B38AC /* Google-AppStore.plist */,
+			);
+			path = GoogleServices;
+			sourceTree = "<group>";
+		};
 		33833A9D2635A9C700A3FCD4 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +81,7 @@
 		33833AC62635AFD400A3FCD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22E2DDFC2636CB93009B38AC /* GoogleServices */,
 				33833AD12635B51200A3FCD4 /* Generated */,
 				33833AD02635B50D00A3FCD4 /* Fonts */,
 				33833ACC2635B01100A3FCD4 /* Configurations */,
@@ -138,10 +150,11 @@
 			buildConfigurationList = 33833ABA2635A9C900A3FCD4 /* Build configuration list for PBXNativeTarget "AeroPlan" */;
 			buildPhases = (
 				FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */,
-				333657CA2635B8B600517E2B /* SwiftLint */,
 				33833AA22635A9C700A3FCD4 /* Sources */,
 				33833AA32635A9C700A3FCD4 /* Frameworks */,
 				33833AA42635A9C700A3FCD4 /* Resources */,
+				333657CA2635B8B600517E2B /* SwiftLint */,
+				22E2DE192636CCD4009B38AC /* Copy Google Confugurations */,
 				01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -190,7 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33833AB62635A9C900A3FCD4 /* LaunchScreen.storyboard in Resources */,
+				22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */,
 				33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +227,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		22E2DE192636CCD4009B38AC /* Copy Google Confugurations */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Google Confugurations";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH_TO_GOOGLE_PLISTS=\"${PROJECT_DIR}/AeroPlan/Resources/GoogleServices\" \n\ncase \"${CONFIGURATION}\" in \n\"Debug-Develop\" | \"Release-Develop\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-Develop.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n\"AppStore\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-AppStore.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n*) ;; \nesac\n";
 		};
 		333657CA2635B8B600517E2B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -405,7 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6RB7NH47H2;
+				DEVELOPMENT_TEAM = 5837MFCMU4;
 				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -427,7 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6RB7NH47H2;
+				DEVELOPMENT_TEAM = 5837MFCMU4;
 				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -505,7 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6RB7NH47H2;
+				DEVELOPMENT_TEAM = 5837MFCMU4;
 				INFOPLIST_FILE = AeroPlan/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
