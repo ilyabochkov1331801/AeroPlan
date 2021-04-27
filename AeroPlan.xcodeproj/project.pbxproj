@@ -14,8 +14,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22E2DE1A2636CD58009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
-		22E2DE2D2636CE24009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
+		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
+		22E2E3D1263812A2009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
 		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,8 +45,8 @@
 		22E2DDFC2636CB93009B38AC /* GoogleServices */ = {
 			isa = PBXGroup;
 			children = (
-				22E2DE2D2636CE24009B38AC /* Google-Develop.plist */,
-				22E2DE1A2636CD58009B38AC /* Google-AppStore.plist */,
+				22E2E3D0263812A2009B38AC /* Google-AppStore.plist */,
+				22E2E3D1263812A2009B38AC /* Google-Develop.plist */,
 			);
 			path = GoogleServices;
 			sourceTree = "<group>";

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>381318345279-l0pkcjnqe3n14ap6cg71ajio9olek2rh.apps.googleusercontent.com</string>
+	<string>381318345279-5ehc7fdjnhbnpblee4is00vq635aoqpg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.381318345279-l0pkcjnqe3n14ap6cg71ajio9olek2rh</string>
+	<string>com.googleusercontent.apps.381318345279-5ehc7fdjnhbnpblee4is00vq635aoqpg</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>381318345279-lckhd9dumm1r4695krnmubn4u4g3bg6u.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.bn.software.aeroplan.dev</string>
+	<string>com.bn.aeroplan.app.dev</string>
 	<key>PROJECT_ID</key>
 	<string>aeroplan-279114</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:381318345279:ios:ed7f476732db1c9f5bbe8a</string>
+	<string>1:381318345279:ios:3cdd9c6d4fb932335bbe8a</string>
 </dict>
 </plist>

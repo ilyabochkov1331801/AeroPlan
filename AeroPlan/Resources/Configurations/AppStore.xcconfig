@@ -10,5 +10,5 @@
 
 APP_NAME = AeroPlan
 APP_MARKETING_NAME = $APP_NAME
-APP_BUNDLE_ID = com.bn.software.aeroplan
+APP_BUNDLE_ID = com.bn.aeroplan.app
 APP_ICON = AppIcon
