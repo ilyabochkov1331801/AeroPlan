@@ -22,7 +22,6 @@
 		22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5A726385BA2009B38AC /* AlertViewer.swift */; };
 		333C06A62639D17200BE8F36 /* ApiDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06A52639D17200BE8F36 /* ApiDataManager.swift */; };
 		333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06A82639D42600BE8F36 /* StorageDataManger.swift */; };
-		333C06AC2639DC8000BE8F36 /* StorageErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06AB2639DC8000BE8F36 /* StorageErrors.swift */; };
 		33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AA92635A9C700A3FCD4 /* AppDelegate.swift */; };
 		33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Assets.xcassets */; };
 		3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41C263B30F000CA0329 /* StoredProperty.swift */; };
@@ -48,7 +47,6 @@
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		333C06A52639D17200BE8F36 /* ApiDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDataManager.swift; sourceTree = "<group>"; };
 		333C06A82639D42600BE8F36 /* StorageDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataManger.swift; sourceTree = "<group>"; };
-		333C06AB2639DC8000BE8F36 /* StorageErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageErrors.swift; sourceTree = "<group>"; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA92635A9C700A3FCD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33833AB22635A9C900A3FCD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		333C06AA2639DC6E00BE8F36 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				333C06AB2639DC8000BE8F36 /* StorageErrors.swift */,
 				3383E420263B36D200CA0329 /* ApiErrors.swift */,
 			);
 			path = Errors;
@@ -444,7 +441,6 @@
 				3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */,
 				22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */,
 				22E2E5912638538F009B38AC /* Animators.swift in Sources */,
-				333C06AC2639DC8000BE8F36 /* StorageErrors.swift in Sources */,
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
 				22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */,
 				22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */,

@@ -7,23 +7,30 @@
 
 import Foundation
 
-protocol ErrorKeeper {
-    var currentError: Error? { get }
-    var subError: Error? { get set }
+protocol AppError: Error {
+    var path: String { get }
+    var previousAppError: AppError? { get }
+    var previousError: Error? { get }
     
-    func readDescription() -> String
+    var description: String { get }
+    
+    init(path: String, previousAppError: AppError?, previousError: Error?)
 }
 
-class ApiErrors: ErrorKeeper {
-    enum Errors: Error, CaseIterable {
-        case failedDecoding
-        case failedRequest
+extension AppError {
+    var description: String {
+        path + ((previousAppError?.description ?? previousError?.localizedDescription).flatMap { "\n" + $0 } ?? "")
     }
+}
+
+struct APIError: AppError {
+    let path: String
+    let previousAppError: AppError?
+    let previousError: Error?
     
-    var currentError: Error?
-    var subError: Error?
-    
-    func readDescription() -> String {
-        return (currentError?.localizedDescription ?? "") + "/" + (subError?.localizedDescription ?? "")
+    init(path: String = #function, previousAppError: AppError? = nil, previousError: Error? = nil) {
+        self.path = "API" + path
+        self.previousError = previousError
+        self.previousAppError = previousAppError
     }
 }
