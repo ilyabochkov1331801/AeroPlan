@@ -8,6 +8,8 @@ target 'AeroPlan' do
    pod 'SwiftLint'
    pod 'SnapKit'
    pod 'Firebase/Analytics'
+   pod 'KeychainAccess'
+   pod 'Alamofire'
 
    project 'AeroPlan.xcodeproj'
 end
