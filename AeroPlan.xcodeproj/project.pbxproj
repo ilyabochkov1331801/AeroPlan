@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		02452ED048EDC97EFB6A5C8A /* Pods_AeroPlan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */; };
+		224AE8BF263C6DB8002537F0 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8BE263C6DB8002537F0 /* LaunchScreen.swift */; };
+		224AE8C1263C6DC4002537F0 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C0263C6DC4002537F0 /* LaunchViewModel.swift */; };
+		224AE8C3263C712C002537F0 /* ScreensBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C2263C712C002537F0 /* ScreensBuilder.swift */; };
+		224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */; };
+		224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C6263C7585002537F0 /* AutorizationCoordinator.swift */; };
+		224AE8CA263C76DE002537F0 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C9263C76DE002537F0 /* WelcomeScreen.swift */; };
+		224AE8CC263C76EA002537F0 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8CB263C76EA002537F0 /* WelcomeViewModel.swift */; };
+		224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8CD263C7842002537F0 /* HomeCoordinator.swift */; };
+		224AE8D2263C7D0D002537F0 /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8D1263C7D0D002537F0 /* SignInScreen.swift */; };
+		224AE8D4263C7D16002537F0 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8D3263C7D16002537F0 /* SignInViewModel.swift */; };
+		224AE8D7263C7FCC002537F0 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8D6263C7FCC002537F0 /* CreateAccountViewModel.swift */; };
+		224AE8D9263C7FD7002537F0 /* CreateAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8D8263C7FD7002537F0 /* CreateAccountScreen.swift */; };
+		224AE8DC263C8150002537F0 /* ResetPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8DB263C8150002537F0 /* ResetPasswordScreen.swift */; };
+		224AE8DE263C815B002537F0 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8DD263C815B002537F0 /* ResetPasswordViewModel.swift */; };
+		224AE8E1263C82BA002537F0 /* NewPasswordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8E0263C82BA002537F0 /* NewPasswordScreen.swift */; };
+		224AE8E3263C82C6002537F0 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */; };
 		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 		22E2E5822638506F009B38AC /* StartupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5812638506F009B38AC /* StartupService.swift */; };
 		22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E584263850C1009B38AC /* RootCoordinator.swift */; };
@@ -25,6 +41,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224AE8BE263C6DB8002537F0 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		224AE8C0263C6DC4002537F0 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		224AE8C2263C712C002537F0 /* ScreensBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensBuilder.swift; sourceTree = "<group>"; };
+		224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		224AE8C6263C7585002537F0 /* AutorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationCoordinator.swift; sourceTree = "<group>"; };
+		224AE8C9263C76DE002537F0 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		224AE8CB263C76EA002537F0 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		224AE8CD263C7842002537F0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		224AE8D1263C7D0D002537F0 /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		224AE8D3263C7D16002537F0 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		224AE8D6263C7FCC002537F0 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		224AE8D8263C7FD7002537F0 /* CreateAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreen.swift; sourceTree = "<group>"; };
+		224AE8DB263C8150002537F0 /* ResetPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordScreen.swift; sourceTree = "<group>"; };
+		224AE8DD263C815B002537F0 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		224AE8E0263C82BA002537F0 /* NewPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordScreen.swift; sourceTree = "<group>"; };
+		224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
 		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
 		22E2E3D1263812A2009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
 		22E2E5812638506F009B38AC /* StartupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupService.swift; sourceTree = "<group>"; };
@@ -64,6 +96,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		224AE8BD263C6DA6002537F0 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8BE263C6DB8002537F0 /* LaunchScreen.swift */,
+				224AE8C0263C6DC4002537F0 /* LaunchViewModel.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		224AE8C8263C76B6002537F0 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8C9263C76DE002537F0 /* WelcomeScreen.swift */,
+				224AE8CB263C76EA002537F0 /* WelcomeViewModel.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		224AE8CF263C7CDD002537F0 /* Autorization */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8DF263C82B1002537F0 /* NewPassword */,
+				224AE8DA263C8146002537F0 /* ResetPassword */,
+				224AE8D5263C7FBE002537F0 /* CreateAccount */,
+				224AE8D0263C7CFE002537F0 /* SignIn */,
+				224AE8C8263C76B6002537F0 /* Welcome */,
+			);
+			path = Autorization;
+			sourceTree = "<group>";
+		};
+		224AE8D0263C7CFE002537F0 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8D1263C7D0D002537F0 /* SignInScreen.swift */,
+				224AE8D3263C7D16002537F0 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		224AE8D5263C7FBE002537F0 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8D8263C7FD7002537F0 /* CreateAccountScreen.swift */,
+				224AE8D6263C7FCC002537F0 /* CreateAccountViewModel.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		224AE8DA263C8146002537F0 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8DB263C8150002537F0 /* ResetPasswordScreen.swift */,
+				224AE8DD263C815B002537F0 /* ResetPasswordViewModel.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		224AE8DF263C82B1002537F0 /* NewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				224AE8E0263C82BA002537F0 /* NewPasswordScreen.swift */,
+				224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */,
+			);
+			path = NewPassword;
+			sourceTree = "<group>";
+		};
 		22E2DDFC2636CB93009B38AC /* GoogleServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				22E2E584263850C1009B38AC /* RootCoordinator.swift */,
+				224AE8C6263C7585002537F0 /* AutorizationCoordinator.swift */,
+				224AE8CD263C7842002537F0 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -107,6 +207,8 @@
 		22E2E57A26384FFC009B38AC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				224AE8BD263C6DA6002537F0 /* Launch */,
+				224AE8CF263C7CDD002537F0 /* Autorization */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -124,6 +226,7 @@
 		22E2E57D26385016009B38AC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,6 +236,7 @@
 			children = (
 				22E2E587263850F8009B38AC /* ServicesBuilder.swift */,
 				22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */,
+				224AE8C2263C712C002537F0 /* ScreensBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -406,17 +510,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224AE8BF263C6DB8002537F0 /* LaunchScreen.swift in Sources */,
 				22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */,
+				224AE8E1263C82BA002537F0 /* NewPasswordScreen.swift in Sources */,
 				22E2E58E26385236009B38AC /* CoordinatorsBuilder.swift in Sources */,
 				22E2E58B26385146009B38AC /* Aliases.swift in Sources */,
+				224AE8DC263C8150002537F0 /* ResetPasswordScreen.swift in Sources */,
+				224AE8E3263C82C6002537F0 /* NewPasswordViewModel.swift in Sources */,
 				22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */,
 				33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */,
+				224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */,
 				22E2E59926385603009B38AC /* ModalWindowViewController.swift in Sources */,
+				224AE8DE263C815B002537F0 /* ResetPasswordViewModel.swift in Sources */,
+				224AE8D4263C7D16002537F0 /* SignInViewModel.swift in Sources */,
 				22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */,
 				22E2E5912638538F009B38AC /* Animators.swift in Sources */,
+				224AE8C1263C6DC4002537F0 /* LaunchViewModel.swift in Sources */,
+				224AE8C3263C712C002537F0 /* ScreensBuilder.swift in Sources */,
+				224AE8D9263C7FD7002537F0 /* CreateAccountScreen.swift in Sources */,
+				224AE8CA263C76DE002537F0 /* WelcomeScreen.swift in Sources */,
+				224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */,
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
 				22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */,
 				22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */,
+				224AE8D2263C7D0D002537F0 /* SignInScreen.swift in Sources */,
+				224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */,
+				224AE8D7263C7FCC002537F0 /* CreateAccountViewModel.swift in Sources */,
+				224AE8CC263C76EA002537F0 /* WelcomeViewModel.swift in Sources */,
 				22E2E59526385410009B38AC /* MVVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
