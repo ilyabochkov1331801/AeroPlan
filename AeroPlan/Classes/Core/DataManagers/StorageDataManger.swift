@@ -8,7 +8,7 @@
 import Foundation
 import KeychainAccess
 
-class StorageDataManger {
+final class StorageDataManger {
     struct Key {
         let key: String
         let isSecure: Bool
@@ -22,6 +22,7 @@ class StorageDataManger {
         userDefaults = UserDefaults(suiteName: accessGroup) ?? .standard
     }
     
+    // TODO: Добавить возможность передавать nil и тем самым удалять значение по ключу
     func save(object: StoredProperty, key: Key) {
         do {
             if key.isSecure {

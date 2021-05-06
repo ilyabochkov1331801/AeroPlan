@@ -3,12 +3,13 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'AeroPlan' do
-   pod 'Model', :git => 'https://github.com/ilyabochkov1331801/Model'
+   pod 'Model', :git => 'https://github.com/ilyabochkov1331801/Model', :branch => 'yellow'
 
    pod 'SwiftLint'
    pod 'SnapKit'
    pod 'Firebase/Analytics'
    pod 'KeychainAccess'
+   pod 'Alamofire'
 
    project 'AeroPlan.xcodeproj'
 end

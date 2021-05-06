@@ -19,3 +19,14 @@ extension String: StoredProperty {
         self = string
     }
 }
+
+extension Dictionary: StoredProperty {
+    var coding: NSCoding { self as NSCoding }
+
+    init?(coding: NSCoding) {
+        guard let dictionary = coding as? Dictionary else {
+            return nil
+        }
+        self = dictionary
+    }
+}
