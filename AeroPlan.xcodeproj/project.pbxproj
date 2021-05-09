@@ -34,6 +34,10 @@
 		224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8CD263C7842002537F0 /* HomeCoordinator.swift */; };
 		22C0CB742647190000E8D933 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB732647190000E8D933 /* Configuration.swift */; };
 		22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB75264719C800E8D933 /* ConfigurationReader.swift */; };
+		22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */; };
+		22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB792647216000E8D933 /* AutorizationError.swift */; };
+		22C0CB7C2647262600E8D933 /* DataManagersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */; };
+		22C0CB7E2647263400E8D933 /* InteractorsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */; };
 		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 		22E2E5822638506F009B38AC /* StartupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5812638506F009B38AC /* StartupService.swift */; };
 		22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E584263850C1009B38AC /* RootCoordinator.swift */; };
@@ -91,6 +95,10 @@
 		224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
 		22C0CB732647190000E8D933 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		22C0CB75264719C800E8D933 /* ConfigurationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
+		22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationInteractor.swift; sourceTree = "<group>"; };
+		22C0CB792647216000E8D933 /* AutorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationError.swift; sourceTree = "<group>"; };
+		22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagersBuilder.swift; sourceTree = "<group>"; };
+		22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsBuilder.swift; sourceTree = "<group>"; };
 		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
 		22E2E3D1263812A2009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
 		22E2E5812638506F009B38AC /* StartupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupService.swift; sourceTree = "<group>"; };
@@ -297,6 +305,8 @@
 				22E2E587263850F8009B38AC /* ServicesBuilder.swift */,
 				22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */,
 				224AE8C2263C712C002537F0 /* ScreensBuilder.swift */,
+				22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */,
+				22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -345,6 +355,7 @@
 		333C06A42639D15A00BE8F36 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -352,8 +363,9 @@
 		333C06AA2639DC6E00BE8F36 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				22157FD026445FFC004CA15D /* APIError.swift */,
 				22157FD126445FFC004CA15D /* AppError.swift */,
+				22157FD026445FFC004CA15D /* APIError.swift */,
+				22C0CB792647216000E8D933 /* AutorizationError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -623,6 +635,7 @@
 				22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */,
 				22157FDB2644603D004CA15D /* APIRequest.swift in Sources */,
 				22157FD226445FFC004CA15D /* APIError.swift in Sources */,
+				22C0CB7C2647262600E8D933 /* DataManagersBuilder.swift in Sources */,
 				22E2E58E26385236009B38AC /* CoordinatorsBuilder.swift in Sources */,
 				22157FF626446132004CA15D /* ResetPasswordViewModel.swift in Sources */,
 				22E2E58B26385146009B38AC /* Aliases.swift in Sources */,
@@ -633,6 +646,7 @@
 				22157FDA2644603D004CA15D /* APIDataManager.swift in Sources */,
 				22157FF526446132004CA15D /* ResetPasswordScreen.swift in Sources */,
 				221580022644617A004CA15D /* User+StoredProperty.swift in Sources */,
+				22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */,
 				22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */,
 				22157FEB26446113004CA15D /* CreateAccountScreen.swift in Sources */,
 				2215800726446209004CA15D /* ModalWindowViewController.swift in Sources */,
@@ -649,12 +663,14 @@
 				22157FD92644603D004CA15D /* AuthInterceptor.swift in Sources */,
 				224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */,
 				22157FEC26446113004CA15D /* CreateAccountViewModel.swift in Sources */,
+				22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */,
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
 				22157FFB26446140004CA15D /* SignInViewModel.swift in Sources */,
 				22157FFF26446150004CA15D /* WelcomeScreen.swift in Sources */,
 				22C0CB742647190000E8D933 /* Configuration.swift in Sources */,
 				22157FD326445FFC004CA15D /* AppError.swift in Sources */,
 				22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */,
+				22C0CB7E2647263400E8D933 /* InteractorsBuilder.swift in Sources */,
 				22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */,
 				224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */,
 				22E2E59526385410009B38AC /* MVVM.swift in Sources */,

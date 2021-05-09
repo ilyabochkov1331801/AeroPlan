@@ -13,7 +13,7 @@ final class LaunchScreen: Screen<LaunchViewModel> {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewModel.transitions.openAutorizationFlow?()
+        viewModel.launchApplication()
     }
     
     override func arrangeView() {
@@ -25,5 +25,9 @@ final class LaunchScreen: Screen<LaunchViewModel> {
     
     override func setupView() {
         label.text = "Launch"
+    }
+    
+    override func setupBinding() {
+        viewModel.errorOccurred = showError
     }
 }

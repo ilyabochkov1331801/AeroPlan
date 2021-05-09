@@ -16,6 +16,10 @@ final class AlertCoordinator {
         alert.addAction(action)
         alert.show()
     }
+    
+    func showError(error: AppError) {
+        showAlert(with: "Error", message: error.description)
+    }
 }
 
 private extension AlertCoordinator {

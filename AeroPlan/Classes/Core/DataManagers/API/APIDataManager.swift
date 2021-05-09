@@ -7,7 +7,7 @@
 
 import Alamofire
 
-final class ApiDataManager {
+final class APIDataManager {
     private let authInterceptor: AuthInterceptor
     
     private var headers: HTTPHeaders {
