@@ -18,7 +18,12 @@ final class StorageDataManger {
     private let userDefaults: UserDefaults
     
     init(service: String, accessGroup: String? = nil) {
-        keychain = Keychain(service: service, accessGroup: accessGroup ?? "")
+        if let accessGroup = accessGroup {
+            keychain = Keychain(service: service, accessGroup: accessGroup)
+        } else {
+            keychain = Keychain(service: service)
+        }
+        
         userDefaults = UserDefaults(suiteName: accessGroup) ?? .standard
     }
     
@@ -51,4 +56,8 @@ final class StorageDataManger {
             return nil
         }
     }
+}
+
+extension StorageDataManger.Key {
+    static var user: Self { Self(key: "kUser", isSecure: true) }
 }

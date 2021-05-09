@@ -9,7 +9,7 @@ import UIKit
 
 final class ScreensBuilder {
     static func makeLaunchScreen(resolver: DependencyResolver) -> LaunchScreen {
-        let viewModel = LaunchViewModel()
+        let viewModel = LaunchViewModel(autorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return LaunchScreen(viewModel: viewModel)
     }
     

@@ -39,8 +39,18 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
         
         arrangeView()
         setupView()
+        setupBinding()
     }
     
     open func arrangeView() { }
     open func setupView() { }
+    open func setupBinding() { }
+}
+
+extension Screen {
+    var showError: (AppError) -> Void {
+        return { [weak self] error in
+            self?.alertCoordinator.showError(error: error)
+        }
+    }
 }

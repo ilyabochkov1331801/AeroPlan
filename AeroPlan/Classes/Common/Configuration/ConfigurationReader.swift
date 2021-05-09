@@ -18,7 +18,7 @@ enum ConfigurationReader {
             fatalError("Unable to read value from infoDict")
         }
         
-        return Configuration(backendURL: backendURL,
+        return Configuration(backendURL: backendURL.removeDoubleSlash(),
                              bundleId: bundleId)
     }
 }
@@ -26,4 +26,8 @@ enum ConfigurationReader {
 private enum Keys {
     static let backendURL = "BackendURL"
     static let bundleId = "CFBundleIdentifier"
+}
+
+private extension String {
+    func removeDoubleSlash() -> String { replacingOccurrences(of: "\\", with: "") }
 }

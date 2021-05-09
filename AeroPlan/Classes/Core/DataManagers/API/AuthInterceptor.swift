@@ -55,11 +55,9 @@ final class AuthInterceptor: RequestInterceptor {
 }
 
 extension StorageDataManger: UserProvider {
-    private static var key: Key { Key(key: "kUser", isSecure: true) }
-
     var user: User? {
-        get { get(key: StorageDataManger.key) }
-        set { newValue.map { save(object: $0, key: StorageDataManger.key) } }
+        get { get(key: .user) }
+        set { newValue.map { save(object: $0, key: .user) } }
     }
 }
 
