@@ -14,6 +14,8 @@ final class AutorizationCoordinator: NavigationCoordinator {
         self.homeFlowTransition = homeFlowTransition
         
         super.init(parent: parent)
+        
+        showWelcomeScreen()
     }
 }
 

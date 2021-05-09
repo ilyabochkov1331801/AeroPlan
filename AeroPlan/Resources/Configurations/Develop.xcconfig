@@ -12,3 +12,5 @@ APP_NAME = AeroPlan Dev
 APP_MARKETING_NAME = $APP_NAME
 APP_BUNDLE_ID = com.bn.aeroplan.app.dev
 APP_ICON = AppIcon_dev
+
+BACKEND_URL = https:\/\/aeroplan.herokuapp.com

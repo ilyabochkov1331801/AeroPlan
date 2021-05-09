@@ -32,6 +32,8 @@
 		224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */; };
 		224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C6263C7585002537F0 /* AutorizationCoordinator.swift */; };
 		224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8CD263C7842002537F0 /* HomeCoordinator.swift */; };
+		22C0CB742647190000E8D933 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB732647190000E8D933 /* Configuration.swift */; };
+		22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB75264719C800E8D933 /* ConfigurationReader.swift */; };
 		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
 		22E2E5822638506F009B38AC /* StartupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5812638506F009B38AC /* StartupService.swift */; };
 		22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E584263850C1009B38AC /* RootCoordinator.swift */; };
@@ -87,6 +89,8 @@
 		224AE8DD263C815B002537F0 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		224AE8E0263C82BA002537F0 /* NewPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordScreen.swift; sourceTree = "<group>"; };
 		224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
+		22C0CB732647190000E8D933 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		22C0CB75264719C800E8D933 /* ConfigurationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
 		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
 		22E2E3D1263812A2009B38AC /* Google-Develop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-Develop.plist"; sourceTree = "<group>"; };
 		22E2E5812638506F009B38AC /* StartupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupService.swift; sourceTree = "<group>"; };
@@ -240,6 +244,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		22C0CB72264718D800E8D933 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				22C0CB732647190000E8D933 /* Configuration.swift */,
+				22C0CB75264719C800E8D933 /* ConfigurationReader.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		22E2DDFC2636CB93009B38AC /* GoogleServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 				22E2E59426385410009B38AC /* MVVM.swift */,
 				22E2E57F26385046009B38AC /* Helpers */,
 				22E2E57D26385016009B38AC /* Extensions */,
+				22C0CB72264718D800E8D933 /* Configuration */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -389,9 +403,9 @@
 		33833AC72635AFDB00A3FCD4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
 				22157FDD26446086004CA15D /* Screens */,
 				333C06AA2639DC6E00BE8F36 /* Errors */,
-				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
 				22E2E57E2638501D009B38AC /* Builder */,
 				22E2E58026385050009B38AC /* Services */,
 				22E2E57C2638500F009B38AC /* Common */,
@@ -619,6 +633,7 @@
 				22157FDA2644603D004CA15D /* APIDataManager.swift in Sources */,
 				22157FF526446132004CA15D /* ResetPasswordScreen.swift in Sources */,
 				221580022644617A004CA15D /* User+StoredProperty.swift in Sources */,
+				22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */,
 				22157FEB26446113004CA15D /* CreateAccountScreen.swift in Sources */,
 				2215800726446209004CA15D /* ModalWindowViewController.swift in Sources */,
 				3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */,
@@ -637,6 +652,7 @@
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
 				22157FFB26446140004CA15D /* SignInViewModel.swift in Sources */,
 				22157FFF26446150004CA15D /* WelcomeScreen.swift in Sources */,
+				22C0CB742647190000E8D933 /* Configuration.swift in Sources */,
 				22157FD326445FFC004CA15D /* AppError.swift in Sources */,
 				22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */,
 				22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */,
