@@ -49,6 +49,9 @@
 		22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59B2638567C009B38AC /* OverlayAlertController.swift */; };
 		22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59E2638573C009B38AC /* AlertCoordinator.swift */; };
 		22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5A726385BA2009B38AC /* AlertViewer.swift */; };
+		332F4775264D81CC000BF63B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F4774264D81CC000BF63B /* R.generated.swift */; };
+		332F4777264D8230000BF63B /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F4776264D8230000BF63B /* UIButton + Extension.swift */; };
+		332F4779264D828C000BF63B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332F4778264D828C000BF63B /* Colors.xcassets */; };
 		333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06A82639D42600BE8F36 /* StorageDataManger.swift */; };
 		33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AA92635A9C700A3FCD4 /* AppDelegate.swift */; };
 		33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Assets.xcassets */; };
@@ -112,6 +115,9 @@
 		22E2E59E2638573C009B38AC /* AlertCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCoordinator.swift; sourceTree = "<group>"; };
 		22E2E5A726385BA2009B38AC /* AlertViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewer.swift; sourceTree = "<group>"; };
 		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
+		332F4774264D81CC000BF63B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = AeroPlan/Classes/Resources/Generated/R.generated.swift; sourceTree = SOURCE_ROOT; };
+		332F4776264D8230000BF63B /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		332F4778264D828C000BF63B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		333C06A82639D42600BE8F36 /* StorageDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataManger.swift; sourceTree = "<group>"; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */,
+				332F4776264D8230000BF63B /* UIButton + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,6 +415,7 @@
 				33833AB22635A9C900A3FCD4 /* Assets.xcassets */,
 				33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */,
 				33833AB72635A9C900A3FCD4 /* Info.plist */,
+				332F4778264D828C000BF63B /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -446,6 +454,7 @@
 		33833AD12635B51200A3FCD4 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				332F4774264D81CC000BF63B /* R.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -487,10 +496,11 @@
 			buildConfigurationList = 33833ABA2635A9C900A3FCD4 /* Build configuration list for PBXNativeTarget "AeroPlan" */;
 			buildPhases = (
 				FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */,
+				333657CA2635B8B600517E2B /* SwiftLint */,
+				332F4773264D80D7000BF63B /* [Codegen]R.swift */,
 				33833AA22635A9C700A3FCD4 /* Sources */,
 				33833AA32635A9C700A3FCD4 /* Frameworks */,
 				33833AA42635A9C700A3FCD4 /* Resources */,
-				333657CA2635B8B600517E2B /* SwiftLint */,
 				22E2DE192636CCD4009B38AC /* Copy Google Confugurations */,
 				01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */,
 			);
@@ -540,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332F4779264D828C000BF63B /* Colors.xcassets in Resources */,
 				22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */,
 				33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */,
 			);
@@ -582,6 +593,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PATH_TO_GOOGLE_PLISTS=\"${PROJECT_DIR}/AeroPlan/Resources/GoogleServices\" \n\ncase \"${CONFIGURATION}\" in \n\"Debug-Develop\" | \"Release-Develop\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-Develop.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n\"AppStore\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-AppStore.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n*) ;; \nesac\n";
+		};
+		332F4773264D80D7000BF63B /* [Codegen]R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "[Codegen]R.swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift\"\n";
 		};
 		333657CA2635B8B600517E2B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -632,6 +663,8 @@
 			files = (
 				22157FE6264460F4004CA15D /* LaunchScreen.swift in Sources */,
 				2215800026446150004CA15D /* WelcomeViewModel.swift in Sources */,
+				332F4775264D81CC000BF63B /* R.generated.swift in Sources */,
+				332F4777264D8230000BF63B /* UIButton + Extension.swift in Sources */,
 				22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */,
 				22157FDB2644603D004CA15D /* APIRequest.swift in Sources */,
 				22157FD226445FFC004CA15D /* APIError.swift in Sources */,

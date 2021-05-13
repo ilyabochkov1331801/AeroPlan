@@ -8,7 +8,7 @@
 import UIKit
 
 @main
-final class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var rootCoordinator: RootCoordinator!
     var window: UIWindow?

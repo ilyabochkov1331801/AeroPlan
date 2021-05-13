@@ -14,6 +14,7 @@ public protocol ViewModel {
     associatedtype Transitions: ScreenTransitions
     
     var transitions: Transitions { get set }
+    var errorOccurred: ((AppError) -> Void)? { get set }
 }
 
 open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
@@ -42,9 +43,9 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
         setupBinding()
     }
     
-    open func arrangeView() { }
-    open func setupView() { }
-    open func setupBinding() { }
+    func arrangeView() { }
+    func setupView() { }
+    func setupBinding() { }
 }
 
 extension Screen {

@@ -14,3 +14,22 @@ extension UIView {
         return view
     }
 }
+
+// MARK: - Suitable
+extension UIView {
+    var cornerRadius: CGFloat {
+        get { layer.cornerRadius }
+        set { layer.cornerRadius = newValue }
+    }
+    
+    var borderWidth: CGFloat {
+        get { layer.borderWidth }
+        set { layer.borderWidth = newValue }
+    }
+    
+    var borderColor: CGColor? {
+        get { layer.borderColor }
+        set { layer.borderColor = newValue }
+    }
+}
+
