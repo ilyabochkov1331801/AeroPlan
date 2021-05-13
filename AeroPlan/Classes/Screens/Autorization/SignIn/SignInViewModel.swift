@@ -13,5 +13,6 @@ final class SignInViewModel: ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
+    var errorOccurred: ((AppError) -> Void)?
     var transitions = Transitions()
 }

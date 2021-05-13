@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension String {
+    func make(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
+        NSAttributedString(string: self, attributes: attributes)
+    }
+}

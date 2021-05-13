@@ -5,7 +5,7 @@
 //  Created by Ilya Bochkov on 6.05.21.
 //
 
-protocol AppError: Error {    
+public protocol AppError: Error {    
     var body: String { get }
     var previousAppError: AppError? { get }
     var previousError: Error? { get }
