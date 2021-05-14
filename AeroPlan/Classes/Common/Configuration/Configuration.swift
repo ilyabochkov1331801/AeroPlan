@@ -12,4 +12,5 @@ struct Configuration {
     
     let backendURL: String
     let bundleId: String
+    let googleClientId: String
 }

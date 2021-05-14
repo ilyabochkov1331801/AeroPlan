@@ -493,6 +493,7 @@
 				333657CA2635B8B600517E2B /* SwiftLint */,
 				22E2DE192636CCD4009B38AC /* Copy Google Confugurations */,
 				01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */,
+				ABBBD4DCBB64FF2A29339870 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -600,6 +601,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug-Develop\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint\n    else\n        sh setup.sh\n    fi\nfi\n";
+		};
+		ABBBD4DCBB64FF2A29339870 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

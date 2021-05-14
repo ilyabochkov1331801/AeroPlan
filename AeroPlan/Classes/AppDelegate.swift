@@ -5,6 +5,7 @@
 //  Created by Alena Nesterkina on 25.04.21.
 //
 
+import GoogleSignIn
 import UIKit
 
 @main
@@ -22,6 +23,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         rootCoordinator.start(at: window)
         
         return true
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        GIDSignIn.sharedInstance().handle(url)
     }
 }
 

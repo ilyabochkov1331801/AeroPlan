@@ -10,6 +10,7 @@ target 'AeroPlan' do
    pod 'Firebase/Analytics'
    pod 'KeychainAccess'
    pod 'Alamofire'
+   pod 'GoogleSignIn'
 
    project 'AeroPlan.xcodeproj'
 end
