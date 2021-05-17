@@ -8,34 +8,31 @@
 import UIKit
 
 final class WelcomeScreen: Screen<WelcomeViewModel> {
-    private let appIconImageView = UIImageView(image: R.image.appLogo())
+    private let appIconImageView = UIImageView(image: R.image.welcome.appLogo())
     
-    private let adventureButton: UIButton = .make { 
-        $0.setTitle("Start adventure", for: .normal)
-        $0.setupAeroPlanStyle()
+    private let adventureButton: AppButton = .make {
+        $0.setTitle(R.string.localizable.welcomeScreenStartAdventure(), for: .normal)
     }
     
-    private let separator: UIView = {
-        let lineView = UIView()
-        lineView.backgroundColor = .clear
-        lineView.borderWidth = 1.0
-        lineView.borderColor = UIColor.lightGray.cgColor
-        return lineView
-    }()
+    private let separatorView: UIView = .make {
+        $0.backgroundColor = .clear
+        $0.borderWidth = 1.0
+        $0.borderColor = AppColor.WelcomeScreen.separator
+    }
     
     private let signInButton: UIButton = .make {
-        $0.setAttributedTitle("Sign up".make(attributes: [.font: UIFont.systemFont(ofSize: 15)]), for: .normal)
+        $0.setAttributedTitle(R.string.localizable.welcomeScreenSignUp().make(attributes: [.font: AppFont.WelcomeScreen.signInButtonTitle]), for: .normal)
         $0.backgroundColor = .clear
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(AppColor.WelcomeScreen.signInButtonTitle, for: .normal)
     }
     
     private let termsAndConditionsLabel: UILabel = .make {
-        $0.font = UIFont.monospacedSystemFont(ofSize: 12, weight: .regular)
+        $0.font = AppFont.TermsOfConditionsView.text
         $0.numberOfLines = 0
         $0.textAlignment = .center
-        let first = NSMutableAttributedString(string: "By creating an account you sign and agree to ", attributes: [.kern: 0.75])
-        let second = "AeroPlan’s terms of conditions".make(attributes: [.foregroundColor: UIColor.red,
-                                                                          .underlineStyle: NSUnderlineStyle.single.rawValue])
+        let first = NSMutableAttributedString(string: R.string.localizable.termsOfUse(), attributes: [.kern: 0.75])
+        let second = R.string.localizable.linkTermsOfUse().make(attributes: [.foregroundColor: AppColor.TermsOfConditionsView.text.link,
+                                                                        .underlineStyle: NSUnderlineStyle.single.rawValue])
         
         first.append(second)
         $0.attributedText = first
@@ -56,8 +53,8 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
             $0.height.greaterThanOrEqualTo(60)
         }
         
-        view.addSubview(separator)
-        separator.snp.makeConstraints {
+        view.addSubview(separatorView)
+        separatorView.snp.makeConstraints {
             $0.height.equalTo(1)
             $0.width.equalTo(UIScreen.main.bounds.width * 0.6)
             $0.centerX.equalToSuperview()
@@ -66,7 +63,7 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
         
         view.addSubview(signInButton)
         signInButton.snp.makeConstraints {
-            $0.top.equalTo(separator.snp.bottom).offset(20)
+            $0.top.equalTo(separatorView.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(adventureButton)
         }
@@ -79,20 +76,25 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
     }
     
     override func setupView() {
-        view.backgroundColor = R.color.blackHaze()
+        view.backgroundColor = AppColor.WelcomeScreen.background
         navigationController?.isNavigationBarHidden = true
         
-        adventureButton.addTarget(self, action: #selector(startAdventure), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        adventureButton.addTarget(self, action: #selector(startAdventureTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+        termsAndConditionsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(termsOfUseTapped)))
     }
 }
 
 extension WelcomeScreen {
-    @objc func startAdventure() {
+    @objc func startAdventureTapped(sender: UIButton) {
         viewModel.transitions.openHomeFlow?()
     }
     
-    @objc func signIn() {
+    @objc func signInTapped(sender: UIButton) {
         viewModel.transitions.openSignIn?()
+    }
+    
+    @objc func termsOfUseTapped(sender: UILabel) {
+        viewModel.transitions.openPrivacy?()
     }
 }

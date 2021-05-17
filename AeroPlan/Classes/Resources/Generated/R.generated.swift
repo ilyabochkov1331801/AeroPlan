@@ -109,8 +109,8 @@ struct R: Rswift.Validatable {
   struct color {
     /// Color `AccentColor`.
     static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
-    /// Color `Black Haze`.
-    static let blackHaze = Rswift.ColorResource(bundle: R.hostingBundle, name: "Black Haze")
+    /// Color `BlackHaze`.
+    static let blackHaze = Rswift.ColorResource(bundle: R.hostingBundle, name: "BlackHaze")
     /// Color `Vermilion`.
     static let vermilion = Rswift.ColorResource(bundle: R.hostingBundle, name: "Vermilion")
 
@@ -124,7 +124,7 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "Black Haze", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "BlackHaze", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func blackHaze(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
@@ -150,7 +150,7 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(watchOS)
-    /// `UIColor(named: "Black Haze", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "BlackHaze", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
     static func blackHaze(_: Void = ()) -> UIKit.UIColor? {
       return UIKit.UIColor(named: R.color.blackHaze.name)
@@ -168,17 +168,93 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
-    /// Image `App logo`.
-    static let appLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "App logo")
+    /// This `R.image.welcome` struct is generated, and contains static references to 1 images.
+    struct welcome {
+      /// Image `AppLogo`.
+      static let appLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome/AppLogo")
 
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "App logo", bundle: ..., traitCollection: ...)`
-    static func appLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.appLogo, compatibleWith: traitCollection)
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "AppLogo", bundle: ..., traitCollection: ...)`
+      static func appLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.welcome.appLogo, compatibleWith: traitCollection)
+      }
+      #endif
+
+      fileprivate init() {}
     }
-    #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    struct localizable {
+      /// Value: AeroPlan’s terms of conditions
+      static let linkTermsOfUse = Rswift.StringResource(key: "linkTermsOfUse", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: By creating an account you sign and agree to 
+      static let termsOfUse = Rswift.StringResource(key: "termsOfUse", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Sign up
+      static let welcomeScreenSignUp = Rswift.StringResource(key: "welcomeScreenSignUp", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Start adventure
+      static let welcomeScreenStartAdventure = Rswift.StringResource(key: "welcomeScreenStartAdventure", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: AeroPlan’s terms of conditions
+      static func linkTermsOfUse(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("linkTermsOfUse", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "linkTermsOfUse"
+        }
+
+        return NSLocalizedString("linkTermsOfUse", bundle: bundle, comment: "")
+      }
+
+      /// Value: By creating an account you sign and agree to 
+      static func termsOfUse(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("termsOfUse", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "termsOfUse"
+        }
+
+        return NSLocalizedString("termsOfUse", bundle: bundle, comment: "")
+      }
+
+      /// Value: Sign up
+      static func welcomeScreenSignUp(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("welcomeScreenSignUp", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "welcomeScreenSignUp"
+        }
+
+        return NSLocalizedString("welcomeScreenSignUp", bundle: bundle, comment: "")
+      }
+
+      /// Value: Start adventure
+      static func welcomeScreenStartAdventure(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("welcomeScreenStartAdventure", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "welcomeScreenStartAdventure"
+        }
+
+        return NSLocalizedString("welcomeScreenStartAdventure", bundle: bundle, comment: "")
+      }
+
+      fileprivate init() {}
+    }
 
     fileprivate init() {}
   }

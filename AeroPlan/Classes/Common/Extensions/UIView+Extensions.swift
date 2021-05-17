@@ -27,9 +27,9 @@ extension UIView {
         set { layer.borderWidth = newValue }
     }
     
-    var borderColor: CGColor? {
-        get { layer.borderColor }
-        set { layer.borderColor = newValue }
+    var borderColor: UIColor? {
+        get { layer.borderColor.map { UIColor(cgColor: $0) } }
+        set { layer.borderColor = newValue?.cgColor }
     }
 }
 
