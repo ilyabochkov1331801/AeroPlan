@@ -21,11 +21,12 @@ final class LaunchViewModel: ViewModel {
     }
     
     func launchApplication() {
-        checkAutorization { isNewAnonUserRegistered in
-            isNewAnonUserRegistered
-                ? self.transitions.openAutorizationFlow?()
-                : self.transitions.openHomeFlow?()
-        }
+//        checkAutorization { isNewAnonUserRegistered in
+//            isNewAnonUserRegistered
+//                ? self.transitions.openAutorizationFlow?()
+//                : self.transitions.openHomeFlow?()
+//        }
+        transitions.openAutorizationFlow?()
     }
 }
 

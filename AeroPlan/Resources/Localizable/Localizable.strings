@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  AeroPlan
+
+  Created by Alena Nesterkina on 17.05.21.
+  
+*/
+
+//MARK: - Welcome Screen
+
+welcomeScreenStartAdventure = "Start adventure";
+welcomeScreenSignUp = "Sign up";
+
+// MARK: - Terms of Use
+
+termsOfUse = "By creating an account you sign and agree to ";
+linkTermsOfUse = "AeroPlan’s terms of conditions";

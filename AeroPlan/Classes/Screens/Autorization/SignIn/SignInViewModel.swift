@@ -14,9 +14,10 @@ final class SignInViewModel: NSObject, ViewModel {
         var openResetPassword: ScreenTransition?
         var openPrivacy: ScreenTransition?
     }
-        
-    var transitions = Transitions()
+    
     var errorOccurred: ((AppError) -> Void)?
+    
+    var transitions = Transitions()
     
     private let autorizationInteractor: AutorizationInteractor
     

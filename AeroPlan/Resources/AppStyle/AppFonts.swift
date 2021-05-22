@@ -12,6 +12,10 @@ enum AppFonts {
         static var text: UIFont { .systemFont(ofSize: 12) }
     }
     
+    enum WelcomeScreen {
+        static var signInButtonTitle: UIFont { UIFont.systemFont(ofSize: 15) }
+    }
+    
     enum Appearence {
         static var textViewLink: UIFont { .systemFont(ofSize: 12) }
     }
