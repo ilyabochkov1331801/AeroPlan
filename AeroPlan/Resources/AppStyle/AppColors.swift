@@ -7,7 +7,12 @@
 
 import UIKit.UIColor
 
-enum AppColor {
+enum AppColors {
+    enum TextFiled {
+        // TODO: Replace colors when design will be ready
+        static var border: (normal: UIColor, error: UIColor) { (.gray, .red) }
+    }
+    
     enum WelcomeScreen {
         static var background: UIColor { R.color.blackHaze().unwrapped }
         static var separator: UIColor { .lightGray }
@@ -15,16 +20,10 @@ enum AppColor {
     }
     
     enum TermsOfConditionsView {
-        static var text: (normal: UIColor, link: UIColor) { (.black, .red) }
-    }
-}
-
-enum AppFont {
-    enum WelcomeScreen {
-        static var signInButtonTitle: UIFont { UIFont.systemFont(ofSize: 15) }
+        static var text: UIColor { .black }
     }
     
-    enum TermsOfConditionsView {
-        static var text: UIFont { UIFont.monospacedSystemFont(ofSize: 12, weight: .regular) }
+    enum Appearence {
+        static var textViewLink: UIColor { .orange }
     }
 }

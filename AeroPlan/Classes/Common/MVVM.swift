@@ -50,7 +50,7 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
 
 extension Screen {
     var showError: (AppError) -> Void {
-        return { [weak self] error in
+        return { [weak self] error in // swiftlint:disable:this implicit_return
             self?.alertCoordinator.showError(error: error)
         }
     }

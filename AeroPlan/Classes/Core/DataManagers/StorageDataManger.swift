@@ -48,8 +48,7 @@ final class StorageDataManger {
                     .flatMap { Value(coding: $0) }
             } else {
                 return userDefaults.data(forKey: key.key)
-                    .flatMap { $0 as? NSCoding }
-                    .flatMap { Value(coding: $0) }
+                    .flatMap { Value(coding: $0 as NSCoding) }
             }
         } catch {
             print("‼️ - \(error.localizedDescription)")

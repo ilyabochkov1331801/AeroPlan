@@ -29,7 +29,6 @@
    - AeroPlan/Classes/Resources/Generated
    - Carthage
    - Pods
-   - ApiClient
    
  warning_threshold: 20
 
@@ -80,13 +79,6 @@
         regex: '(^ *super\.[ a-zA-Z0-9=?.\(\)\{\}:,><!`\"]*\n *(?!(?:\}|return))\S+)'
         message: 'There should be an empty line after super'
         severity: warning
-
-    final_class:
-        included: ".*.swift"
-        name: "Final class requrement"
-        regex: '^class'
-        message: "All classes must be final or nonfinal"
-        saverity: error
 
     print_using:
         included: ".*.swift"

@@ -21,12 +21,41 @@ final class AutorizationInteractor {
         storageDataManager.get(key: .user)
     }
     
-    func registerAnonimus(completion: @escaping (Result<Void, AutorizationError>) -> Void) {
+    func registerAnonimus(completion: @escaping (Result<User, AutorizationError>) -> Void) {
         apiDataManager.execute(request: .registerAnon()) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.storageDataManager.save(object: user, key: .user)
-                completion(.success(()))
+                completion(.success(user))
+            case .failure(let error):
+                completion(.failure(AutorizationError(previousAppError: error)))
+            }
+        }
+    }
+    
+    func signInWith(googleId: String, completion: @escaping (Result<User, AutorizationError>) -> Void) {
+        apiDataManager.execute(request: .signInWith(googleId: googleId)) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.storageDataManager.save(object: user, key: .user)
+                completion(.success(user))
+            case .failure(let error):
+                completion(.failure(AutorizationError(previousAppError: error)))
+            }
+        }
+    }
+    
+    func signInWith(name: String, password: String, completion: @escaping (Result<User, AutorizationError>) -> Void) {
+        guard let hashedPassword = CryptoProcessor.sha256(password) else {
+            completion(.failure(AutorizationError(comment: "Can't hash this password")))
+            return
+        }
+        
+        apiDataManager.execute(request: .signInWith(name: name, password: hashedPassword)) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.storageDataManager.save(object: user, key: .user)
+                completion(.success(user))
             case .failure(let error):
                 completion(.failure(AutorizationError(previousAppError: error)))
             }
@@ -36,6 +65,26 @@ final class AutorizationInteractor {
 
 private extension APIRequest {
     static func registerAnon() -> APIRequest<User> {
-        .make(path: "/register/anonymous", method: .post, needsAuthorization: false, queryItems: nil, parameters: nil)
+        .make(path: "/register/anonymous",
+              method: .post,
+              needsAuthorization: false,
+              queryItems: nil,
+              parameters: nil)
+    }
+    
+    static func signInWith(googleId: String) -> APIRequest<User> {
+        .make(path: "/auth/google",
+              method: .post,
+              needsAuthorization: false,
+              queryItems: nil,
+              parameters: ["googleId": googleId])
+    }
+    
+    static func signInWith(name: String, password: String) -> APIRequest<User> {
+        .make(path: "/login/standard",
+              method: .post,
+              needsAuthorization: false,
+              queryItems: nil,
+              parameters: ["username": name, "password": password])
     }
 }

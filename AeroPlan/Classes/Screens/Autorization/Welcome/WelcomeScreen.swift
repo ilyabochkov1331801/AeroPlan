@@ -17,26 +17,11 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
     private let separatorView: UIView = .make {
         $0.backgroundColor = .clear
         $0.borderWidth = 1.0
-        $0.borderColor = AppColor.WelcomeScreen.separator
+        $0.borderColor = AppColors.WelcomeScreen.separator
     }
     
-    private let signInButton: UIButton = .make {
-        $0.setAttributedTitle(R.string.localizable.welcomeScreenSignUp().make(attributes: [.font: AppFont.WelcomeScreen.signInButtonTitle]), for: .normal)
-        $0.backgroundColor = .clear
-        $0.setTitleColor(AppColor.WelcomeScreen.signInButtonTitle, for: .normal)
-    }
-    
-    private let termsAndConditionsLabel: UILabel = .make {
-        $0.font = AppFont.TermsOfConditionsView.text
-        $0.numberOfLines = 0
-        $0.textAlignment = .center
-        let first = NSMutableAttributedString(string: R.string.localizable.termsOfUse(), attributes: [.kern: 0.75])
-        let second = R.string.localizable.linkTermsOfUse().make(attributes: [.foregroundColor: AppColor.TermsOfConditionsView.text.link,
-                                                                        .underlineStyle: NSUnderlineStyle.single.rawValue])
-        
-        first.append(second)
-        $0.attributedText = first
-    }
+    private let signInButton = UIButton()
+    private let termsOfConditionsView = TermsOfConditionsView()
     
     override func arrangeView() {
         view.addSubview(appIconImageView)
@@ -68,33 +53,24 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
             $0.leading.trailing.equalTo(adventureButton)
         }
         
-        view.addSubview(termsAndConditionsLabel)
-        termsAndConditionsLabel.snp.makeConstraints {
+        view.addSubview(termsOfConditionsView)
+        termsOfConditionsView.snp.makeConstraints {
             $0.bottom.equalToSuperview().offset(-40)
             $0.leading.trailing.equalToSuperview().inset(35)
         }
     }
     
     override func setupView() {
-        view.backgroundColor = AppColor.WelcomeScreen.background
+        view.backgroundColor = AppColors.WelcomeScreen.background
         navigationController?.isNavigationBarHidden = true
         
-        adventureButton.addTarget(self, action: #selector(startAdventureTapped), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
-        termsAndConditionsLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(termsOfUseTapped)))
-    }
-}
-
-extension WelcomeScreen {
-    @objc func startAdventureTapped(sender: UIButton) {
-        viewModel.transitions.openHomeFlow?()
+        signInButton.setAttributedTitle(viewModel.signInButtonText, for: .normal)
     }
     
-    @objc func signInTapped(sender: UIButton) {
-        viewModel.transitions.openSignIn?()
-    }
-    
-    @objc func termsOfUseTapped(sender: UILabel) {
-        viewModel.transitions.openPrivacy?()
+    override func setupBinding() {
+        termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
+        
+        adventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureTapped), for: .touchUpInside)
+        signInButton.addTarget(viewModel, action: #selector(viewModel.signInTapped), for: .touchUpInside)
     }
 }

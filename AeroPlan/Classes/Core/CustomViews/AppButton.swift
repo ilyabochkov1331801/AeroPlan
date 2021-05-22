@@ -12,14 +12,14 @@ class AppButton: UIButton {
     init() {
         super.init(frame: .zero)
         
-        setupAeroPlanStyle()
+        setupStyle()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupAeroPlanStyle() {
+    func setupStyle() {
         backgroundColor = R.color.vermilion()
         cornerRadius = 10
         borderWidth = 1.0

@@ -13,6 +13,12 @@ extension UIView {
         closure(view)
         return view
     }
+    
+    static func make<Button: UIButton>(type: UIButton.ButtonType, _ closure: (Button) -> Void) -> Button {
+        let button = Button(type: type)
+        closure(button)
+        return button
+    }
 }
 
 // MARK: - Suitable

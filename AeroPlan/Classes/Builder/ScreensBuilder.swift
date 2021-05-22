@@ -19,7 +19,7 @@ final class ScreensBuilder {
     }
     
     static func makeSignInScreen(resolver: DependencyResolver) -> SignInScreen {
-        let viewModel = SignInViewModel()
+        let viewModel = SignInViewModel(autorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return SignInScreen(viewModel: viewModel)
     }
     
