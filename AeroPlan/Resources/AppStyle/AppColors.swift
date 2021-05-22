@@ -14,6 +14,10 @@ enum AppColors {
     }
     
     enum TermsOfConditionsView {
-        static var text: (normal: UIColor, link: UIColor) { (.black, .orange) }
+        static var text: UIColor { .black }
+    }
+    
+    enum Appearence {
+        static var textViewLink: UIColor { .orange }
     }
 }

@@ -57,7 +57,6 @@ final class SignInScreen: Screen<SignInViewModel> {
         termsOfConditionsView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(30)
             $0.bottom.equalToSuperview().offset(-20)
-            $0.height.equalTo(50)
         }
     }
     

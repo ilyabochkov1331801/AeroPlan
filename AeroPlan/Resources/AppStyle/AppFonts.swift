@@ -9,6 +9,10 @@ import UIKit.UIFont
 
 enum AppFonts {
     enum TermsOfConditionsView {
-        static var text: UIFont { UIFont.systemFont(ofSize: 12) }
+        static var text: UIFont { .systemFont(ofSize: 12) }
+    }
+    
+    enum Appearence {
+        static var textViewLink: UIFont { .systemFont(ofSize: 12) }
     }
 }

@@ -17,7 +17,7 @@ class TermsOfConditionsView: UIView {
     
     var termsTransition: ScreenTransition?
     
-    init() {
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         
         setupView()
@@ -31,7 +31,7 @@ class TermsOfConditionsView: UIView {
 extension TermsOfConditionsView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         termsTransition?()
-        return true
+        return false
     }
 }
 
@@ -40,8 +40,12 @@ private extension TermsOfConditionsView {
         termsTextView.delegate = self
         // TODO: Add localization
         termsTextView.attributedText = "By creating an account you sign and agree to AeroPlan’s terms of conditions"
-            .attributeString(with: Fonts.text, color: Colors.text.normal)
-            .attribute(text: "AeroPlan’s terms of conditions",
-                       with: .make(font: Fonts.text, color: Colors.text.link).merge(with: [.link: "Terms Link"]))
+            .attributeString(with: Fonts.text, color: Colors.text)
+            .attribute(text: "AeroPlan’s terms of conditions", with: [.link: ""])
+        
+        addSubview(termsTextView)
+        termsTextView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
