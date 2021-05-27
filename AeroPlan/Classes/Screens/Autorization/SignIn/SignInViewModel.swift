@@ -12,7 +12,6 @@ final class SignInViewModel: NSObject, ViewModel {
         var openHomeFlow: ScreenTransition?
         var openCreateAccount: ScreenTransition?
         var openResetPassword: ScreenTransition?
-        var openPrivacy: ScreenTransition?
     }
     
     var errorOccurred: ((AppError) -> Void)?
@@ -56,8 +55,68 @@ extension SignInViewModel {
         text.isValidPassword
     }
     
-    func termsOfConditionsTapped() {
-        transitions.openPrivacy?()
+    @objc func forgotPasswordButtonTapped() {
+        transitions.openResetPassword?()
+    }
+    
+    @objc func createAccountButtonTapped() {
+        transitions.openResetPassword?()
+    }
+    
+    @objc func logInWithGoogleButtonTapped() {
+        GIDSignIn.sharedInstance().signIn()
+    }
+}
+
+extension SignInViewModel {
+    private typealias Fonts = AppFonts.SignInScreen
+    private typealias Colors = AppColors.SignInScreen
+    
+    var logInText: NSAttributedString {
+        R.string.localizable.signInScreenLogin()
+            .attributeString(with: Fonts.logIn, color: Colors.logInTitle)
+    }
+    
+    var titleText: NSAttributedString {
+        R.string.localizable.appTitle()
+            .attributeString(with: AppFonts.Common.appTitle.normal, color: AppColors.Common.appTitle, alignment: .center)
+            .attribute(text: R.string.localizable.appTitleHighlighted(), with: .make(font: AppFonts.Common.appTitle.highlighted))
+    }
+    
+    var usernamePlaceholder: String {
+        R.string.localizable.signInUsernamePlaceholder()
+    }
+    
+    var passwordPlaceholder: String {
+        R.string.localizable.signInPasswordPlaceholder()
+    }
+    
+    var forgotPasswordText: NSAttributedString {
+        R.string.localizable.signInForgotPassword()
+            .attributeString(with: Fonts.forgotPassword, color: Colors.forgotPassword, alignment: .center)
+    }
+    
+    var newUserText: NSAttributedString {
+        R.string.localizable.signInNewUser()
+            .attributeString(with: Fonts.newUser, color: Colors.newUser)
+    }
+    
+    var createAccountText: NSAttributedString {
+        R.string.localizable.signInCreateAccout()
+            .attributeString(with: Fonts.createAccount, color: Colors.createAccount)
+    }
+    
+    var separatorImage: UIImage? {
+        R.image.icons.horizontalSeparator()
+    }
+    
+    var logInWithGoogleText: NSAttributedString {
+        R.string.localizable.signInLogInWithGoogle()
+            .attributeString(with: Fonts.logInWithGoogle, color: Colors.logInWithGoogle)
+    }
+    
+    var logInWithGoogleImage: UIImage? {
+        R.image.icons.google()
     }
 }
 

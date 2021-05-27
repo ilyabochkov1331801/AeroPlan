@@ -28,16 +28,25 @@ extension NSAttributedString {
         }
         return mutableCopy
     }
+    
+    func attribute(with parameters: Parameters) -> NSAttributedString {
+        let mutableCopy = NSMutableAttributedString(attributedString: self)
+        mutableCopy.addAttributes(parameters, range: NSRange(location: 0, length: string.count))
+        return mutableCopy
+    }
 }
 
 extension NSAttributedString.Parameters {
-    static func make(font: UIFont? = nil, color: UIColor? = nil) -> Self {
+    static func make(font: UIFont? = nil, color: UIColor? = nil, paragraphStyle: NSParagraphStyle? = nil) -> Self {
         var parameters = Self()
         if let font = font {
             parameters[.font] = font
         }
         if let color = color {
             parameters[.foregroundColor] = color
+        }
+        if let paragraphStyle = paragraphStyle {
+            parameters[.paragraphStyle] = paragraphStyle
         }
         return parameters
     }

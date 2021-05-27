@@ -38,10 +38,9 @@ extension TermsOfConditionsView: UITextViewDelegate {
 private extension TermsOfConditionsView {
     func setupView() {
         termsTextView.delegate = self
-        // TODO: Add localization
-        termsTextView.attributedText = "By creating an account you sign and agree to AeroPlan’s terms of conditions"
-            .attributeString(with: Fonts.text, color: Colors.text)
-            .attribute(text: "AeroPlan’s terms of conditions", with: [.link: ""])
+        termsTextView.attributedText = R.string.localizable.termsOfConditionsText()
+            .attributeString(with: Fonts.text, color: Colors.text, alignment: .center)
+            .attribute(text: R.string.localizable.termsOfConditionsLink(), with: [.link: ""])
         
         addSubview(termsTextView)
         termsTextView.snp.makeConstraints {

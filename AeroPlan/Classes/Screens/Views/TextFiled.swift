@@ -11,6 +11,7 @@ class TextFiled: UITextField {
     private typealias Colors = AppColors.TextFiled
     
     var validation: ((String) -> Bool)?
+    var paddings = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     
     init() {
         super.init(frame: .zero)
@@ -23,23 +24,34 @@ class TextFiled: UITextField {
     }
     
     override func resignFirstResponder() -> Bool {
-        layer.borderColor = (text.flatMap { self.validation?($0) } ?? true) ? Colors.border.normal.cgColor : Colors.border.error.cgColor
+        borderColor = (text.flatMap { self.validation?($0) } ?? true) ? Colors.border.normal : Colors.border.error
         return super.resignFirstResponder()
+    }
+    
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: paddings)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: paddings)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        bounds.inset(by: paddings)
     }
     
     func setupView() {
         delegate = self
         keyboardType = .asciiCapable
-        
-        // TODO: Replace this code after merge Alena's pr
-        layer.borderWidth = 1
-        layer.borderColor = Colors.border.normal.cgColor
+                
+        borderWidth = 1
+        cornerRadius = 7
+        borderColor = Colors.border.normal
     }
 }
 
 extension TextFiled: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // TODO: Replace this code after merge Alena's pr
         textField.resignFirstResponder()
         return true
     }

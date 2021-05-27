@@ -9,21 +9,39 @@ import UIKit.UIColor
 
 enum AppColors {
     enum TextFiled {
-        // TODO: Replace colors when design will be ready
-        static var border: (normal: UIColor, error: UIColor) { (.gray, .red) }
+        static var border: (normal: UIColor, error: UIColor) {
+            (R.color.black().unwrapped.withAlphaComponent(0.5), .red)
+        }
+    }
+    
+    enum Common {
+        static var appTitle: UIColor { R.color.black().unwrapped }
     }
     
     enum WelcomeScreen {
-        static var background: UIColor { R.color.blackHaze().unwrapped }
-        static var separator: UIColor { .lightGray }
-        static var signInButtonTitle: UIColor { .black }
+        static var background: UIColor { R.color.white().unwrapped }
+        static var signIn: UIColor { R.color.vermilion().unwrapped }
+        static var startAdventureTitle: UIColor { R.color.white().unwrapped }
+        static var startAdventureBackground: UIColor { R.color.vermilion().unwrapped }
+        static var alreadyRegistered: UIColor { R.color.black().unwrapped.withAlphaComponent(0.5) }
+    }
+    
+    enum SignInScreen {
+        static var background: UIColor { R.color.white().unwrapped }
+        static var logInTitle: UIColor { R.color.white().unwrapped }
+        static var logInBackground: UIColor { R.color.vermilion().unwrapped }
+        static var forgotPassword: UIColor { R.color.black().unwrapped.withAlphaComponent(0.5) }
+        static var newUser: UIColor { R.color.black().unwrapped }
+        static var createAccount: UIColor { R.color.vermilion().unwrapped }
+        static var logInWithGoogle: UIColor { R.color.black().unwrapped }
     }
     
     enum TermsOfConditionsView {
-        static var text: UIColor { .black }
+        static var text: UIColor {R.color.black().unwrapped }
     }
     
     enum Appearence {
-        static var textViewLink: UIColor { .orange }
+        static var textViewLink: UIColor { R.color.vermilion().unwrapped }
+        static var textFiled: UIColor { R.color.black().unwrapped }
     }
 }

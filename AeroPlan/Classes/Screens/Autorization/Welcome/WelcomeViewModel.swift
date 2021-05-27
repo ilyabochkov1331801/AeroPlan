@@ -5,7 +5,7 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
+import UIKit
 
 class WelcomeViewModel: ViewModel {
     struct Transitions: ScreenTransitions {
@@ -23,18 +23,41 @@ extension WelcomeViewModel {
         transitions.openPrivacy?()
     }
     
-    @objc func startAdventureTapped() {
+    @objc func startAdventureButtonTapped() {
         transitions.openHomeFlow?()
     }
     
-    @objc func signInTapped() {
+    @objc func signInButtonTapped() {
         transitions.openSignIn?()
     }
 }
 
 extension WelcomeViewModel {
-    var signInButtonText: NSAttributedString {
+    private typealias Fonts = AppFonts.WelcomeScreen
+    private typealias Colors = AppColors.WelcomeScreen
+    
+    var signInText: NSAttributedString {
         R.string.localizable.welcomeScreenSignUp()
-            .attributeString(with: AppFonts.WelcomeScreen.signInButtonTitle, color: AppColors.WelcomeScreen.signInButtonTitle)
+            .attributeString(with: Fonts.signIn, color: Colors.signIn)
+    }
+    
+    var startAdventureText: NSAttributedString {
+        R.string.localizable.welcomeScreenStartAdventure()
+            .attributeString(with: Fonts.startAdventure, color: Colors.startAdventureTitle)
+    }
+    
+    var titleText: NSAttributedString {
+        R.string.localizable.appTitle()
+            .attributeString(with: AppFonts.Common.appTitle.normal, color: AppColors.Common.appTitle, alignment: .center)
+            .attribute(text: R.string.localizable.appTitleHighlighted(), with: .make(font: AppFonts.Common.appTitle.highlighted))
+    }
+    
+    var alreadyRegisteredText: NSAttributedString {
+        R.string.localizable.welcomeScreenAlreadyRegistered()
+            .attributeString(with: Fonts.alreadyRegistered, color: Colors.alreadyRegistered)
+    }
+    
+    var illustrationImage: UIImage? {
+        R.image.icons.appLogo()
     }
 }

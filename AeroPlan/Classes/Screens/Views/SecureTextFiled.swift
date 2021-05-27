@@ -9,8 +9,8 @@ import UIKit
 
 class SecureTextFiled: TextFiled {
     private let visibilitySwitcherButton: UIButton = .make(type: .custom) {
-        $0.setImage(UIImage(systemName: "Camera"), for: .normal)
-        $0.setImage(UIImage(systemName: "Camera"), for: .selected)
+        $0.setImage(R.image.icons.securitySwitcher(), for: .normal)
+        $0.setImage(R.image.icons.securitySwitcher(), for: .selected)
     }
     
     private var isTextVisible: Bool = false {
@@ -29,7 +29,7 @@ class SecureTextFiled: TextFiled {
     }
     
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
-        let visibilitySwitcherSize: CGFloat = 20
+        let visibilitySwitcherSize: CGFloat = 17
         return CGRect(x: bounds.width - visibilitySwitcherSize - 20,
                       y: (bounds.height - visibilitySwitcherSize) / 2,
                       width: visibilitySwitcherSize,
@@ -49,7 +49,6 @@ private extension SecureTextFiled {
             replace(textRange, withText: text)
         }
         
-        // Replace images after design will be ready
         visibilitySwitcherButton.isSelected = isTextVisible
     }
 }

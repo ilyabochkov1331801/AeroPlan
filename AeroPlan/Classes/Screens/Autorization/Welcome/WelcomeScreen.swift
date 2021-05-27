@@ -8,69 +8,94 @@
 import UIKit
 
 final class WelcomeScreen: Screen<WelcomeViewModel> {
-    private let appIconImageView = UIImageView(image: R.image.welcome.appLogo())
-    
-    private let adventureButton: AppButton = .make {
-        $0.setTitle(R.string.localizable.welcomeScreenStartAdventure(), for: .normal)
+    private typealias Colors = AppColors.WelcomeScreen
+    private typealias Fonts = AppFonts.WelcomeScreen
+        
+    private let startAdventureButton: UIButton = .make(type: .system) {
+        $0.backgroundColor = Colors.startAdventureBackground
+        $0.cornerRadius = 7
     }
     
-    private let separatorView: UIView = .make {
+    private let signInButton: UIButton = .make(type: .system) {
         $0.backgroundColor = .clear
-        $0.borderWidth = 1.0
-        $0.borderColor = AppColors.WelcomeScreen.separator
     }
     
-    private let signInButton = UIButton()
+    private let alreadyRegisteredLabel = UILabel()
     private let termsOfConditionsView = TermsOfConditionsView()
+    private let illustrationImageView = UIImageView()
+    private let titleLabel = UILabel()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.navigationController?.isNavigationBarHidden = true
+        }
+    }
     
     override func arrangeView() {
-        view.addSubview(appIconImageView)
-        appIconImageView.snp.makeConstraints {
-            $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.centerY.equalTo(view.safeAreaLayoutGuide).offset(-80)
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(30)
+            $0.centerY.equalToSuperview().offset(-143.heightDependent())
         }
         
-        view.addSubview(adventureButton)
-        adventureButton.snp.makeConstraints {
-            $0.top.equalTo(appIconImageView.snp.bottom).offset(80)
+        view.addSubview(illustrationImageView)
+        illustrationImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.greaterThanOrEqualTo(60)
+            $0.width.equalTo(184.widthDependent())
+            $0.height.equalTo(168.heightDependent())
+            $0.top.equalTo(titleLabel.snp.bottom).offset(24.heightDependent())
         }
         
-        view.addSubview(separatorView)
-        separatorView.snp.makeConstraints {
-            $0.height.equalTo(1)
-            $0.width.equalTo(UIScreen.main.bounds.width * 0.6)
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(adventureButton.snp.bottom).offset(30)
+        view.addSubview(startAdventureButton)
+        startAdventureButton.snp.makeConstraints {
+            $0.top.equalTo(illustrationImageView.snp.bottom).offset(74.heightDependent())
+            $0.leading.trailing.equalToSuperview().inset(27.widthDependent())
+            $0.height.greaterThanOrEqualTo(50.heightDependent())
         }
         
-        view.addSubview(signInButton)
-        signInButton.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalTo(adventureButton)
+        let containerStackView: UIStackView = .make {
+            $0.axis = .horizontal
+            $0.spacing = 3
         }
+        
+        view.addSubview(containerStackView)
+        containerStackView.snp.makeConstraints {
+            $0.top.equalTo(startAdventureButton.snp.bottom).offset(7.heightDependent())
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(44)
+        }
+        
+        containerStackView.addArrangedSubview(alreadyRegisteredLabel)
+        containerStackView.addArrangedSubview(signInButton)
         
         view.addSubview(termsOfConditionsView)
         termsOfConditionsView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-40)
-            $0.leading.trailing.equalToSuperview().inset(35)
+            $0.bottom.equalToSuperview().offset(-45.heightDependent())
+            $0.leading.trailing.equalToSuperview().inset(45.widthDependent())
         }
     }
     
     override func setupView() {
         view.backgroundColor = AppColors.WelcomeScreen.background
-        navigationController?.isNavigationBarHidden = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        signInButton.setAttributedTitle(viewModel.signInButtonText, for: .normal)
+        signInButton.setAttributedTitle(viewModel.signInText, for: .normal)
+        
+        startAdventureButton.setAttributedTitle(viewModel.startAdventureText, for: .normal)
+        
+        illustrationImageView.image = viewModel.illustrationImage
+        
+        titleLabel.attributedText = viewModel.titleText
+        
+        alreadyRegisteredLabel.attributedText = viewModel.alreadyRegisteredText
     }
     
     override func setupBinding() {
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
-        adventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureTapped), for: .touchUpInside)
-        signInButton.addTarget(viewModel, action: #selector(viewModel.signInTapped), for: .touchUpInside)
+        startAdventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureButtonTapped), for: .touchUpInside)
+        signInButton.addTarget(viewModel, action: #selector(viewModel.signInButtonTapped), for: .touchUpInside)
     }
 }

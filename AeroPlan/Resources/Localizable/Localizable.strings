@@ -6,12 +6,27 @@
   
 */
 
+// MARK: - Common
+appTitle = "AeroPlan | Travel";
+appTitleHighlighted = "Travel";
+
 //MARK: - Welcome Screen
 
 welcomeScreenStartAdventure = "Start adventure";
 welcomeScreenSignUp = "Sign up";
+welcomeScreenAlreadyRegistered = "Already registered?";
+
+// MARK: - Sign In Screen
+
+signInScreenLogin = "Log in";
+signInUsernamePlaceholder = "Username";
+signInPasswordPlaceholder = "Password";
+signInForgotPassword = "Forgot password?";
+signInNewUser = "New to AeroPlan?";
+signInCreateAccout = "Create account";
+signInLogInWithGoogle = "Log in with Google Account";
 
 // MARK: - Terms of Use
 
-termsOfUse = "By creating an account you sign and agree to ";
-linkTermsOfUse = "AeroPlan’s terms of conditions";
+termsOfConditionsText = "By creating an account you sign and agree to AeroPlan’s terms of conditions";
+termsOfConditionsLink = "AeroPlan’s terms of conditions";

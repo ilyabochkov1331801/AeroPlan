@@ -105,21 +105,23 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  /// This `R.color` struct is generated, and contains static references to 4 colors.
   struct color {
-    /// Color `AccentColor`.
-    static let accentColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "AccentColor")
     /// Color `BlackHaze`.
     static let blackHaze = Rswift.ColorResource(bundle: R.hostingBundle, name: "BlackHaze")
+    /// Color `Black`.
+    static let black = Rswift.ColorResource(bundle: R.hostingBundle, name: "Black")
     /// Color `Vermilion`.
     static let vermilion = Rswift.ColorResource(bundle: R.hostingBundle, name: "Vermilion")
+    /// Color `White`.
+    static let white = Rswift.ColorResource(bundle: R.hostingBundle, name: "White")
 
     #if os(iOS) || os(tvOS)
-    /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "Black", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
-    static func accentColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.accentColor, compatibleWith: traitCollection)
+    static func black(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.black, compatibleWith: traitCollection)
     }
     #endif
 
@@ -141,11 +143,20 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "White", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.white, compatibleWith: traitCollection)
+    }
+    #endif
+
     #if os(watchOS)
-    /// `UIColor(named: "AccentColor", bundle: ..., traitCollection: ...)`
+    /// `UIColor(named: "Black", bundle: ..., traitCollection: ...)`
     @available(watchOSApplicationExtension 4.0, *)
-    static func accentColor(_: Void = ()) -> UIKit.UIColor? {
-      return UIKit.UIColor(named: R.color.accentColor.name)
+    static func black(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.black.name)
     }
     #endif
 
@@ -165,20 +176,64 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(watchOS)
+    /// `UIColor(named: "White", bundle: ..., traitCollection: ...)`
+    @available(watchOSApplicationExtension 4.0, *)
+    static func white(_: Void = ()) -> UIKit.UIColor? {
+      return UIKit.UIColor(named: R.color.white.name)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
-    /// This `R.image.welcome` struct is generated, and contains static references to 1 images.
-    struct welcome {
+    /// This `R.image.icons` struct is generated, and contains static references to 5 images.
+    struct icons {
       /// Image `AppLogo`.
-      static let appLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Welcome/AppLogo")
+      static let appLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/AppLogo")
+      /// Image `BackArrow`.
+      static let backArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/BackArrow")
+      /// Image `Google`.
+      static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/Google")
+      /// Image `HorizontalSeparator`.
+      static let horizontalSeparator = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/HorizontalSeparator")
+      /// Image `SecuritySwitcher`.
+      static let securitySwitcher = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/SecuritySwitcher")
 
       #if os(iOS) || os(tvOS)
       /// `UIImage(named: "AppLogo", bundle: ..., traitCollection: ...)`
       static func appLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-        return UIKit.UIImage(resource: R.image.welcome.appLogo, compatibleWith: traitCollection)
+        return UIKit.UIImage(resource: R.image.icons.appLogo, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "BackArrow", bundle: ..., traitCollection: ...)`
+      static func backArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icons.backArrow, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "Google", bundle: ..., traitCollection: ...)`
+      static func google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icons.google, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "HorizontalSeparator", bundle: ..., traitCollection: ...)`
+      static func horizontalSeparator(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icons.horizontalSeparator, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "SecuritySwitcher", bundle: ..., traitCollection: ...)`
+      static func securitySwitcher(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.icons.securitySwitcher, compatibleWith: traitCollection)
       }
       #endif
 
@@ -190,41 +245,165 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 14 localization keys.
     struct localizable {
+      /// Value: AeroPlan | Travel
+      static let appTitle = Rswift.StringResource(key: "appTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: AeroPlan’s terms of conditions
-      static let linkTermsOfUse = Rswift.StringResource(key: "linkTermsOfUse", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: By creating an account you sign and agree to 
-      static let termsOfUse = Rswift.StringResource(key: "termsOfUse", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      static let termsOfConditionsLink = Rswift.StringResource(key: "termsOfConditionsLink", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Already registered?
+      static let welcomeScreenAlreadyRegistered = Rswift.StringResource(key: "welcomeScreenAlreadyRegistered", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: By creating an account you sign and agree to AeroPlan’s terms of conditions
+      static let termsOfConditionsText = Rswift.StringResource(key: "termsOfConditionsText", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Create account
+      static let signInCreateAccout = Rswift.StringResource(key: "signInCreateAccout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Forgot password?
+      static let signInForgotPassword = Rswift.StringResource(key: "signInForgotPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Log in
+      static let signInScreenLogin = Rswift.StringResource(key: "signInScreenLogin", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Log in with Google Account
+      static let signInLogInWithGoogle = Rswift.StringResource(key: "signInLogInWithGoogle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: New to AeroPlan?
+      static let signInNewUser = Rswift.StringResource(key: "signInNewUser", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Password
+      static let signInPasswordPlaceholder = Rswift.StringResource(key: "signInPasswordPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Sign up
       static let welcomeScreenSignUp = Rswift.StringResource(key: "welcomeScreenSignUp", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Start adventure
       static let welcomeScreenStartAdventure = Rswift.StringResource(key: "welcomeScreenStartAdventure", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Travel
+      static let appTitleHighlighted = Rswift.StringResource(key: "appTitleHighlighted", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Username
+      static let signInUsernamePlaceholder = Rswift.StringResource(key: "signInUsernamePlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: AeroPlan’s terms of conditions
-      static func linkTermsOfUse(preferredLanguages: [String]? = nil) -> String {
+      /// Value: AeroPlan | Travel
+      static func appTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("linkTermsOfUse", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("appTitle", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "linkTermsOfUse"
+          return "appTitle"
         }
 
-        return NSLocalizedString("linkTermsOfUse", bundle: bundle, comment: "")
+        return NSLocalizedString("appTitle", bundle: bundle, comment: "")
       }
 
-      /// Value: By creating an account you sign and agree to 
-      static func termsOfUse(preferredLanguages: [String]? = nil) -> String {
+      /// Value: AeroPlan’s terms of conditions
+      static func termsOfConditionsLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("termsOfUse", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("termsOfConditionsLink", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "termsOfUse"
+          return "termsOfConditionsLink"
         }
 
-        return NSLocalizedString("termsOfUse", bundle: bundle, comment: "")
+        return NSLocalizedString("termsOfConditionsLink", bundle: bundle, comment: "")
+      }
+
+      /// Value: Already registered?
+      static func welcomeScreenAlreadyRegistered(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("welcomeScreenAlreadyRegistered", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "welcomeScreenAlreadyRegistered"
+        }
+
+        return NSLocalizedString("welcomeScreenAlreadyRegistered", bundle: bundle, comment: "")
+      }
+
+      /// Value: By creating an account you sign and agree to AeroPlan’s terms of conditions
+      static func termsOfConditionsText(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("termsOfConditionsText", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "termsOfConditionsText"
+        }
+
+        return NSLocalizedString("termsOfConditionsText", bundle: bundle, comment: "")
+      }
+
+      /// Value: Create account
+      static func signInCreateAccout(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInCreateAccout", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInCreateAccout"
+        }
+
+        return NSLocalizedString("signInCreateAccout", bundle: bundle, comment: "")
+      }
+
+      /// Value: Forgot password?
+      static func signInForgotPassword(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInForgotPassword", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInForgotPassword"
+        }
+
+        return NSLocalizedString("signInForgotPassword", bundle: bundle, comment: "")
+      }
+
+      /// Value: Log in
+      static func signInScreenLogin(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInScreenLogin", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInScreenLogin"
+        }
+
+        return NSLocalizedString("signInScreenLogin", bundle: bundle, comment: "")
+      }
+
+      /// Value: Log in with Google Account
+      static func signInLogInWithGoogle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInLogInWithGoogle", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInLogInWithGoogle"
+        }
+
+        return NSLocalizedString("signInLogInWithGoogle", bundle: bundle, comment: "")
+      }
+
+      /// Value: New to AeroPlan?
+      static func signInNewUser(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInNewUser", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInNewUser"
+        }
+
+        return NSLocalizedString("signInNewUser", bundle: bundle, comment: "")
+      }
+
+      /// Value: Password
+      static func signInPasswordPlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInPasswordPlaceholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInPasswordPlaceholder"
+        }
+
+        return NSLocalizedString("signInPasswordPlaceholder", bundle: bundle, comment: "")
       }
 
       /// Value: Sign up
@@ -251,6 +430,32 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("welcomeScreenStartAdventure", bundle: bundle, comment: "")
+      }
+
+      /// Value: Travel
+      static func appTitleHighlighted(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("appTitleHighlighted", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "appTitleHighlighted"
+        }
+
+        return NSLocalizedString("appTitleHighlighted", bundle: bundle, comment: "")
+      }
+
+      /// Value: Username
+      static func signInUsernamePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("signInUsernamePlaceholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "signInUsernamePlaceholder"
+        }
+
+        return NSLocalizedString("signInUsernamePlaceholder", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

@@ -34,8 +34,11 @@ extension String {
         return ranges.map { NSRange($0, in: self) }
     }
     
-    func attributeString(with font: UIFont, color: UIColor) -> NSAttributedString {
-        NSAttributedString(string: self, attributes: .make(font: font, color: color))
+    func attributeString(with font: UIFont, color: UIColor, alignment: NSTextAlignment = .left) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = alignment
+        
+        return NSAttributedString(string: self, attributes: .make(font: font, color: color, paragraphStyle: paragraphStyle))
     }
 }
 
