@@ -24,7 +24,7 @@ final class ScreensBuilder {
     }
     
     static func makeCreateAccountScreen(resolver: DependencyResolver) -> CreateAccountScreen {
-        let viewModel = CreateAccountViewModel()
+        let viewModel = CreateAccountViewModel(autorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return CreateAccountScreen(viewModel: viewModel)
     }
     

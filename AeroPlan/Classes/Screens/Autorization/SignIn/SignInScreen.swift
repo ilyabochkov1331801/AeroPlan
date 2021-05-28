@@ -48,7 +48,16 @@ final class SignInScreen: Screen<SignInViewModel> {
         navigationItem.backButtonTitle = nil
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance().delegate = viewModel
+        GIDSignIn.sharedInstance().presentingViewController = self
+    }
+    
     override func arrangeView() {
+        super.arrangeView()
+        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
@@ -121,7 +130,7 @@ final class SignInScreen: Screen<SignInViewModel> {
         
         contentView.addSubview(containerStackView)
         containerStackView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-30.heightDependent())
+            $0.bottom.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.height.equalTo(44)
         }
@@ -131,36 +140,39 @@ final class SignInScreen: Screen<SignInViewModel> {
     }
     
     override func setupView() {
+        super.setupView()
+        
         view.backgroundColor = Colors.background
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-        GIDSignIn.sharedInstance().delegate = viewModel
-        GIDSignIn.sharedInstance().presentingViewController = self
-        
-        logInWithGoogleButton.addTarget(viewModel, action: #selector(viewModel.logInWithGoogleButtonTapped), for: .touchUpInside)
+                
         logInWithGoogleButton.setAttributedTitle(viewModel.logInWithGoogleText, for: .normal)
-        logInWithGoogleButton.setImage(viewModel.logInWithGoogleImage, for: .normal)
-        
-        logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
         logInButton.setAttributedTitle(viewModel.logInText, for: .normal)
+        forgotPasswordButton.setAttributedTitle(viewModel.forgotPasswordText, for: .normal)
+        createAccountButton.setAttributedTitle(viewModel.createAccountText, for: .normal)
         
-        usernameTextField.validation = { [weak self] in self?.viewModel.isUsernameTextValid($0) ?? true }
+        logInWithGoogleButton.setImage(viewModel.logInWithGoogleImage, for: .normal)
+
         usernameTextField.placeholder = viewModel.usernamePlaceholder
-        
-        passwordTextFiled.validation = { [weak self] in self?.viewModel.isPasswordTextValid($0) ?? true }
+        usernameTextField.autocapitalizationType = .none
         passwordTextFiled.placeholder = viewModel.passwordPlaceholder
+        passwordTextFiled.autocapitalizationType = .none
                 
         titleLabel.attributedText = viewModel.titleText
-        
-        forgotPasswordButton.setAttributedTitle(viewModel.forgotPasswordText, for: .normal)
-        forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPasswordButtonTapped), for: .touchUpInside)
-        
         newUserLabel.attributedText = viewModel.newUserText
-        
-        createAccountButton.setAttributedTitle(viewModel.createAccountText, for: .normal)
-        createAccountButton.addTarget(viewModel, action: #selector(viewModel.createAccountButtonTapped), for: .touchUpInside)
-        
+
         separatorImageView.image = viewModel.separatorImage
+    }
+    
+    override func setupBinding() {
+        super.setupBinding()
+        
+        createAccountButton.addTarget(viewModel, action: #selector(viewModel.createAccountButtonTapped), for: .touchUpInside)
+        forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPasswordButtonTapped), for: .touchUpInside)
+        logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
+        logInWithGoogleButton.addTarget(viewModel, action: #selector(viewModel.logInWithGoogleButtonTapped), for: .touchUpInside)
+        
+        usernameTextField.validation = { [weak self] in self?.viewModel.isUsernameTextValid($0) == true }
+        passwordTextFiled.validation = { [weak self] in self?.viewModel.isPasswordTextValid($0) == true }
         
         keyboardTracker = KeyboardTracker(trackNotification: { [weak self] notification in
             guard let self = self else { return }
@@ -175,10 +187,6 @@ final class SignInScreen: Screen<SignInViewModel> {
             }
         })
         keyboardTracker?.startTracking()
-    }
-    
-    override func setupBinding() {
-        viewModel.errorOccurred = showError
     }
 }
 

@@ -11,6 +11,8 @@ final class NewPasswordScreen: Screen<NewPasswordViewModel> {
     private let label = UILabel()
     
     override func arrangeView() {
+        super.arrangeView()
+        
         view.addSubview(label)
         label.snp.makeConstraints {
             $0.center.equalToSuperview()
@@ -18,6 +20,8 @@ final class NewPasswordScreen: Screen<NewPasswordViewModel> {
     }
     
     override func setupView() {
+        super.setupView()
+        
         label.text = "New Password"
     }
 }

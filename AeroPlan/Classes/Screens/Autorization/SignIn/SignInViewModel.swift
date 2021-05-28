@@ -13,10 +13,11 @@ final class SignInViewModel: NSObject, ViewModel {
         var openCreateAccount: ScreenTransition?
         var openResetPassword: ScreenTransition?
     }
+        
+    var transitions = Transitions()
     
     var errorOccurred: ((AppError) -> Void)?
-    
-    var transitions = Transitions()
+    var activity: ((Bool) -> Void)?
     
     private let autorizationInteractor: AutorizationInteractor
     
@@ -27,17 +28,21 @@ final class SignInViewModel: NSObject, ViewModel {
 
 extension SignInViewModel {
     func signInWith(username: String, password: String) {
+        activity?(true)
         guard isUsernameTextValid(username) else {
             self.errorOccurred?(AutorizationError(comment: "Invalid username"))
+            activity?(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
             self.errorOccurred?(AutorizationError(comment: "Invalid password"))
+            activity?(false)
             return
         }
         
         autorizationInteractor.signInWith(name: username, password: password) { [weak self] result in
+            self?.activity?(false)
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
@@ -60,7 +65,7 @@ extension SignInViewModel {
     }
     
     @objc func createAccountButtonTapped() {
-        transitions.openResetPassword?()
+        transitions.openCreateAccount?()
     }
     
     @objc func logInWithGoogleButtonTapped() {

@@ -14,8 +14,10 @@ class WelcomeViewModel: ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
-    var errorOccurred: ((AppError) -> Void)?
     var transitions = Transitions()
+    
+    var errorOccurred: ((AppError) -> Void)?
+    var activity: ((Bool) -> Void)?
 }
 
 extension WelcomeViewModel {
@@ -37,7 +39,7 @@ extension WelcomeViewModel {
     private typealias Colors = AppColors.WelcomeScreen
     
     var signInText: NSAttributedString {
-        R.string.localizable.welcomeScreenSignUp()
+        R.string.localizable.welcomeScreenSignIn()
             .attributeString(with: Fonts.signIn, color: Colors.signIn)
     }
     

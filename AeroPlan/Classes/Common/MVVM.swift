@@ -15,9 +15,12 @@ public protocol ViewModel {
     
     var transitions: Transitions { get set }
     var errorOccurred: ((AppError) -> Void)? { get set }
+    var activity: ((Bool) -> Void)? { get set }
 }
 
 open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    
     var viewModel: ScreenViewModel
     
     var transitions: ScreenViewModel.Transitions {
@@ -43,9 +46,33 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
         setupBinding()
     }
     
-    func arrangeView() { }
-    func setupView() { }
-    func setupBinding() { }
+    func arrangeView() {
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+    }
+    
+    func setupView() {
+        activityIndicator.isHidden = true
+    }
+    
+    func setupBinding() {
+        viewModel.errorOccurred = showError
+        viewModel.activity = { [weak self] in $0 ? self?.startActivity() : self?.endActivity() }
+    }
+    
+    func startActivity() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+    
+    func endActivity() {
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
+    }
 }
 
 extension Screen {

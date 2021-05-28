@@ -245,18 +245,24 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 14 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       /// Value: AeroPlan | Travel
       static let appTitle = Rswift.StringResource(key: "appTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: AeroPlan’s terms of conditions
       static let termsOfConditionsLink = Rswift.StringResource(key: "termsOfConditionsLink", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Already registered?
+      static let createAccountAlreadyRegistered = Rswift.StringResource(key: "createAccountAlreadyRegistered", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Already registered?
       static let welcomeScreenAlreadyRegistered = Rswift.StringResource(key: "welcomeScreenAlreadyRegistered", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: By creating an account you sign and agree to AeroPlan’s terms of conditions
       static let termsOfConditionsText = Rswift.StringResource(key: "termsOfConditionsText", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Create account
+      static let createAccountCreateAccount = Rswift.StringResource(key: "createAccountCreateAccount", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Create account
       static let signInCreateAccout = Rswift.StringResource(key: "signInCreateAccout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Email
+      static let createAccountEmailPlaceholder = Rswift.StringResource(key: "createAccountEmailPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Forgot password?
       static let signInForgotPassword = Rswift.StringResource(key: "signInForgotPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Log in
@@ -266,13 +272,19 @@ struct R: Rswift.Validatable {
       /// Value: New to AeroPlan?
       static let signInNewUser = Rswift.StringResource(key: "signInNewUser", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password
+      static let createAccountPasswordPlaceholder = Rswift.StringResource(key: "createAccountPasswordPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Password
       static let signInPasswordPlaceholder = Rswift.StringResource(key: "signInPasswordPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Sign up
-      static let welcomeScreenSignUp = Rswift.StringResource(key: "welcomeScreenSignUp", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Sign in
+      static let createAccountSignIn = Rswift.StringResource(key: "createAccountSignIn", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Sign in
+      static let welcomeScreenSignIn = Rswift.StringResource(key: "welcomeScreenSignIn", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Start adventure
       static let welcomeScreenStartAdventure = Rswift.StringResource(key: "welcomeScreenStartAdventure", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Travel
       static let appTitleHighlighted = Rswift.StringResource(key: "appTitleHighlighted", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Username
+      static let createAccountUsernamePlaceholder = Rswift.StringResource(key: "createAccountUsernamePlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Username
       static let signInUsernamePlaceholder = Rswift.StringResource(key: "signInUsernamePlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
 
@@ -303,6 +315,19 @@ struct R: Rswift.Validatable {
       }
 
       /// Value: Already registered?
+      static func createAccountAlreadyRegistered(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("createAccountAlreadyRegistered", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "createAccountAlreadyRegistered"
+        }
+
+        return NSLocalizedString("createAccountAlreadyRegistered", bundle: bundle, comment: "")
+      }
+
+      /// Value: Already registered?
       static func welcomeScreenAlreadyRegistered(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("welcomeScreenAlreadyRegistered", bundle: hostingBundle, comment: "")
@@ -329,6 +354,19 @@ struct R: Rswift.Validatable {
       }
 
       /// Value: Create account
+      static func createAccountCreateAccount(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("createAccountCreateAccount", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "createAccountCreateAccount"
+        }
+
+        return NSLocalizedString("createAccountCreateAccount", bundle: bundle, comment: "")
+      }
+
+      /// Value: Create account
       static func signInCreateAccout(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("signInCreateAccout", bundle: hostingBundle, comment: "")
@@ -339,6 +377,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("signInCreateAccout", bundle: bundle, comment: "")
+      }
+
+      /// Value: Email
+      static func createAccountEmailPlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("createAccountEmailPlaceholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "createAccountEmailPlaceholder"
+        }
+
+        return NSLocalizedString("createAccountEmailPlaceholder", bundle: bundle, comment: "")
       }
 
       /// Value: Forgot password?
@@ -394,6 +445,19 @@ struct R: Rswift.Validatable {
       }
 
       /// Value: Password
+      static func createAccountPasswordPlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("createAccountPasswordPlaceholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "createAccountPasswordPlaceholder"
+        }
+
+        return NSLocalizedString("createAccountPasswordPlaceholder", bundle: bundle, comment: "")
+      }
+
+      /// Value: Password
       static func signInPasswordPlaceholder(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("signInPasswordPlaceholder", bundle: hostingBundle, comment: "")
@@ -406,17 +470,30 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("signInPasswordPlaceholder", bundle: bundle, comment: "")
       }
 
-      /// Value: Sign up
-      static func welcomeScreenSignUp(preferredLanguages: [String]? = nil) -> String {
+      /// Value: Sign in
+      static func createAccountSignIn(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("welcomeScreenSignUp", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("createAccountSignIn", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
-          return "welcomeScreenSignUp"
+          return "createAccountSignIn"
         }
 
-        return NSLocalizedString("welcomeScreenSignUp", bundle: bundle, comment: "")
+        return NSLocalizedString("createAccountSignIn", bundle: bundle, comment: "")
+      }
+
+      /// Value: Sign in
+      static func welcomeScreenSignIn(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("welcomeScreenSignIn", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "welcomeScreenSignIn"
+        }
+
+        return NSLocalizedString("welcomeScreenSignIn", bundle: bundle, comment: "")
       }
 
       /// Value: Start adventure
@@ -443,6 +520,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("appTitleHighlighted", bundle: bundle, comment: "")
+      }
+
+      /// Value: Username
+      static func createAccountUsernamePlaceholder(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("createAccountUsernamePlaceholder", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "createAccountUsernamePlaceholder"
+        }
+
+        return NSLocalizedString("createAccountUsernamePlaceholder", bundle: bundle, comment: "")
       }
 
       /// Value: Username

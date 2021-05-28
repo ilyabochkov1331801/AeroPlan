@@ -11,6 +11,8 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
     private let label = UILabel()
     
     override func arrangeView() {
+        super.arrangeView()
+        
         view.addSubview(label)
         label.snp.makeConstraints {
             $0.center.equalToSuperview()
@@ -18,6 +20,8 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
     }
     
     override func setupView() {
+        super.setupView()
+        
         label.text = "Reset Password"
     }
 }

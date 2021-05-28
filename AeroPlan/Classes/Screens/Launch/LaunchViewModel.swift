@@ -12,7 +12,9 @@ final class LaunchViewModel: ViewModel {
     }
     
     var transitions = Transitions()
+    
     var errorOccurred: ((AppError) -> Void)?
+    var activity: ((Bool) -> Void)?
     
     private let autorizationInteractor: AutorizationInteractor
     
@@ -32,12 +34,15 @@ final class LaunchViewModel: ViewModel {
 
 private extension LaunchViewModel {
     func checkAutorization(completion: @escaping (Bool) -> Void) {
+        activity?(true)
         guard autorizationInteractor.storedUser == nil else {
             completion(false)
+            activity?(false)
             return
         }
         
         autorizationInteractor.registerAnonimus { [weak self] result in
+            self?.activity?(false)
             switch result {
             case .success:
                 completion(true)

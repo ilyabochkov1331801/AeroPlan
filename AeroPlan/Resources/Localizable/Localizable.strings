@@ -13,7 +13,7 @@ appTitleHighlighted = "Travel";
 //MARK: - Welcome Screen
 
 welcomeScreenStartAdventure = "Start adventure";
-welcomeScreenSignUp = "Sign up";
+welcomeScreenSignIn = "Sign in";
 welcomeScreenAlreadyRegistered = "Already registered?";
 
 // MARK: - Sign In Screen
@@ -25,6 +25,15 @@ signInForgotPassword = "Forgot password?";
 signInNewUser = "New to AeroPlan?";
 signInCreateAccout = "Create account";
 signInLogInWithGoogle = "Log in with Google Account";
+
+// MARK: - Create Account Screen
+
+createAccountCreateAccount = "Create account";
+createAccountSignIn = "Sign in";
+createAccountAlreadyRegistered = "Already registered?";
+createAccountUsernamePlaceholder = "Username";
+createAccountPasswordPlaceholder = "Password";
+createAccountEmailPlaceholder = "Email";
 
 // MARK: - Terms of Use
 

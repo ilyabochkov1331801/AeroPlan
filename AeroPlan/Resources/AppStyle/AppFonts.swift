@@ -31,6 +31,12 @@ enum AppFonts {
         static var logInWithGoogle: UIFont { .systemFont(ofSize: 15) }
     }
     
+    enum CreateAccountScreen {
+        static var createAccount: UIFont { .systemFont(ofSize: 15) }
+        static var alreadyRegistered: UIFont { .systemFont(ofSize: 15) }
+        static var signIn: UIFont { .systemFont(ofSize: 15) }
+    }
+    
     enum Appearence {
         static var textViewLink: UIFont { .systemFont(ofSize: 15) }
         static var textField: UIFont { .systemFont(ofSize: 15) }

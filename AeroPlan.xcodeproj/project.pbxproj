@@ -503,12 +503,12 @@
 			children = (
 				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
 				22157FDD26446086004CA15D /* Screens */,
+				22E2E57926384FF3009B38AC /* Coordinators */,
 				333C06AA2639DC6E00BE8F36 /* Errors */,
 				22E2E57E2638501D009B38AC /* Builder */,
 				22E2E58026385050009B38AC /* Services */,
 				22E2E57C2638500F009B38AC /* Common */,
 				333C06A22639D13800BE8F36 /* Core */,
-				22E2E57926384FF3009B38AC /* Coordinators */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

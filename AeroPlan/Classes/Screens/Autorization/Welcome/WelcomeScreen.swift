@@ -16,10 +16,7 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
         $0.cornerRadius = 7
     }
     
-    private let signInButton: UIButton = .make(type: .system) {
-        $0.backgroundColor = .clear
-    }
-    
+    private let signInButton: UIButton = UIButton(type: .system)
     private let alreadyRegisteredLabel = UILabel()
     private let termsOfConditionsView = TermsOfConditionsView()
     private let illustrationImageView = UIImageView()
@@ -34,6 +31,8 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
     }
     
     override func arrangeView() {
+        super.arrangeView()
+        
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(30)
@@ -72,27 +71,29 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
         
         view.addSubview(termsOfConditionsView)
         termsOfConditionsView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-45.heightDependent())
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-14.heightDependent())
             $0.leading.trailing.equalToSuperview().inset(45.widthDependent())
         }
     }
     
     override func setupView() {
+        super.setupView()
+        
         view.backgroundColor = AppColors.WelcomeScreen.background
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         signInButton.setAttributedTitle(viewModel.signInText, for: .normal)
-        
         startAdventureButton.setAttributedTitle(viewModel.startAdventureText, for: .normal)
         
         illustrationImageView.image = viewModel.illustrationImage
         
         titleLabel.attributedText = viewModel.titleText
-        
         alreadyRegisteredLabel.attributedText = viewModel.alreadyRegisteredText
     }
     
     override func setupBinding() {
+        super.setupBinding()
+        
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
         startAdventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureButtonTapped), for: .touchUpInside)

@@ -40,6 +40,14 @@ enum AppColors {
         static var text: UIColor {R.color.black().unwrapped }
     }
     
+    enum CreateAccountScreen {
+        static var background: UIColor { R.color.white().unwrapped }
+        static var createAccountTitle: UIColor { R.color.white().unwrapped }
+        static var createAccountBackground: UIColor { R.color.vermilion().unwrapped }
+        static var alreadyRegistered: UIColor { R.color.black().unwrapped.withAlphaComponent(0.5) }
+        static var signIn: UIColor { R.color.vermilion().unwrapped }
+    }
+    
     enum Appearence {
         static var textViewLink: UIColor { R.color.vermilion().unwrapped }
         static var textFiled: UIColor { R.color.black().unwrapped }
