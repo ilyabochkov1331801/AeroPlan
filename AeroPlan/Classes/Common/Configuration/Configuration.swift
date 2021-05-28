@@ -13,4 +13,12 @@ struct Configuration {
     let backendURL: String
     let bundleId: String
     let googleClientId: String
+    
+    static var isDebug: Bool {
+        #if DEBUG
+        return true
+        #else
+        return false
+        #endif
+    }
 }

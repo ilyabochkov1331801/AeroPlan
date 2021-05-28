@@ -17,6 +17,6 @@ public protocol AppError: Error {
 
 extension AppError {
     var description: String {
-        body + ((previousAppError?.description ?? previousError?.localizedDescription).flatMap { "\n" + $0 } ?? "")
+        body + ((previousAppError?.description ?? previousError?.localizedDescription).flatMap { "\n ---------- \n" + $0 } ?? "")
     }
 }
