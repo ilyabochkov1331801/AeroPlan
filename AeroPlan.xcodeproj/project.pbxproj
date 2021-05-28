@@ -45,7 +45,7 @@
 		22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E587263850F8009B38AC /* ServicesBuilder.swift */; };
 		22E2E58B26385146009B38AC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E58A26385146009B38AC /* Aliases.swift */; };
 		22E2E58E26385236009B38AC /* CoordinatorsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */; };
-		22E2E5912638538F009B38AC /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5902638538F009B38AC /* Animators.swift */; };
+		22E2E5912638538F009B38AC /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5902638538F009B38AC /* FadeAnimator.swift */; };
 		22E2E59526385410009B38AC /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59426385410009B38AC /* MVVM.swift */; };
 		22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59B2638567C009B38AC /* OverlayAlertController.swift */; };
 		22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59E2638573C009B38AC /* AlertCoordinator.swift */; };
@@ -124,7 +124,7 @@
 		22E2E587263850F8009B38AC /* ServicesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesBuilder.swift; sourceTree = "<group>"; };
 		22E2E58A26385146009B38AC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorsBuilder.swift; sourceTree = "<group>"; };
-		22E2E5902638538F009B38AC /* Animators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
+		22E2E5902638538F009B38AC /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
 		22E2E59426385410009B38AC /* MVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
 		22E2E59B2638567C009B38AC /* OverlayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAlertController.swift; sourceTree = "<group>"; };
 		22E2E59E2638573C009B38AC /* AlertCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCoordinator.swift; sourceTree = "<group>"; };
@@ -356,13 +356,10 @@
 		22E2E57F26385046009B38AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				22FF664C2660E81F00C51D19 /* Alerts */,
+				22FF664B2660E80600C51D19 /* Animators */,
 				22FF66442660105200C51D19 /* KeyboardTracker */,
-				2215800626446209004CA15D /* ModalWindowViewController.swift */,
 				22E2E58A26385146009B38AC /* Aliases.swift */,
-				22E2E5902638538F009B38AC /* Animators.swift */,
-				22E2E59B2638567C009B38AC /* OverlayAlertController.swift */,
-				22E2E59E2638573C009B38AC /* AlertCoordinator.swift */,
-				22E2E5A726385BA2009B38AC /* AlertViewer.swift */,
 				22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */,
 				22FF6640265FC0C200C51D19 /* ScreenDepend.swift */,
 			);
@@ -396,6 +393,25 @@
 				22FF66492660108900C51D19 /* KeyboardNotification.swift */,
 			);
 			path = KeyboardTracker;
+			sourceTree = "<group>";
+		};
+		22FF664B2660E80600C51D19 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				22E2E5902638538F009B38AC /* FadeAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		22FF664C2660E81F00C51D19 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2215800626446209004CA15D /* ModalWindowViewController.swift */,
+				22E2E59B2638567C009B38AC /* OverlayAlertController.swift */,
+				22E2E59E2638573C009B38AC /* AlertCoordinator.swift */,
+				22E2E5A726385BA2009B38AC /* AlertViewer.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		333C06A22639D13800BE8F36 /* Core */ = {
@@ -793,7 +809,7 @@
 				22157FF026446123004CA15D /* NewPasswordViewModel.swift in Sources */,
 				224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */,
 				22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */,
-				22E2E5912638538F009B38AC /* Animators.swift in Sources */,
+				22E2E5912638538F009B38AC /* FadeAnimator.swift in Sources */,
 				22157FE7264460F4004CA15D /* LaunchViewModel.swift in Sources */,
 				22E30D48264EB2700059EDA5 /* TermsOfConditionsView.swift in Sources */,
 				221580052644618D004CA15D /* User.swift in Sources */,
