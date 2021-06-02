@@ -38,10 +38,15 @@ enum AppFonts {
     }
     
     enum ResetPasswordScreen {
-        static var aeroplan: UIFont { R.font.stolzlLight(size: 33).unwrapped }
-        static var travel: UIFont { R.font.stolzlLight(size: 33).unwrapped }
+        static var appTitle: UIFont { R.font.stolzlLight(size: 33).unwrapped }
         static var email: UIFont { .systemFont(ofSize: 15) }
         static var resetPassword: UIFont { .systemFont(ofSize: 15) }
+    }
+    
+    enum NewPasswordScreen {
+        static var appTitle: UIFont { R.font.stolzlLight(size: 33).unwrapped }
+        static var password: UIFont { .systemFont(ofSize: 15) }
+        static var changePassword: UIFont { .systemFont(ofSize: 15) }
     }
     
     enum Appearance {

@@ -34,7 +34,7 @@ final class ScreensBuilder {
     }
     
     static func makeNewPasswordScreen(resolver: DependencyResolver) -> NewPasswordScreen {
-        let viewModel = NewPasswordViewModel()
+        let viewModel = NewPasswordViewModel(authorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return NewPasswordScreen(viewModel: viewModel)
     }
 }

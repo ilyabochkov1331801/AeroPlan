@@ -79,8 +79,19 @@ final class AuthorizationInteractor {
         }
     }
     
-    func resetPassword(email: String, completion: @escaping((Result<Void, Error>) -> Void)) {
+    func resetPassword(email: String, completion: @escaping((Result<Void, AuthorizationError>) -> Void)) {
         apiDataManager.execute(request: .resetPassword(email: email)) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(AuthorizationError(previousAppError: error)))
+            }
+        }
+    }
+    
+    func changePassword(password: String, completion: @escaping((Result<Void, AuthorizationError>) -> Void)) {
+        apiDataManager.execute(request: .changePassword(password: password)) { result in
             switch result {
             case .success:
                 completion(.success(()))
@@ -127,6 +138,14 @@ private extension APIRequest {
     }
     
     static func resetPassword(email: String) -> APIRequest<EmptyResponse> {
+        .make(path: "",
+              method: .post,
+              needsAuthorization: false,
+              queryItems: nil,
+              parameters: nil)
+    }
+    
+    static func changePassword(password: String) -> APIRequest<EmptyResponse> {
         .make(path: "",
               method: .post,
               needsAuthorization: false,

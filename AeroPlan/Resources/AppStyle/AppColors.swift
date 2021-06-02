@@ -55,6 +55,13 @@ enum AppColors {
         static var resetPasswordButton: UIColor { R.color.vermilion().unwrapped }
     }
     
+    enum NewPasswordScreen {
+        static var background: UIColor { R.color.white().unwrapped }
+        static var passwordPlaceholder: UIColor { R.color.black().unwrapped.withAlphaComponent(0.5) }
+        static var changePasswordTitle: UIColor { R.color.white().unwrapped }
+        static var changePasswordButton: UIColor { R.color.vermilion().unwrapped }
+    }
+    
     enum Appearance {
         static var textViewLink: UIColor { R.color.vermilion().unwrapped }
         static var textFiled: UIColor { R.color.black().unwrapped }

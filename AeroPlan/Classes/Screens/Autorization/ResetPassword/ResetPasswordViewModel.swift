@@ -34,7 +34,15 @@ extension ResetPasswordViewModel {
             return
         }
         
-        
+        authorizationInteractor.resetPassword(email: email) { [weak self] result in
+            self?.activity?(false)
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+            }
+        }
     }
     
     func isEmailValid(_ email: String) -> Bool {
@@ -48,8 +56,8 @@ extension ResetPasswordViewModel {
     
     var appTitleText: NSAttributedString {
         R.string.localizable.appTitle()
-            .attributeString(with: Fonts.aeroplan, color: AppColors.Common.appTitle, alignment: .center)
-            .attribute(text: R.string.localizable.appTitleHighlighted(), with: .make(font: Fonts.aeroplan))
+            .attributeString(with: Fonts.appTitle, color: AppColors.Common.appTitle, alignment: .center)
+            .attribute(text: R.string.localizable.appTitleHighlighted(), with: .make(font: Fonts.appTitle))
     }
     
     var emailPlaceholder: NSAttributedString {
