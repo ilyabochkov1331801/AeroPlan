@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -187,6 +188,117 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 6 files.
+  struct file {
+    /// Resource file `Stolzl-Bold.ttf`.
+    static let stolzlBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Bold", pathExtension: "ttf")
+    /// Resource file `Stolzl-Book.ttf`.
+    static let stolzlBookTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Book", pathExtension: "ttf")
+    /// Resource file `Stolzl-Light.ttf`.
+    static let stolzlLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Light", pathExtension: "ttf")
+    /// Resource file `Stolzl-Medium.ttf`.
+    static let stolzlMediumTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Medium", pathExtension: "ttf")
+    /// Resource file `Stolzl-Regular.ttf`.
+    static let stolzlRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Regular", pathExtension: "ttf")
+    /// Resource file `Stolzl-Thin.ttf`.
+    static let stolzlThinTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "Stolzl-Thin", pathExtension: "ttf")
+
+    /// `bundle.url(forResource: "Stolzl-Bold", withExtension: "ttf")`
+    static func stolzlBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Stolzl-Book", withExtension: "ttf")`
+    static func stolzlBookTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlBookTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Stolzl-Light", withExtension: "ttf")`
+    static func stolzlLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Stolzl-Medium", withExtension: "ttf")`
+    static func stolzlMediumTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlMediumTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Stolzl-Regular", withExtension: "ttf")`
+    static func stolzlRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "Stolzl-Thin", withExtension: "ttf")`
+    static func stolzlThinTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.stolzlThinTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 6 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `Stolzl-Bold`.
+    static let stolzlBold = Rswift.FontResource(fontName: "Stolzl-Bold")
+    /// Font `Stolzl-Book`.
+    static let stolzlBook = Rswift.FontResource(fontName: "Stolzl-Book")
+    /// Font `Stolzl-Light`.
+    static let stolzlLight = Rswift.FontResource(fontName: "Stolzl-Light")
+    /// Font `Stolzl-Medium`.
+    static let stolzlMedium = Rswift.FontResource(fontName: "Stolzl-Medium")
+    /// Font `Stolzl-Regular`.
+    static let stolzlRegular = Rswift.FontResource(fontName: "Stolzl-Regular")
+    /// Font `Stolzl-Thin`.
+    static let stolzlThin = Rswift.FontResource(fontName: "Stolzl-Thin")
+
+    /// `UIFont(name: "Stolzl-Bold", size: ...)`
+    static func stolzlBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlBold, size: size)
+    }
+
+    /// `UIFont(name: "Stolzl-Book", size: ...)`
+    static func stolzlBook(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlBook, size: size)
+    }
+
+    /// `UIFont(name: "Stolzl-Light", size: ...)`
+    static func stolzlLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlLight, size: size)
+    }
+
+    /// `UIFont(name: "Stolzl-Medium", size: ...)`
+    static func stolzlMedium(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlMedium, size: size)
+    }
+
+    /// `UIFont(name: "Stolzl-Regular", size: ...)`
+    static func stolzlRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlRegular, size: size)
+    }
+
+    /// `UIFont(name: "Stolzl-Thin", size: ...)`
+    static func stolzlThin(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: stolzlThin, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.stolzlBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Bold' could not be loaded, is 'Stolzl-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.stolzlBook(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Book' could not be loaded, is 'Stolzl-Book.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.stolzlLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Light' could not be loaded, is 'Stolzl-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.stolzlMedium(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Medium' could not be loaded, is 'Stolzl-Medium.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.stolzlRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Regular' could not be loaded, is 'Stolzl-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.stolzlThin(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'Stolzl-Thin' could not be loaded, is 'Stolzl-Thin.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
     /// This `R.image.icons` struct is generated, and contains static references to 5 images.
@@ -199,8 +311,8 @@ struct R: Rswift.Validatable {
       static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/Google")
       /// Image `HorizontalSeparator`.
       static let horizontalSeparator = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/HorizontalSeparator")
-      /// Image `SecuritySwitcher`.
-      static let securitySwitcher = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/SecuritySwitcher")
+      /// Image `securitySwitcher`.
+      static let securitySwitcher = Rswift.ImageResource(bundle: R.hostingBundle, name: "Icons/securitySwitcher")
 
       #if os(iOS) || os(tvOS)
       /// `UIImage(named: "AppLogo", bundle: ..., traitCollection: ...)`
@@ -231,7 +343,7 @@ struct R: Rswift.Validatable {
       #endif
 
       #if os(iOS) || os(tvOS)
-      /// `UIImage(named: "SecuritySwitcher", bundle: ..., traitCollection: ...)`
+      /// `UIImage(named: "securitySwitcher", bundle: ..., traitCollection: ...)`
       static func securitySwitcher(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.icons.securitySwitcher, compatibleWith: traitCollection)
       }
@@ -245,7 +357,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 22 localization keys.
     struct localizable {
       /// Value: AeroPlan | Travel
       static let appTitle = Rswift.StringResource(key: "appTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -263,6 +375,8 @@ struct R: Rswift.Validatable {
       static let signInCreateAccout = Rswift.StringResource(key: "signInCreateAccout", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email
       static let createAccountEmailPlaceholder = Rswift.StringResource(key: "createAccountEmailPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Email
+      static let resetPasswordScreenEmail = Rswift.StringResource(key: "resetPasswordScreenEmail", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Forgot password?
       static let signInForgotPassword = Rswift.StringResource(key: "signInForgotPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Log in
@@ -275,6 +389,8 @@ struct R: Rswift.Validatable {
       static let createAccountPasswordPlaceholder = Rswift.StringResource(key: "createAccountPasswordPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Password
       static let signInPasswordPlaceholder = Rswift.StringResource(key: "signInPasswordPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Reset Password
+      static let resetPasswordScreenResetPassword = Rswift.StringResource(key: "resetPasswordScreenResetPassword", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Sign in
       static let createAccountSignIn = Rswift.StringResource(key: "createAccountSignIn", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Sign in
@@ -392,6 +508,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("createAccountEmailPlaceholder", bundle: bundle, comment: "")
       }
 
+      /// Value: Email
+      static func resetPasswordScreenEmail(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("resetPasswordScreenEmail", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "resetPasswordScreenEmail"
+        }
+
+        return NSLocalizedString("resetPasswordScreenEmail", bundle: bundle, comment: "")
+      }
+
       /// Value: Forgot password?
       static func signInForgotPassword(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -468,6 +597,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("signInPasswordPlaceholder", bundle: bundle, comment: "")
+      }
+
+      /// Value: Reset Password
+      static func resetPasswordScreenResetPassword(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("resetPasswordScreenResetPassword", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "resetPasswordScreenResetPassword"
+        }
+
+        return NSLocalizedString("resetPasswordScreenResetPassword", bundle: bundle, comment: "")
       }
 
       /// Value: Sign in

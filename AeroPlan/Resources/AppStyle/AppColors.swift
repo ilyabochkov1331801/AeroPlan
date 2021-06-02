@@ -8,7 +8,7 @@
 import UIKit.UIColor
 
 enum AppColors {
-    enum TextFiled {
+    enum TextField {
         static var border: (normal: UIColor, error: UIColor) {
             (R.color.black().unwrapped.withAlphaComponent(0.5), .red)
         }
@@ -48,7 +48,14 @@ enum AppColors {
         static var signIn: UIColor { R.color.vermilion().unwrapped }
     }
     
-    enum Appearence {
+    enum ResetPasswordScreen {
+        static var background: UIColor { R.color.white().unwrapped }
+        static var emailPlaceholder: UIColor { R.color.black().unwrapped.withAlphaComponent(0.5) }
+        static var resetPasswordTitle: UIColor { R.color.white().unwrapped }
+        static var resetPasswordButton: UIColor { R.color.vermilion().unwrapped }
+    }
+    
+    enum Appearance {
         static var textViewLink: UIColor { R.color.vermilion().unwrapped }
         static var textFiled: UIColor { R.color.black().unwrapped }
     }

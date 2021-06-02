@@ -41,9 +41,9 @@ private extension AppDelegate {
     }
     
     func configureAppearence() {
-        UITextView.appearance().linkTextAttributes = .make(font: AppFonts.Appearence.textViewLink, color: AppColors.Appearence.textViewLink)
+        UITextView.appearance().linkTextAttributes = .make(font: AppFonts.Appearance.textViewLink, color: AppColors.Appearance.textViewLink)
             .merge(with: [.underlineStyle: NSUnderlineStyle.single.rawValue])
         
-        UITextField.appearance().defaultTextAttributes = .make(font: AppFonts.Appearence.textField, color: AppColors.Appearence.textFiled)
+        UITextField.appearance().defaultTextAttributes = .make(font: AppFonts.Appearance.textField, color: AppColors.Appearance.textFiled)
     }
 }

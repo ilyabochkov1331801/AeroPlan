@@ -16,9 +16,9 @@ final class LaunchViewModel: ViewModel {
     var errorOccurred: ((AppError) -> Void)?
     var activity: ((Bool) -> Void)?
     
-    private let autorizationInteractor: AutorizationInteractor
+    private let autorizationInteractor: AuthorizationInteractor
     
-    init(autorizationInteractor: AutorizationInteractor) {
+    init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
     }
     

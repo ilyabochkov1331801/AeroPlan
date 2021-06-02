@@ -19,10 +19,10 @@ final class SignInViewModel: NSObject, ViewModel {
     var errorOccurred: ((AppError) -> Void)?
     var activity: ((Bool) -> Void)?
     
-    private let autorizationInteractor: AutorizationInteractor
+    private let authorizationInteractor: AuthorizationInteractor
     
-    init(autorizationInteractor: AutorizationInteractor) {
-        self.autorizationInteractor = autorizationInteractor
+    init(authorizationInteractor: AuthorizationInteractor) {
+        self.authorizationInteractor = authorizationInteractor
     }
 }
 
@@ -30,24 +30,24 @@ extension SignInViewModel {
     func signInWith(username: String, password: String) {
         activity?(true)
         guard isUsernameTextValid(username) else {
-            self.errorOccurred?(AutorizationError(comment: "Invalid username"))
+            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
             activity?(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
-            self.errorOccurred?(AutorizationError(comment: "Invalid password"))
+            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
             activity?(false)
             return
         }
         
-        autorizationInteractor.signInWith(name: username, password: password) { [weak self] result in
+        authorizationInteractor.signInWith(name: username, password: password) { [weak self] result in
             self?.activity?(false)
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AutorizationError(previousAppError: error))
+                self?.errorOccurred?(AuthorizationError(previousAppError: error))
             }
         }
     }
@@ -128,20 +128,20 @@ extension SignInViewModel {
 extension SignInViewModel: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            errorOccurred?(AutorizationError(previousError: error))
+            errorOccurred?(AuthorizationError(previousError: error))
         }
         
         guard let userId = user?.userID else {
-            errorOccurred?(AutorizationError(comment: "No user id"))
+            errorOccurred?(AuthorizationError(comment: "No user id"))
             return
         }
         
-        autorizationInteractor.signInWith(googleId: userId) { [weak self] result in
+        authorizationInteractor.signInWith(googleId: userId) { [weak self] result in
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AutorizationError(previousAppError: error))
+                self?.errorOccurred?(AuthorizationError(previousAppError: error))
             }
         }
     }

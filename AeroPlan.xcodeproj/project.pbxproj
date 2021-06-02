@@ -35,8 +35,8 @@
 		229599142659942000DDAFC2 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229599132659942000DDAFC2 /* AppFonts.swift */; };
 		22C0CB742647190000E8D933 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB732647190000E8D933 /* Configuration.swift */; };
 		22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB75264719C800E8D933 /* ConfigurationReader.swift */; };
-		22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */; };
-		22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB792647216000E8D933 /* AutorizationError.swift */; };
+		22C0CB7826471E3400E8D933 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */; };
+		22C0CB7A2647216000E8D933 /* AuthorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB792647216000E8D933 /* AuthorizationError.swift */; };
 		22C0CB7C2647262600E8D933 /* DataManagersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */; };
 		22C0CB7E2647263400E8D933 /* InteractorsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */; };
 		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
@@ -52,7 +52,7 @@
 		22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5A726385BA2009B38AC /* AlertViewer.swift */; };
 		22E30D3A264E4ECF0059EDA5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D39264E4ECF0059EDA5 /* String+Extensions.swift */; };
 		22E30D3C264E51190059EDA5 /* CryptoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */; };
-		22E30D3F264E5F040059EDA5 /* TextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D3E264E5F040059EDA5 /* TextFiled.swift */; };
+		22E30D3F264E5F040059EDA5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D3E264E5F040059EDA5 /* TextField.swift */; };
 		22E30D41264E5F2A0059EDA5 /* SecureTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */; };
 		22E30D48264EB2700059EDA5 /* TermsOfConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D47264EB2700059EDA5 /* TermsOfConditionsView.swift */; };
 		22E30D4A264EB7780059EDA5 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D49264EB7770059EDA5 /* NSAttributedString+Extensions.swift */; };
@@ -71,6 +71,12 @@
 		33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Image.xcassets */; };
 		3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41C263B30F000CA0329 /* StoredProperty.swift */; };
 		3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */; };
+		33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */; };
+		33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */; };
+		33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */; };
+		33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */; };
+		33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */; };
+		33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,8 +119,8 @@
 		229599132659942000DDAFC2 /* AppFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		22C0CB732647190000E8D933 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		22C0CB75264719C800E8D933 /* ConfigurationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
-		22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationInteractor.swift; sourceTree = "<group>"; };
-		22C0CB792647216000E8D933 /* AutorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationError.swift; sourceTree = "<group>"; };
+		22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		22C0CB792647216000E8D933 /* AuthorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationError.swift; sourceTree = "<group>"; };
 		22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagersBuilder.swift; sourceTree = "<group>"; };
 		22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsBuilder.swift; sourceTree = "<group>"; };
 		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
@@ -131,7 +137,7 @@
 		22E2E5A726385BA2009B38AC /* AlertViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewer.swift; sourceTree = "<group>"; };
 		22E30D39264E4ECF0059EDA5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoProcessor.swift; sourceTree = "<group>"; };
-		22E30D3E264E5F040059EDA5 /* TextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFiled.swift; sourceTree = "<group>"; };
+		22E30D3E264E5F040059EDA5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextFiled.swift; sourceTree = "<group>"; };
 		22E30D43264E61B50059EDA5 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		22E30D45264E61BE0059EDA5 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
@@ -159,6 +165,12 @@
 		33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
 		3383E41C263B30F000CA0329 /* StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredProperty.swift; sourceTree = "<group>"; };
 		3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Elementary+StoredProperty.swift"; sourceTree = "<group>"; };
+		33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Light.ttf"; path = "../../../../../Downloads/font/Stolzl-Light.ttf"; sourceTree = "<group>"; };
+		33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Medium.ttf"; path = "../../../../../Downloads/font/Stolzl-Medium.ttf"; sourceTree = "<group>"; };
+		33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Bold.ttf"; path = "../../../../../Downloads/font/Stolzl-Bold.ttf"; sourceTree = "<group>"; };
+		33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Thin.ttf"; path = "../../../../../Downloads/font/Stolzl-Thin.ttf"; sourceTree = "<group>"; };
+		33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Book.ttf"; path = "../../../../../Downloads/font/Stolzl-Book.ttf"; sourceTree = "<group>"; };
+		33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Regular.ttf"; path = "../../../../../Downloads/font/Stolzl-Regular.ttf"; sourceTree = "<group>"; };
 		CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AeroPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.appstore.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.appstore.xcconfig"; sourceTree = "<group>"; };
 		DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.debug-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.debug-develop.xcconfig"; sourceTree = "<group>"; };
@@ -377,7 +389,7 @@
 		22E30D3D264E5EDD0059EDA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22E30D3E264E5F040059EDA5 /* TextFiled.swift */,
+				22E30D3E264E5F040059EDA5 /* TextField.swift */,
 				22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */,
 				22E30D47264EB2700059EDA5 /* TermsOfConditionsView.swift */,
 				22FF66422660068200C51D19 /* AlignmentButton.swift */,
@@ -437,7 +449,7 @@
 		333C06A42639D15A00BE8F36 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */,
+				22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -447,7 +459,7 @@
 			children = (
 				22157FD126445FFC004CA15D /* AppError.swift */,
 				22157FD026445FFC004CA15D /* APIError.swift */,
-				22C0CB792647216000E8D933 /* AutorizationError.swift */,
+				22C0CB792647216000E8D933 /* AuthorizationError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -541,6 +553,12 @@
 		33833AD02635B50D00A3FCD4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */,
+				33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */,
+				33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */,
+				33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */,
+				33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */,
+				33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -646,9 +664,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				332F4779264D828C000BF63B /* Colors.xcassets in Resources */,
+				33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */,
 				33521CEE26524FCF001802BC /* Localizable.strings in Resources */,
+				33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */,
+				33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */,
+				33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */,
+				33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */,
 				22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */,
 				33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */,
+				33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +820,7 @@
 				22157FF526446132004CA15D /* ResetPasswordScreen.swift in Sources */,
 				22E30D41264E5F2A0059EDA5 /* SecureTextFiled.swift in Sources */,
 				221580022644617A004CA15D /* User+StoredProperty.swift in Sources */,
-				22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */,
+				22C0CB7A2647216000E8D933 /* AuthorizationError.swift in Sources */,
 				22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */,
 				22157FEB26446113004CA15D /* CreateAccountScreen.swift in Sources */,
 				2215800726446209004CA15D /* ModalWindowViewController.swift in Sources */,
@@ -804,7 +828,7 @@
 				3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */,
 				22FF66432660068300C51D19 /* AlignmentButton.swift in Sources */,
 				333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */,
-				22E30D3F264E5F040059EDA5 /* TextFiled.swift in Sources */,
+				22E30D3F264E5F040059EDA5 /* TextField.swift in Sources */,
 				3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */,
 				22157FF026446123004CA15D /* NewPasswordViewModel.swift in Sources */,
 				224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */,
@@ -819,7 +843,7 @@
 				224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */,
 				22FF664A2660108900C51D19 /* KeyboardNotification.swift in Sources */,
 				22157FEC26446113004CA15D /* CreateAccountViewModel.swift in Sources */,
-				22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */,
+				22C0CB7826471E3400E8D933 /* AuthorizationInteractor.swift in Sources */,
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
 				22E30D4A264EB7780059EDA5 /* NSAttributedString+Extensions.swift in Sources */,
 				22157FFB26446140004CA15D /* SignInViewModel.swift in Sources */,

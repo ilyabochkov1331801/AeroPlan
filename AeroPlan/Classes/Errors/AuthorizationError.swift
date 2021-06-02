@@ -5,7 +5,7 @@
 //  Created by Ilya Bochkov on 8.05.21.
 //
 
-struct AutorizationError: AppError {
+struct AuthorizationError: AppError {
     let body: String
     let previousAppError: AppError?
     let previousError: Error?

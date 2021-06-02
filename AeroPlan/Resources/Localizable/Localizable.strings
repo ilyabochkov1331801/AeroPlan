@@ -39,3 +39,8 @@ createAccountEmailPlaceholder = "Email";
 
 termsOfConditionsText = "By creating an account you sign and agree to AeroPlan’s terms of conditions";
 termsOfConditionsLink = "AeroPlan’s terms of conditions";
+
+// MARK: - Reset Password Screen
+
+resetPasswordScreenEmail = "Email";
+resetPasswordScreenResetPassword = "Reset Password";

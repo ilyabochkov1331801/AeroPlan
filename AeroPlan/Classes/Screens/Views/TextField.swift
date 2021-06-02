@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TextFiled: UITextField {
-    private typealias Colors = AppColors.TextFiled
+class TextField: UITextField {
+    private typealias Colors = AppColors.TextField
     
     var validation: ((String) -> Bool)?
     var paddings = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -50,7 +50,7 @@ class TextFiled: UITextField {
     }
 }
 
-extension TextFiled: UITextFieldDelegate {
+extension TextField: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Stolzl-Bold.ttf</string>
+		<string>Stolzl-Book.ttf</string>
+		<string>Stolzl-Light.ttf</string>
+		<string>Stolzl-Medium.ttf</string>
+		<string>Stolzl-Regular.ttf</string>
+		<string>Stolzl-Thin.ttf</string>
+	</array>
 	<key>GoogleClientID</key>
 	<string>$(GOOGLE_CLIENT_ID)</string>
 	<key>BackendURL</key>

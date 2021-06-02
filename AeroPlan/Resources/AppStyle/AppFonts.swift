@@ -37,7 +37,14 @@ enum AppFonts {
         static var signIn: UIFont { .systemFont(ofSize: 15) }
     }
     
-    enum Appearence {
+    enum ResetPasswordScreen {
+        static var aeroplan: UIFont { R.font.stolzlLight(size: 33).unwrapped }
+        static var travel: UIFont { R.font.stolzlLight(size: 33).unwrapped }
+        static var email: UIFont { .systemFont(ofSize: 15) }
+        static var resetPassword: UIFont { .systemFont(ofSize: 15) }
+    }
+    
+    enum Appearance {
         static var textViewLink: UIFont { .systemFont(ofSize: 15) }
         static var textField: UIFont { .systemFont(ofSize: 15) }
     }

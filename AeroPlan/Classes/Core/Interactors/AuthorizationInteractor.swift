@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AutorizationInteractor {
+final class AuthorizationInteractor {
     private let apiDataManager: APIDataManager
     private let storageDataManager: StorageDataManger
     
@@ -21,33 +21,33 @@ final class AutorizationInteractor {
         storageDataManager.get(key: .user)
     }
     
-    func registerAnonimus(completion: @escaping (Result<User, AutorizationError>) -> Void) {
+    func registerAnonimus(completion: @escaping (Result<User, AuthorizationError>) -> Void) {
         apiDataManager.execute(request: .registerAnon()) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.storageDataManager.save(object: user, key: .user)
                 completion(.success(user))
             case .failure(let error):
-                completion(.failure(AutorizationError(previousAppError: error)))
+                completion(.failure(AuthorizationError(previousAppError: error)))
             }
         }
     }
     
-    func signInWith(googleId: String, completion: @escaping (Result<User, AutorizationError>) -> Void) {
+    func signInWith(googleId: String, completion: @escaping (Result<User, AuthorizationError>) -> Void) {
         apiDataManager.execute(request: .signInWith(googleId: googleId)) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.storageDataManager.save(object: user, key: .user)
                 completion(.success(user))
             case .failure(let error):
-                completion(.failure(AutorizationError(previousAppError: error)))
+                completion(.failure(AuthorizationError(previousAppError: error)))
             }
         }
     }
     
-    func signInWith(name: String, password: String, completion: @escaping (Result<User, AutorizationError>) -> Void) {
+    func signInWith(name: String, password: String, completion: @escaping (Result<User, AuthorizationError>) -> Void) {
         guard let hashedPassword = CryptoProcessor.sha256(password) else {
-            completion(.failure(AutorizationError(comment: "Can't hash this password")))
+            completion(.failure(AuthorizationError(comment: "Can't hash this password")))
             return
         }
         
@@ -57,14 +57,14 @@ final class AutorizationInteractor {
                 self?.storageDataManager.save(object: user, key: .user)
                 completion(.success(user))
             case .failure(let error):
-                completion(.failure(AutorizationError(previousAppError: error)))
+                completion(.failure(AuthorizationError(previousAppError: error)))
             }
         }
     }
     
-    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AutorizationError>) -> Void) {
+    func createAccount(name: String, email: String, password: String, completion: @escaping (Result<User, AuthorizationError>) -> Void) {
         guard let hashedPassword = CryptoProcessor.sha256(password) else {
-            completion(.failure(AutorizationError(comment: "Can't hash this password")))
+            completion(.failure(AuthorizationError(comment: "Can't hash this password")))
             return
         }
         
@@ -74,7 +74,18 @@ final class AutorizationInteractor {
                 self?.storageDataManager.save(object: user, key: .user)
                 completion(.success(user))
             case .failure(let error):
-                completion(.failure(AutorizationError(previousAppError: error)))
+                completion(.failure(AuthorizationError(previousAppError: error)))
+            }
+        }
+    }
+    
+    func resetPassword(email: String, completion: @escaping((Result<Void, Error>) -> Void)) {
+        apiDataManager.execute(request: .resetPassword(email: email)) { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(AuthorizationError(previousAppError: error)))
             }
         }
     }
@@ -113,6 +124,14 @@ private extension APIRequest {
               needsAuthorization: false,
               queryItems: nil,
               parameters: [.username: name, .email: email, .password: password])
+    }
+    
+    static func resetPassword(email: String) -> APIRequest<EmptyResponse> {
+        .make(path: "",
+              method: .post,
+              needsAuthorization: false,
+              queryItems: nil,
+              parameters: nil)
     }
 }
 

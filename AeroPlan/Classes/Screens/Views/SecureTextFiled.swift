@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecureTextFiled: TextFiled {
+class SecureTextFiled: TextField {
     private let visibilitySwitcherButton: UIButton = .make(type: .custom) {
         $0.setImage(R.image.icons.securitySwitcher(), for: .normal)
         $0.setImage(R.image.icons.securitySwitcher(), for: .selected)

@@ -12,7 +12,7 @@ final class SignInScreen: Screen<SignInViewModel> {
     private typealias Colors = AppColors.SignInScreen
     private typealias Fonts = AppFonts.SignInScreen
     
-    private let usernameTextField = TextFiled()
+    private let usernameTextField = TextField()
     private let passwordTextFiled = SecureTextFiled()
     private let titleLabel = UILabel()
     private let forgotPasswordButton = UIButton(type: .system)
@@ -44,8 +44,6 @@ final class SignInScreen: Screen<SignInViewModel> {
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
         }
-        
-        navigationItem.backButtonTitle = nil
     }
     
     override func viewDidLoad() {
@@ -143,8 +141,8 @@ final class SignInScreen: Screen<SignInViewModel> {
         super.setupView()
         
         view.backgroundColor = Colors.background
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                
+        navigationItem.backButtonTitle = ""
+
         logInWithGoogleButton.setAttributedTitle(viewModel.logInWithGoogleText, for: .normal)
         logInButton.setAttributedTitle(viewModel.logInText, for: .normal)
         forgotPasswordButton.setAttributedTitle(viewModel.forgotPasswordText, for: .normal)

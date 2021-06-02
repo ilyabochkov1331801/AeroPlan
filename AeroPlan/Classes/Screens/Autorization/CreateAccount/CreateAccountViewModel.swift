@@ -19,9 +19,9 @@ final class CreateAccountViewModel: ViewModel {
     
     var transitions = Transitions()
     
-    private let autorizationInteractor: AutorizationInteractor
+    private let autorizationInteractor: AuthorizationInteractor
     
-    init(autorizationInteractor: AutorizationInteractor) {
+    init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
     }
 }
@@ -31,19 +31,19 @@ extension CreateAccountViewModel {
         activity?(true)
         
         guard name.isValidUsername else {
-            self.errorOccurred?(AutorizationError(comment: "Invalid username"))
+            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
             activity?(false)
             return
         }
         
         guard email.isValidEmail else {
-            self.errorOccurred?(AutorizationError(comment: "Invalid email"))
+            self.errorOccurred?(AuthorizationError(comment: "Invalid email"))
             activity?(false)
             return
         }
         
         guard password.isValidPassword else {
-            self.errorOccurred?(AutorizationError(comment: "Invalid password"))
+            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
             activity?(false)
             return
         }

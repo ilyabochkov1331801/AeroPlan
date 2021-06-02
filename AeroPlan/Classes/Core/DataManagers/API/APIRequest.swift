@@ -31,3 +31,5 @@ struct APIRequest<Response: Codable> {
                     parameters: parameters)
     }
 }
+
+struct EmptyResponse: Codable { }

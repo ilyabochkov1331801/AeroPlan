@@ -11,8 +11,8 @@ final class CreateAccountScreen: Screen<CreateAccountViewModel> {
     private typealias Colors = AppColors.CreateAccountScreen
     private typealias Fonts = AppFonts.CreateAccountScreen
     
-    private let usernameTextField = TextFiled()
-    private let emailTextField = TextFiled()
+    private let usernameTextField = TextField()
+    private let emailTextField = TextField()
     private let passwordTextFiled = SecureTextFiled()
     private let titleLabel = UILabel()
     private let signInButton: UIButton = UIButton(type: .system)
@@ -111,6 +111,7 @@ final class CreateAccountScreen: Screen<CreateAccountViewModel> {
         super.setupView()
         
         view.backgroundColor = Colors.background
+        navigationItem.backButtonTitle = ""
         
         signInButton.setAttributedTitle(viewModel.signInText, for: .normal)
         createAccountButton.setAttributedTitle(viewModel.createAccountText, for: .normal)
