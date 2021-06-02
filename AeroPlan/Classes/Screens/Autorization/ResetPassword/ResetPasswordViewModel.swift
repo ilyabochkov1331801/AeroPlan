@@ -46,6 +46,12 @@ extension ResetPasswordViewModel {
     private typealias Fonts = AppFonts.ResetPasswordScreen
     private typealias Colors = AppColors.ResetPasswordScreen
     
+    var appTitleText: NSAttributedString {
+        R.string.localizable.appTitle()
+            .attributeString(with: Fonts.aeroplan, color: AppColors.Common.appTitle, alignment: .center)
+            .attribute(text: R.string.localizable.appTitleHighlighted(), with: .make(font: Fonts.aeroplan))
+    }
+    
     var emailPlaceholder: NSAttributedString {
         R.string.localizable.resetPasswordScreenEmail()
             .attributeString(with: Fonts.email, color: Colors.emailPlaceholder)

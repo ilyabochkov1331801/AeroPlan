@@ -11,15 +11,7 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
     private typealias Colors = AppColors.ResetPasswordScreen
     private typealias Fonts = AppFonts.ResetPasswordScreen
     
-    private let appTitleLabel: UILabel = .make {
-        var firstString = NSMutableAttributedString(string: "AeroPlan |",
-                                                    attributes: [.font: Fonts.aeroplan, .foregroundColor: UIColor.black, .kern: 1.75])
-        let secondString = NSAttributedString(string: " Travel",
-                                              attributes: [.font: Fonts.aeroplan, .foregroundColor: UIColor.gray, .kern: 1.75])
-        
-        firstString.append(secondString)
-        $0.attributedText = firstString
-    }
+    private let appTitleLabel = UILabel()
     private let emailTextField = TextField()
     private let scrollView = UIScrollView()
     
@@ -80,6 +72,8 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
         navigationItem.backButtonTitle = ""
         
         scrollView.showsVerticalScrollIndicator = false
+        
+        appTitleLabel.attributedText = viewModel.appTitleText
         
         emailTextField.attributedPlaceholder = viewModel.emailPlaceholder
         emailTextField.autocapitalizationType = .none
