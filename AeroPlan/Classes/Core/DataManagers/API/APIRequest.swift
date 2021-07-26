@@ -14,10 +14,10 @@ struct APIRequest<Response: Codable> {
     let parameters: Parameters?
     
     static func make(path: String,
-                     method: Alamofire.HTTPMethod = .get,
-                     needsAuthorization: Bool = true,
-                     queryItems: [URLQueryItem]? = nil,
-                     parameters: Parameters? = nil) -> Self {
+                     method: Alamofire.HTTPMethod,
+                     needsAuthorization: Bool,
+                     queryItems: [URLQueryItem]?,
+                     parameters: Parameters?) -> Self {
         guard var components = URLComponents(string: Configuration.global.backendURL + path) else {
             return Self(url: Configuration.global.backendURL + path,
                         method: method,
@@ -31,3 +31,5 @@ struct APIRequest<Response: Codable> {
                     parameters: parameters)
     }
 }
+
+struct EmptyResponse: Codable { }

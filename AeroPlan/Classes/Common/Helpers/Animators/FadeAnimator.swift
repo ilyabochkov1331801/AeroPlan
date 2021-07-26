@@ -1,5 +1,5 @@
 //
-//  Animators.swift
+//  FadeAnimator.swift
 //  AeroPlan
 //
 //  Created by Ilya Bochkov on 27.04.21.

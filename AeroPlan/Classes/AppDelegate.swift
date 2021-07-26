@@ -5,10 +5,11 @@
 //  Created by Alena Nesterkina on 25.04.21.
 //
 
+import GoogleSignIn
 import UIKit
 
 @main
-final class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var rootCoordinator: RootCoordinator!
     var window: UIWindow?
@@ -17,11 +18,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         rootCoordinator = CoordinatorsBuilder.makeRootCoordinator()
         
         configureServices(launchOptions: launchOptions)
+        configureAppearence()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         rootCoordinator.start(at: window)
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        GIDSignIn.sharedInstance().handle(url)
     }
 }
 
@@ -32,5 +38,12 @@ private extension AppDelegate {
     
     func configureServices(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         startupService.configureEnvironment(launchOptions: launchOptions)
+    }
+    
+    func configureAppearence() {
+        UITextView.appearance().linkTextAttributes = .make(font: AppFonts.Appearance.textViewLink, color: AppColors.Appearance.textViewLink)
+            .merge(with: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        
+        UITextField.appearance().defaultTextAttributes = .make(font: AppFonts.Appearance.textField, color: AppColors.Appearance.textFiled)
     }
 }

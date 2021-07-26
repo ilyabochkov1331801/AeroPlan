@@ -14,3 +14,5 @@ APP_BUNDLE_ID = com.bn.aeroplan.app.dev
 APP_ICON = AppIcon_dev
 
 BACKEND_URL = https:\/\/aeroplan.herokuapp.com
+
+GOOGLE_CLIENT_ID = 381318345279-5ehc7fdjnhbnpblee4is00vq635aoqpg.apps.googleusercontent.com

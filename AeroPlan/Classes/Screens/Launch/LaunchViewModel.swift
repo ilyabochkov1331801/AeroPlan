@@ -12,31 +12,37 @@ final class LaunchViewModel: ViewModel {
     }
     
     var transitions = Transitions()
+    
     var errorOccurred: ((AppError) -> Void)?
+    var activity: ((Bool) -> Void)?
     
-    private let autorizationInteractor: AutorizationInteractor
+    private let autorizationInteractor: AuthorizationInteractor
     
-    init(autorizationInteractor: AutorizationInteractor) {
+    init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
     }
     
     func launchApplication() {
-        checkAutorization { isNewAnonUserRegistered in
-            isNewAnonUserRegistered
-                ? self.transitions.openAutorizationFlow?()
-                : self.transitions.openHomeFlow?()
-        }
+//        checkAutorization { isNewAnonUserRegistered in
+//            isNewAnonUserRegistered
+//                ? self.transitions.openAutorizationFlow?()
+//                : self.transitions.openHomeFlow?()
+//        }
+        transitions.openAutorizationFlow?()
     }
 }
 
 private extension LaunchViewModel {
     func checkAutorization(completion: @escaping (Bool) -> Void) {
+        activity?(true)
         guard autorizationInteractor.storedUser == nil else {
             completion(false)
+            activity?(false)
             return
         }
         
         autorizationInteractor.registerAnonimus { [weak self] result in
+            self?.activity?(false)
             switch result {
             case .success:
                 completion(true)

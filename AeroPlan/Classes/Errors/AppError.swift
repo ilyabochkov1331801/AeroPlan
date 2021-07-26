@@ -5,7 +5,7 @@
 //  Created by Ilya Bochkov on 6.05.21.
 //
 
-protocol AppError: Error {    
+public protocol AppError: Error {    
     var body: String { get }
     var previousAppError: AppError? { get }
     var previousError: Error? { get }
@@ -17,6 +17,6 @@ protocol AppError: Error {
 
 extension AppError {
     var description: String {
-        body + ((previousAppError?.description ?? previousError?.localizedDescription).flatMap { "\n" + $0 } ?? "")
+        body + ((previousAppError?.description ?? previousError?.localizedDescription).flatMap { "\n ---------- \n" + $0 } ?? "")
     }
 }

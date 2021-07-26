@@ -13,6 +13,7 @@ target 'AeroPlan' do
    pod 'R.swift'
    pod 'RxSwift', '~> 5'
    pod 'RxCocoa', '~> 5'
+   pod 'GoogleSignIn'
 
    project 'AeroPlan.xcodeproj'
 end

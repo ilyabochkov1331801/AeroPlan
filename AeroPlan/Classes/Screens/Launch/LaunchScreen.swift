@@ -17,6 +17,8 @@ final class LaunchScreen: Screen<LaunchViewModel> {
     }
     
     override func arrangeView() {
+        super.arrangeView()
+        
         view.addSubview(label)
         label.snp.makeConstraints {
             $0.center.equalToSuperview()
@@ -24,10 +26,8 @@ final class LaunchScreen: Screen<LaunchViewModel> {
     }
     
     override func setupView() {
+        super.setupView()
+        
         label.text = "Launch"
-    }
-    
-    override func setupBinding() {
-        viewModel.errorOccurred = showError
     }
 }
