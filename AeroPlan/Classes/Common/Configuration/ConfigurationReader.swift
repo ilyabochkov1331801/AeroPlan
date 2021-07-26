@@ -14,18 +14,21 @@ enum ConfigurationReader {
         }
         
         guard let bundleId = infoDict[Keys.backendURL] as? String,
-              let backendURL = infoDict[Keys.backendURL] as? String else {
+              let backendURL = infoDict[Keys.backendURL] as? String,
+              let googleClientId = infoDict[Keys.googleClientId] as? String else {
             fatalError("Unable to read value from infoDict")
         }
         
         return Configuration(backendURL: backendURL.removeDoubleSlash(),
-                             bundleId: bundleId)
+                             bundleId: bundleId,
+                             googleClientId: googleClientId)
     }
 }
 
 private enum Keys {
     static let backendURL = "BackendURL"
     static let bundleId = "CFBundleIdentifier"
+    static let googleClientId = "GoogleClientID"
 }
 
 private extension String {

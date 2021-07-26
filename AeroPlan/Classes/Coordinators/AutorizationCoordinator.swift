@@ -15,11 +15,22 @@ final class AutorizationCoordinator: NavigationCoordinator {
         
         super.init(parent: parent)
         
+        configureNavigation()
         showWelcomeScreen()
     }
 }
 
 private extension AutorizationCoordinator {
+    func configureNavigation() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.setBackIndicatorImage(R.image.icons.backArrow(), transitionMaskImage: R.image.icons.backArrow())
+        
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.compactAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
     func showWelcomeScreen() {
         let screen = ScreensBuilder.makeWelcomeScreen(resolver: self)
         
@@ -36,7 +47,6 @@ private extension AutorizationCoordinator {
         screen.transitions.openHomeFlow = homeFlowTransition
         screen.transitions.openResetPassword = { [weak self] in self?.showResetPasswordScreen() }
         screen.transitions.openCreateAccount = { [weak self] in self?.showCreateAccountScreen() }
-        screen.transitions.openPrivacy = { print("Privacy opened") }
         
         pushViewController(screen)
     }

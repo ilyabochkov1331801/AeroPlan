@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  AeroPlan
+
+  Created by Alena Nesterkina on 17.05.21.
+  
+*/
+
+// MARK: - Common
+appTitle = "AeroPlan | Travel";
+appTitleHighlighted = "Travel";
+
+//MARK: - Welcome Screen
+
+welcomeScreenStartAdventure = "Start adventure";
+welcomeScreenSignIn = "Sign in";
+welcomeScreenAlreadyRegistered = "Already registered?";
+
+// MARK: - Sign In Screen
+
+signInScreenLogin = "Log in";
+signInUsernamePlaceholder = "Username";
+signInPasswordPlaceholder = "Password";
+signInForgotPassword = "Forgot password?";
+signInNewUser = "New to AeroPlan?";
+signInCreateAccout = "Create account";
+signInLogInWithGoogle = "Log in with Google Account";
+
+// MARK: - Create Account Screen
+
+createAccountCreateAccount = "Create account";
+createAccountSignIn = "Sign in";
+createAccountAlreadyRegistered = "Already registered?";
+createAccountUsernamePlaceholder = "Username";
+createAccountPasswordPlaceholder = "Password";
+createAccountEmailPlaceholder = "Email";
+
+// MARK: - Terms of Use
+
+termsOfConditionsText = "By creating an account you sign and agree to AeroPlan’s terms of conditions";
+termsOfConditionsLink = "AeroPlan’s terms of conditions";
+
+// MARK: - Reset Password Screen
+
+resetPasswordScreenEmail = "Email";
+resetPasswordScreenResetPassword = "Reset Password";

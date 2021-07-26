@@ -8,8 +8,8 @@
 import Foundation
 
 final class InteractorsBuilder {
-    static func makeAutorizationInteractor(resolver: DependencyResolver) -> AutorizationInteractor {
-        AutorizationInteractor(apiDataManager: DataManagersBuilder.makeAPIDataManager(),
+    static func makeAutorizationInteractor(resolver: DependencyResolver) -> AuthorizationInteractor {
+        AuthorizationInteractor(apiDataManager: DataManagersBuilder.makeAPIDataManager(),
                                storageDataManager: DataManagersBuilder.makeStorageDataManager())
     }
 }

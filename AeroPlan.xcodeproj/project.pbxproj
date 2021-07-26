@@ -32,10 +32,11 @@
 		224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */; };
 		224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8C6263C7585002537F0 /* AutorizationCoordinator.swift */; };
 		224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE8CD263C7842002537F0 /* HomeCoordinator.swift */; };
+		229599142659942000DDAFC2 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229599132659942000DDAFC2 /* AppFonts.swift */; };
 		22C0CB742647190000E8D933 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB732647190000E8D933 /* Configuration.swift */; };
 		22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB75264719C800E8D933 /* ConfigurationReader.swift */; };
-		22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */; };
-		22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB792647216000E8D933 /* AutorizationError.swift */; };
+		22C0CB7826471E3400E8D933 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */; };
+		22C0CB7A2647216000E8D933 /* AuthorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB792647216000E8D933 /* AuthorizationError.swift */; };
 		22C0CB7C2647262600E8D933 /* DataManagersBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */; };
 		22C0CB7E2647263400E8D933 /* InteractorsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */; };
 		22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */; };
@@ -44,16 +45,38 @@
 		22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E587263850F8009B38AC /* ServicesBuilder.swift */; };
 		22E2E58B26385146009B38AC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E58A26385146009B38AC /* Aliases.swift */; };
 		22E2E58E26385236009B38AC /* CoordinatorsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */; };
-		22E2E5912638538F009B38AC /* Animators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5902638538F009B38AC /* Animators.swift */; };
+		22E2E5912638538F009B38AC /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5902638538F009B38AC /* FadeAnimator.swift */; };
 		22E2E59526385410009B38AC /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59426385410009B38AC /* MVVM.swift */; };
 		22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59B2638567C009B38AC /* OverlayAlertController.swift */; };
 		22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E59E2638573C009B38AC /* AlertCoordinator.swift */; };
 		22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2E5A726385BA2009B38AC /* AlertViewer.swift */; };
+		22E30D3A264E4ECF0059EDA5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D39264E4ECF0059EDA5 /* String+Extensions.swift */; };
+		22E30D3C264E51190059EDA5 /* CryptoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */; };
+		22E30D3F264E5F040059EDA5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D3E264E5F040059EDA5 /* TextField.swift */; };
+		22E30D41264E5F2A0059EDA5 /* SecureTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */; };
+		22E30D48264EB2700059EDA5 /* TermsOfConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D47264EB2700059EDA5 /* TermsOfConditionsView.swift */; };
+		22E30D4A264EB7780059EDA5 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E30D49264EB7770059EDA5 /* NSAttributedString+Extensions.swift */; };
+		22FF6641265FC0C200C51D19 /* ScreenDepend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF6640265FC0C200C51D19 /* ScreenDepend.swift */; };
+		22FF66432660068300C51D19 /* AlignmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66422660068200C51D19 /* AlignmentButton.swift */; };
+		22FF66462660106200C51D19 /* KeyboardTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66452660106200C51D19 /* KeyboardTracker.swift */; };
+		22FF66482660107500C51D19 /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66472660107500C51D19 /* KeyboardEvent.swift */; };
+		22FF664A2660108900C51D19 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66492660108900C51D19 /* KeyboardNotification.swift */; };
+		332F4775264D81CC000BF63B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F4774264D81CC000BF63B /* R.generated.swift */; };
+		332F4779264D828C000BF63B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332F4778264D828C000BF63B /* Colors.xcassets */; };
 		333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06A82639D42600BE8F36 /* StorageDataManger.swift */; };
+		33521CE626524877001802BC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33521CE526524877001802BC /* AppColors.swift */; };
+		33521CE826524946001802BC /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33521CE726524946001802BC /* Optional+Extension.swift */; };
+		33521CEE26524FCF001802BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33521CED26524FCF001802BC /* Localizable.strings */; };
 		33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33833AA92635A9C700A3FCD4 /* AppDelegate.swift */; };
-		33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Assets.xcassets */; };
+		33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Image.xcassets */; };
 		3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41C263B30F000CA0329 /* StoredProperty.swift */; };
 		3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */; };
+		33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */; };
+		33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */; };
+		33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */; };
+		33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */; };
+		33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */; };
+		33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,10 +116,11 @@
 		224AE8DD263C815B002537F0 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		224AE8E0263C82BA002537F0 /* NewPasswordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordScreen.swift; sourceTree = "<group>"; };
 		224AE8E2263C82C6002537F0 /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
+		229599132659942000DDAFC2 /* AppFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		22C0CB732647190000E8D933 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		22C0CB75264719C800E8D933 /* ConfigurationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
-		22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationInteractor.swift; sourceTree = "<group>"; };
-		22C0CB792647216000E8D933 /* AutorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationError.swift; sourceTree = "<group>"; };
+		22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		22C0CB792647216000E8D933 /* AuthorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationError.swift; sourceTree = "<group>"; };
 		22C0CB7B2647262600E8D933 /* DataManagersBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagersBuilder.swift; sourceTree = "<group>"; };
 		22C0CB7D2647263400E8D933 /* InteractorsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorsBuilder.swift; sourceTree = "<group>"; };
 		22E2E3D0263812A2009B38AC /* Google-AppStore.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Google-AppStore.plist"; sourceTree = "<group>"; };
@@ -106,23 +130,47 @@
 		22E2E587263850F8009B38AC /* ServicesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesBuilder.swift; sourceTree = "<group>"; };
 		22E2E58A26385146009B38AC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		22E2E58D26385236009B38AC /* CoordinatorsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorsBuilder.swift; sourceTree = "<group>"; };
-		22E2E5902638538F009B38AC /* Animators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animators.swift; sourceTree = "<group>"; };
+		22E2E5902638538F009B38AC /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
 		22E2E59426385410009B38AC /* MVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
 		22E2E59B2638567C009B38AC /* OverlayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAlertController.swift; sourceTree = "<group>"; };
 		22E2E59E2638573C009B38AC /* AlertCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCoordinator.swift; sourceTree = "<group>"; };
 		22E2E5A726385BA2009B38AC /* AlertViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewer.swift; sourceTree = "<group>"; };
+		22E30D39264E4ECF0059EDA5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoProcessor.swift; sourceTree = "<group>"; };
+		22E30D3E264E5F040059EDA5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTextFiled.swift; sourceTree = "<group>"; };
+		22E30D43264E61B50059EDA5 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		22E30D45264E61BE0059EDA5 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		22E30D47264EB2700059EDA5 /* TermsOfConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfConditionsView.swift; sourceTree = "<group>"; };
+		22E30D49264EB7770059EDA5 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		22FF6640265FC0C200C51D19 /* ScreenDepend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDepend.swift; sourceTree = "<group>"; };
+		22FF66422660068200C51D19 /* AlignmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentButton.swift; sourceTree = "<group>"; };
+		22FF66452660106200C51D19 /* KeyboardTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTracker.swift; sourceTree = "<group>"; };
+		22FF66472660107500C51D19 /* KeyboardEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
+		22FF66492660108900C51D19 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
+		332F4774264D81CC000BF63B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = AeroPlan/Classes/Resources/Generated/R.generated.swift; sourceTree = SOURCE_ROOT; };
+		332F4778264D828C000BF63B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		333C06A82639D42600BE8F36 /* StorageDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataManger.swift; sourceTree = "<group>"; };
+		33521CE526524877001802BC /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		33521CE726524946001802BC /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		33521CED26524FCF001802BC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		33833AA62635A9C700A3FCD4 /* AeroPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33833AA92635A9C700A3FCD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		33833AB22635A9C900A3FCD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33833AB22635A9C900A3FCD4 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		33833AB52635A9C900A3FCD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33833AB72635A9C900A3FCD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33833ACD2635B03D00A3FCD4 /* Develop.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Develop.xcconfig; sourceTree = "<group>"; };
 		33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
 		3383E41C263B30F000CA0329 /* StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredProperty.swift; sourceTree = "<group>"; };
 		3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Elementary+StoredProperty.swift"; sourceTree = "<group>"; };
+		33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Light.ttf"; path = "../../../../../Downloads/font/Stolzl-Light.ttf"; sourceTree = "<group>"; };
+		33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Medium.ttf"; path = "../../../../../Downloads/font/Stolzl-Medium.ttf"; sourceTree = "<group>"; };
+		33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Bold.ttf"; path = "../../../../../Downloads/font/Stolzl-Bold.ttf"; sourceTree = "<group>"; };
+		33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Thin.ttf"; path = "../../../../../Downloads/font/Stolzl-Thin.ttf"; sourceTree = "<group>"; };
+		33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Book.ttf"; path = "../../../../../Downloads/font/Stolzl-Book.ttf"; sourceTree = "<group>"; };
+		33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Regular.ttf"; path = "../../../../../Downloads/font/Stolzl-Regular.ttf"; sourceTree = "<group>"; };
 		CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AeroPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.appstore.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.appstore.xcconfig"; sourceTree = "<group>"; };
 		DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.debug-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.debug-develop.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +203,8 @@
 				224AE8D1263C7D0D002537F0 /* SignInScreen.swift */,
 				224AE8D6263C7FCC002537F0 /* CreateAccountViewModel.swift */,
 				224AE8CB263C76EA002537F0 /* WelcomeViewModel.swift */,
+				22E30D45264E61BE0059EDA5 /* AppFonts.swift */,
+				22E30D43264E61B50059EDA5 /* AppColors.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -172,6 +222,7 @@
 		22157FDD26446086004CA15D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				22E30D3D264E5EDD0059EDA5 /* Views */,
 				22157FDF264460A5004CA15D /* Autorization */,
 				22157FDE2644609E004CA15D /* Launch */,
 			);
@@ -295,6 +346,9 @@
 			isa = PBXGroup;
 			children = (
 				224AE8C4263C73B2002537F0 /* UIView+Extensions.swift */,
+				33521CE726524946001802BC /* Optional+Extension.swift */,
+				22E30D39264E4ECF0059EDA5 /* String+Extensions.swift */,
+				22E30D49264EB7770059EDA5 /* NSAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,12 +368,12 @@
 		22E2E57F26385046009B38AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2215800626446209004CA15D /* ModalWindowViewController.swift */,
+				22FF664C2660E81F00C51D19 /* Alerts */,
+				22FF664B2660E80600C51D19 /* Animators */,
+				22FF66442660105200C51D19 /* KeyboardTracker */,
 				22E2E58A26385146009B38AC /* Aliases.swift */,
-				22E2E5902638538F009B38AC /* Animators.swift */,
-				22E2E59B2638567C009B38AC /* OverlayAlertController.swift */,
-				22E2E59E2638573C009B38AC /* AlertCoordinator.swift */,
-				22E2E5A726385BA2009B38AC /* AlertViewer.swift */,
+				22E30D3B264E51190059EDA5 /* CryptoProcessor.swift */,
+				22FF6640265FC0C200C51D19 /* ScreenDepend.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -330,6 +384,46 @@
 				22E2E5812638506F009B38AC /* StartupService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		22E30D3D264E5EDD0059EDA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22E30D3E264E5F040059EDA5 /* TextField.swift */,
+				22E30D40264E5F2A0059EDA5 /* SecureTextFiled.swift */,
+				22E30D47264EB2700059EDA5 /* TermsOfConditionsView.swift */,
+				22FF66422660068200C51D19 /* AlignmentButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22FF66442660105200C51D19 /* KeyboardTracker */ = {
+			isa = PBXGroup;
+			children = (
+				22FF66452660106200C51D19 /* KeyboardTracker.swift */,
+				22FF66472660107500C51D19 /* KeyboardEvent.swift */,
+				22FF66492660108900C51D19 /* KeyboardNotification.swift */,
+			);
+			path = KeyboardTracker;
+			sourceTree = "<group>";
+		};
+		22FF664B2660E80600C51D19 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				22E2E5902638538F009B38AC /* FadeAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		22FF664C2660E81F00C51D19 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2215800626446209004CA15D /* ModalWindowViewController.swift */,
+				22E2E59B2638567C009B38AC /* OverlayAlertController.swift */,
+				22E2E59E2638573C009B38AC /* AlertCoordinator.swift */,
+				22E2E5A726385BA2009B38AC /* AlertViewer.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		333C06A22639D13800BE8F36 /* Core */ = {
@@ -355,7 +449,7 @@
 		333C06A42639D15A00BE8F36 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				22C0CB7726471E3400E8D933 /* AutorizationInteractor.swift */,
+				22C0CB7726471E3400E8D933 /* AuthorizationInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -365,9 +459,26 @@
 			children = (
 				22157FD126445FFC004CA15D /* AppError.swift */,
 				22157FD026445FFC004CA15D /* APIError.swift */,
-				22C0CB792647216000E8D933 /* AutorizationError.swift */,
+				22C0CB792647216000E8D933 /* AuthorizationError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		33521CE426524867001802BC /* AppStyle */ = {
+			isa = PBXGroup;
+			children = (
+				229599132659942000DDAFC2 /* AppFonts.swift */,
+				33521CE526524877001802BC /* AppColors.swift */,
+			);
+			path = AppStyle;
+			sourceTree = "<group>";
+		};
+		33521CEC26524FB9001802BC /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				33521CED26524FCF001802BC /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		33833A9D2635A9C700A3FCD4 = {
@@ -401,11 +512,14 @@
 		33833AC62635AFD400A3FCD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33521CEC26524FB9001802BC /* Localizable */,
+				33521CE426524867001802BC /* AppStyle */,
 				22E2DDFC2636CB93009B38AC /* GoogleServices */,
 				33833AD12635B51200A3FCD4 /* Generated */,
 				33833AD02635B50D00A3FCD4 /* Fonts */,
 				33833ACC2635B01100A3FCD4 /* Configurations */,
-				33833AB22635A9C900A3FCD4 /* Assets.xcassets */,
+				33833AB22635A9C900A3FCD4 /* Image.xcassets */,
+				332F4778264D828C000BF63B /* Colors.xcassets */,
 				33833AB42635A9C900A3FCD4 /* LaunchScreen.storyboard */,
 				33833AB72635A9C900A3FCD4 /* Info.plist */,
 			);
@@ -417,12 +531,12 @@
 			children = (
 				33833AA92635A9C700A3FCD4 /* AppDelegate.swift */,
 				22157FDD26446086004CA15D /* Screens */,
+				22E2E57926384FF3009B38AC /* Coordinators */,
 				333C06AA2639DC6E00BE8F36 /* Errors */,
 				22E2E57E2638501D009B38AC /* Builder */,
 				22E2E58026385050009B38AC /* Services */,
 				22E2E57C2638500F009B38AC /* Common */,
 				333C06A22639D13800BE8F36 /* Core */,
-				22E2E57926384FF3009B38AC /* Coordinators */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -439,6 +553,12 @@
 		33833AD02635B50D00A3FCD4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */,
+				33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */,
+				33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */,
+				33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */,
+				33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */,
+				33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -446,6 +566,7 @@
 		33833AD12635B51200A3FCD4 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				332F4774264D81CC000BF63B /* R.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -487,12 +608,14 @@
 			buildConfigurationList = 33833ABA2635A9C900A3FCD4 /* Build configuration list for PBXNativeTarget "AeroPlan" */;
 			buildPhases = (
 				FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */,
+				333657CA2635B8B600517E2B /* SwiftLint */,
+				332F4773264D80D7000BF63B /* [Codegen]R.swift */,
 				33833AA22635A9C700A3FCD4 /* Sources */,
 				33833AA32635A9C700A3FCD4 /* Frameworks */,
 				33833AA42635A9C700A3FCD4 /* Resources */,
-				333657CA2635B8B600517E2B /* SwiftLint */,
 				22E2DE192636CCD4009B38AC /* Copy Google Confugurations */,
 				01A3C4686AD74FE55C7DF090 /* [CP] Embed Pods Frameworks */,
+				ABBBD4DCBB64FF2A29339870 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -540,8 +663,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332F4779264D828C000BF63B /* Colors.xcassets in Resources */,
+				33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */,
+				33521CEE26524FCF001802BC /* Localizable.strings in Resources */,
+				33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */,
+				33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */,
+				33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */,
+				33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */,
 				22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */,
-				33833AB32635A9C900A3FCD4 /* Assets.xcassets in Resources */,
+				33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */,
+				33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +714,26 @@
 			shellPath = /bin/sh;
 			shellScript = "PATH_TO_GOOGLE_PLISTS=\"${PROJECT_DIR}/AeroPlan/Resources/GoogleServices\" \n\ncase \"${CONFIGURATION}\" in \n\"Debug-Develop\" | \"Release-Develop\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-Develop.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n\"AppStore\" ) \n    cp -f \"$PATH_TO_GOOGLE_PLISTS/Google-AppStore.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n*) ;; \nesac\n";
 		};
+		332F4773264D80D7000BF63B /* [Codegen]R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "[Codegen]R.swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift\"\n";
+		};
 		333657CA2635B8B600517E2B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,6 +751,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug-Develop\" ]; then\n    if which swiftlint >/dev/null; then\n        swiftlint\n    else\n        sh setup.sh\n    fi\nfi\n";
+		};
+		ABBBD4DCBB64FF2A29339870 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AeroPlan/Pods-AeroPlan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FA650B4AC9CC26219F9A98E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -632,46 +800,61 @@
 			files = (
 				22157FE6264460F4004CA15D /* LaunchScreen.swift in Sources */,
 				2215800026446150004CA15D /* WelcomeViewModel.swift in Sources */,
+				332F4775264D81CC000BF63B /* R.generated.swift in Sources */,
+				22FF66482660107500C51D19 /* KeyboardEvent.swift in Sources */,
 				22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */,
+				22E30D3C264E51190059EDA5 /* CryptoProcessor.swift in Sources */,
 				22157FDB2644603D004CA15D /* APIRequest.swift in Sources */,
 				22157FD226445FFC004CA15D /* APIError.swift in Sources */,
 				22C0CB7C2647262600E8D933 /* DataManagersBuilder.swift in Sources */,
 				22E2E58E26385236009B38AC /* CoordinatorsBuilder.swift in Sources */,
 				22157FF626446132004CA15D /* ResetPasswordViewModel.swift in Sources */,
 				22E2E58B26385146009B38AC /* Aliases.swift in Sources */,
+				33521CE826524946001802BC /* Optional+Extension.swift in Sources */,
 				22157FFA26446140004CA15D /* SignInScreen.swift in Sources */,
 				22E2E5A826385BA2009B38AC /* AlertViewer.swift in Sources */,
 				22157FF126446123004CA15D /* NewPasswordScreen.swift in Sources */,
 				33833AAA2635A9C700A3FCD4 /* AppDelegate.swift in Sources */,
 				22157FDA2644603D004CA15D /* APIDataManager.swift in Sources */,
+				229599142659942000DDAFC2 /* AppFonts.swift in Sources */,
 				22157FF526446132004CA15D /* ResetPasswordScreen.swift in Sources */,
+				22E30D41264E5F2A0059EDA5 /* SecureTextFiled.swift in Sources */,
 				221580022644617A004CA15D /* User+StoredProperty.swift in Sources */,
-				22C0CB7A2647216000E8D933 /* AutorizationError.swift in Sources */,
+				22C0CB7A2647216000E8D933 /* AuthorizationError.swift in Sources */,
 				22C0CB76264719C800E8D933 /* ConfigurationReader.swift in Sources */,
 				22157FEB26446113004CA15D /* CreateAccountScreen.swift in Sources */,
 				2215800726446209004CA15D /* ModalWindowViewController.swift in Sources */,
+				22FF6641265FC0C200C51D19 /* ScreenDepend.swift in Sources */,
 				3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */,
+				22FF66432660068300C51D19 /* AlignmentButton.swift in Sources */,
 				333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */,
+				22E30D3F264E5F040059EDA5 /* TextField.swift in Sources */,
 				3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */,
 				22157FF026446123004CA15D /* NewPasswordViewModel.swift in Sources */,
 				224AE8C5263C73B2002537F0 /* UIView+Extensions.swift in Sources */,
 				22E2E585263850C1009B38AC /* RootCoordinator.swift in Sources */,
-				22E2E5912638538F009B38AC /* Animators.swift in Sources */,
+				22E2E5912638538F009B38AC /* FadeAnimator.swift in Sources */,
 				22157FE7264460F4004CA15D /* LaunchViewModel.swift in Sources */,
+				22E30D48264EB2700059EDA5 /* TermsOfConditionsView.swift in Sources */,
 				221580052644618D004CA15D /* User.swift in Sources */,
 				224AE8C3263C712C002537F0 /* ScreensBuilder.swift in Sources */,
 				22157FD92644603D004CA15D /* AuthInterceptor.swift in Sources */,
+				22FF66462660106200C51D19 /* KeyboardTracker.swift in Sources */,
 				224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */,
+				22FF664A2660108900C51D19 /* KeyboardNotification.swift in Sources */,
 				22157FEC26446113004CA15D /* CreateAccountViewModel.swift in Sources */,
-				22C0CB7826471E3400E8D933 /* AutorizationInteractor.swift in Sources */,
+				22C0CB7826471E3400E8D933 /* AuthorizationInteractor.swift in Sources */,
 				22E2E5822638506F009B38AC /* StartupService.swift in Sources */,
+				22E30D4A264EB7780059EDA5 /* NSAttributedString+Extensions.swift in Sources */,
 				22157FFB26446140004CA15D /* SignInViewModel.swift in Sources */,
 				22157FFF26446150004CA15D /* WelcomeScreen.swift in Sources */,
 				22C0CB742647190000E8D933 /* Configuration.swift in Sources */,
 				22157FD326445FFC004CA15D /* AppError.swift in Sources */,
 				22E2E59C2638567C009B38AC /* OverlayAlertController.swift in Sources */,
+				22E30D3A264E4ECF0059EDA5 /* String+Extensions.swift in Sources */,
 				22C0CB7E2647263400E8D933 /* InteractorsBuilder.swift in Sources */,
 				22E2E588263850F8009B38AC /* ServicesBuilder.swift in Sources */,
+				33521CE626524877001802BC /* AppColors.swift in Sources */,
 				224AE8CE263C7842002537F0 /* HomeCoordinator.swift in Sources */,
 				22E2E59526385410009B38AC /* MVVM.swift in Sources */,
 			);
