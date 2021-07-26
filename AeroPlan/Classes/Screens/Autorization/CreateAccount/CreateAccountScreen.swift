@@ -131,6 +131,12 @@ final class CreateAccountScreen: Screen<CreateAccountViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
+        viewModel.errorObservable
+            .subscribe { [weak self] error in
+                self?.showError(error)
+            }
+            .disposed(by: bag)
+        
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
         emailTextField.validation = { [weak self] in self?.viewModel.isEmailTextValid($0) == true }

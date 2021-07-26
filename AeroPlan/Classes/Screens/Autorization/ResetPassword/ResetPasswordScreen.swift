@@ -21,7 +21,7 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
     }
     
     private var keyboardTracker: KeyboardTracker?
-
+    
     deinit {
         keyboardTracker?.stopTracking()
         keyboardTracker = nil
@@ -85,6 +85,12 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
+        viewModel.errorObservable
+            .subscribe { [weak self] error in
+                self?.showError(error)
+            }
+            .disposed(by: bag)
+        
         resetPasswordButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .touchUpInside)
         
         keyboardTracker = KeyboardTracker(trackNotification: { [weak self] notification in
@@ -104,12 +110,12 @@ final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
 }
 
 private extension ResetPasswordScreen {
-    @objc func resetPasswordButtonTapped() {
-        guard let email = emailTextField.text else {
-            return
+        @objc func resetPasswordButtonTapped() {
+            guard let email = emailTextField.text else {
+                return
+            }
+            viewModel.resetPassword(email: email)
         }
-        viewModel.resetPassword(email: email)
-    }
     
     func updateScrollViewBottomInset(value: CGFloat, animationDuration: TimeInterval, animationOptions: UIView.AnimationOptions) {
         scrollView.showsVerticalScrollIndicator = false

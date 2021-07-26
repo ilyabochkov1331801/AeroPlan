@@ -86,6 +86,12 @@ final class NewPasswordScreen: Screen<NewPasswordViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
+        viewModel.errorObservable
+            .subscribe { [weak self] error in
+                self?.showError(error)
+            }
+            .disposed(by: bag)
+        
         changePasswordButton.addTarget(self, action: #selector(changePasswordButtonTapped), for: .touchUpInside)
         
         keyboardTracker = KeyboardTracker(trackNotification: { [weak self] notification in

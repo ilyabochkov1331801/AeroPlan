@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class WelcomeViewModel: ViewModel {
     struct Transitions: ScreenTransitions {
@@ -14,9 +16,13 @@ class WelcomeViewModel: ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
+    private let errorSubject = PublishRelay<AppError>()
+    
     var transitions = Transitions()
     
-    var errorOccurred: ((AppError) -> Void)?
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
     var activity: ((Bool) -> Void)?
 }
 

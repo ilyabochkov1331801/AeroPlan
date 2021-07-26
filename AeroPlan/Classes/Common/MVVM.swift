@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 public typealias ScreenTransition = () -> Void
 public protocol ScreenTransitions { }
@@ -13,12 +15,13 @@ public protocol ScreenTransitions { }
 public protocol ViewModel {
     associatedtype Transitions: ScreenTransitions
     
+    var errorObservable: Observable<AppError> { get }
     var transitions: Transitions { get set }
-    var errorOccurred: ((AppError) -> Void)? { get set }
     var activity: ((Bool) -> Void)? { get set }
 }
 
 open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
+    let bag = DisposeBag()
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var viewModel: ScreenViewModel
@@ -58,7 +61,6 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
     }
     
     func setupBinding() {
-        viewModel.errorOccurred = showError
         viewModel.activity = { [weak self] in $0 ? self?.startActivity() : self?.endActivity() }
     }
     

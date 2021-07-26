@@ -30,4 +30,14 @@ final class LaunchScreen: Screen<LaunchViewModel> {
         
         label.text = "Launch"
     }
+    
+    override func setupBinding() {
+        super.setupBinding()
+        
+        viewModel.errorObservable
+            .subscribe(onNext: { [weak self] error in
+                self?.showError(error)
+            })
+            .disposed(by: bag)
+    }
 }

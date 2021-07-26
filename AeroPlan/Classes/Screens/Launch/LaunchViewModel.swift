@@ -5,16 +5,23 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
+import RxSwift
+import RxCocoa
+
 final class LaunchViewModel: ViewModel {
     struct Transitions: ScreenTransitions {
         var openHomeFlow: ScreenTransition?
         var openAutorizationFlow: ScreenTransition?
     }
     
+    private let errorSubject = PublishRelay<AppError>()
+        
     var transitions = Transitions()
     
-    var errorOccurred: ((AppError) -> Void)?
     var activity: ((Bool) -> Void)?
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
     
     private let autorizationInteractor: AuthorizationInteractor
     
@@ -41,13 +48,13 @@ private extension LaunchViewModel {
             return
         }
         
-        autorizationInteractor.registerAnonimus { [weak self] result in
+        autorizationInteractor.registerAnonimous { [weak self] result in
             self?.activity?(false)
             switch result {
             case .success:
                 completion(true)
             case .failure(let error):
-                self?.errorOccurred?(error)
+                self?.errorSubject.accept(error)
             }
         }
     }

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class NewPasswordViewModel: NSObject, ViewModel {
     struct Transitions: ScreenTransitions {
@@ -13,9 +15,13 @@ final class NewPasswordViewModel: NSObject, ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
+    private let errorSubject = PublishRelay<AppError>()
+    
     var transitions = Transitions()
     
-    var errorOccurred: ((AppError) -> Void)?
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
     var activity: ((Bool) -> Void)?
     
     private let authorizationInteractor: AuthorizationInteractor
@@ -29,7 +35,7 @@ extension NewPasswordViewModel {
     func changePassword(password: String) {
         activity?(true)
         guard isPasswordValid(password) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid password"))
             activity?(false)
             return
         }
@@ -40,7 +46,7 @@ extension NewPasswordViewModel {
             case .success:
                 break
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
             }
         }
     }

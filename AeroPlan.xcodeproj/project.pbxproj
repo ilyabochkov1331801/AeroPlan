@@ -61,9 +61,15 @@
 		22FF66462660106200C51D19 /* KeyboardTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66452660106200C51D19 /* KeyboardTracker.swift */; };
 		22FF66482660107500C51D19 /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66472660107500C51D19 /* KeyboardEvent.swift */; };
 		22FF664A2660108900C51D19 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF66492660108900C51D19 /* KeyboardNotification.swift */; };
-		332F4775264D81CC000BF63B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F4774264D81CC000BF63B /* R.generated.swift */; };
 		332F4779264D828C000BF63B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332F4778264D828C000BF63B /* Colors.xcassets */; };
 		333C06A92639D42600BE8F36 /* StorageDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333C06A82639D42600BE8F36 /* StorageDataManger.swift */; };
+		333E266226AED51000D0B03B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E266126AED51000D0B03B /* R.generated.swift */; };
+		333E266926AED55E00D0B03B /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266326AED55900D0B03B /* Stolzl-Light.ttf */; };
+		333E266A26AED55E00D0B03B /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266526AED55900D0B03B /* Stolzl-Medium.ttf */; };
+		333E266B26AED55E00D0B03B /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266626AED55900D0B03B /* Stolzl-Regular.ttf */; };
+		333E266C26AED55E00D0B03B /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266826AED55A00D0B03B /* Stolzl-Thin.ttf */; };
+		333E266D26AED55E00D0B03B /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266426AED55900D0B03B /* Stolzl-Bold.ttf */; };
+		333E266E26AED55E00D0B03B /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333E266726AED55A00D0B03B /* Stolzl-Book.ttf */; };
 		33521CE626524877001802BC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33521CE526524877001802BC /* AppColors.swift */; };
 		33521CE826524946001802BC /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33521CE726524946001802BC /* Optional+Extension.swift */; };
 		33521CEE26524FCF001802BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33521CED26524FCF001802BC /* Localizable.strings */; };
@@ -71,12 +77,6 @@
 		33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33833AB22635A9C900A3FCD4 /* Image.xcassets */; };
 		3383E41D263B30F000CA0329 /* StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41C263B30F000CA0329 /* StoredProperty.swift */; };
 		3383E41F263B311800CA0329 /* Elementary+StoredProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */; };
-		33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */; };
-		33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */; };
-		33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */; };
-		33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */; };
-		33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */; };
-		33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,10 +149,16 @@
 		22FF66472660107500C51D19 /* KeyboardEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
 		22FF66492660108900C51D19 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		23741963313219A13C7F0128 /* Pods-AeroPlan.release-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.release-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.release-develop.xcconfig"; sourceTree = "<group>"; };
-		332F4774264D81CC000BF63B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = AeroPlan/Classes/Resources/Generated/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		332F4778264D828C000BF63B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		333657E72635BC4300517E2B /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		333C06A82639D42600BE8F36 /* StorageDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataManger.swift; sourceTree = "<group>"; };
+		333E266126AED51000D0B03B /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		333E266326AED55900D0B03B /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Light.ttf"; sourceTree = "<group>"; };
+		333E266426AED55900D0B03B /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Bold.ttf"; sourceTree = "<group>"; };
+		333E266526AED55900D0B03B /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Medium.ttf"; sourceTree = "<group>"; };
+		333E266626AED55900D0B03B /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Regular.ttf"; sourceTree = "<group>"; };
+		333E266726AED55A00D0B03B /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Book.ttf"; sourceTree = "<group>"; };
+		333E266826AED55A00D0B03B /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Stolzl-Thin.ttf"; sourceTree = "<group>"; };
 		33521CE526524877001802BC /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		33521CE726524946001802BC /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		33521CED26524FCF001802BC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -165,12 +171,6 @@
 		33833ACE2635B04C00A3FCD4 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
 		3383E41C263B30F000CA0329 /* StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredProperty.swift; sourceTree = "<group>"; };
 		3383E41E263B311800CA0329 /* Elementary+StoredProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Elementary+StoredProperty.swift"; sourceTree = "<group>"; };
-		33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Light.ttf"; path = "../../../../../Downloads/font/Stolzl-Light.ttf"; sourceTree = "<group>"; };
-		33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Medium.ttf"; path = "../../../../../Downloads/font/Stolzl-Medium.ttf"; sourceTree = "<group>"; };
-		33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Bold.ttf"; path = "../../../../../Downloads/font/Stolzl-Bold.ttf"; sourceTree = "<group>"; };
-		33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Thin.ttf"; path = "../../../../../Downloads/font/Stolzl-Thin.ttf"; sourceTree = "<group>"; };
-		33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Book.ttf"; path = "../../../../../Downloads/font/Stolzl-Book.ttf"; sourceTree = "<group>"; };
-		33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Stolzl-Regular.ttf"; path = "../../../../../Downloads/font/Stolzl-Regular.ttf"; sourceTree = "<group>"; };
 		CC1544457921956FDD7726DC /* Pods_AeroPlan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AeroPlan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7C4116B06BA5DD8CC71B37B /* Pods-AeroPlan.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.appstore.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.appstore.xcconfig"; sourceTree = "<group>"; };
 		DEB04B9A0BBADBFEB738F09C /* Pods-AeroPlan.debug-develop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroPlan.debug-develop.xcconfig"; path = "Target Support Files/Pods-AeroPlan/Pods-AeroPlan.debug-develop.xcconfig"; sourceTree = "<group>"; };
@@ -553,12 +553,12 @@
 		33833AD02635B50D00A3FCD4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				33FB45382667CFFC00881E13 /* Stolzl-Bold.ttf */,
-				33FB453A2667CFFD00881E13 /* Stolzl-Book.ttf */,
-				33FB45362667CFFC00881E13 /* Stolzl-Light.ttf */,
-				33FB45372667CFFC00881E13 /* Stolzl-Medium.ttf */,
-				33FB453B2667CFFD00881E13 /* Stolzl-Regular.ttf */,
-				33FB45392667CFFC00881E13 /* Stolzl-Thin.ttf */,
+				333E266426AED55900D0B03B /* Stolzl-Bold.ttf */,
+				333E266726AED55A00D0B03B /* Stolzl-Book.ttf */,
+				333E266326AED55900D0B03B /* Stolzl-Light.ttf */,
+				333E266526AED55900D0B03B /* Stolzl-Medium.ttf */,
+				333E266626AED55900D0B03B /* Stolzl-Regular.ttf */,
+				333E266826AED55A00D0B03B /* Stolzl-Thin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -566,7 +566,7 @@
 		33833AD12635B51200A3FCD4 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				332F4774264D81CC000BF63B /* R.generated.swift */,
+				333E266126AED51000D0B03B /* R.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -664,15 +664,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				332F4779264D828C000BF63B /* Colors.xcassets in Resources */,
-				33FB453C2667CFFD00881E13 /* Stolzl-Light.ttf in Resources */,
+				333E266926AED55E00D0B03B /* Stolzl-Light.ttf in Resources */,
 				33521CEE26524FCF001802BC /* Localizable.strings in Resources */,
-				33FB45412667CFFD00881E13 /* Stolzl-Regular.ttf in Resources */,
-				33FB453F2667CFFD00881E13 /* Stolzl-Thin.ttf in Resources */,
-				33FB453E2667CFFD00881E13 /* Stolzl-Bold.ttf in Resources */,
-				33FB45402667CFFD00881E13 /* Stolzl-Book.ttf in Resources */,
+				333E266C26AED55E00D0B03B /* Stolzl-Thin.ttf in Resources */,
 				22E2DE7B2636D033009B38AC /* LaunchScreen.storyboard in Resources */,
+				333E266D26AED55E00D0B03B /* Stolzl-Bold.ttf in Resources */,
 				33833AB32635A9C900A3FCD4 /* Image.xcassets in Resources */,
-				33FB453D2667CFFD00881E13 /* Stolzl-Medium.ttf in Resources */,
+				333E266A26AED55E00D0B03B /* Stolzl-Medium.ttf in Resources */,
+				333E266B26AED55E00D0B03B /* Stolzl-Regular.ttf in Resources */,
+				333E266E26AED55E00D0B03B /* Stolzl-Book.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,11 +728,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift,
+				$SRCROOT/AeroPlan/Resources/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AeroPlan/Classes/Resources/Generated/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/AeroPlan/Resources/Generated/R.generated.swift\"\n";
 		};
 		333657CA2635B8B600517E2B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -800,7 +800,6 @@
 			files = (
 				22157FE6264460F4004CA15D /* LaunchScreen.swift in Sources */,
 				2215800026446150004CA15D /* WelcomeViewModel.swift in Sources */,
-				332F4775264D81CC000BF63B /* R.generated.swift in Sources */,
 				22FF66482660107500C51D19 /* KeyboardEvent.swift in Sources */,
 				22E2E59F2638573C009B38AC /* AlertCoordinator.swift in Sources */,
 				22E30D3C264E51190059EDA5 /* CryptoProcessor.swift in Sources */,
@@ -838,6 +837,7 @@
 				22E30D48264EB2700059EDA5 /* TermsOfConditionsView.swift in Sources */,
 				221580052644618D004CA15D /* User.swift in Sources */,
 				224AE8C3263C712C002537F0 /* ScreensBuilder.swift in Sources */,
+				333E266226AED51000D0B03B /* R.generated.swift in Sources */,
 				22157FD92644603D004CA15D /* AuthInterceptor.swift in Sources */,
 				22FF66462660106200C51D19 /* KeyboardTracker.swift in Sources */,
 				224AE8C7263C7585002537F0 /* AutorizationCoordinator.swift in Sources */,

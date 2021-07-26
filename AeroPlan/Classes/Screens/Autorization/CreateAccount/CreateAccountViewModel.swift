@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class CreateAccountViewModel: ViewModel {
     struct Transitions: ScreenTransitions {
@@ -14,10 +16,14 @@ final class CreateAccountViewModel: ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
+    private let errorSubject = PublishRelay<AppError>()
     
     var transitions = Transitions()
+    
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
+    var activity: ((Bool) -> Void)?
     
     private let autorizationInteractor: AuthorizationInteractor
     
@@ -31,19 +37,19 @@ extension CreateAccountViewModel {
         activity?(true)
         
         guard name.isValidUsername else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid username"))
             activity?(false)
             return
         }
         
         guard email.isValidEmail else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid email"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid email"))
             activity?(false)
             return
         }
         
         guard password.isValidPassword else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid password"))
             activity?(false)
             return
         }
@@ -54,7 +60,7 @@ extension CreateAccountViewModel {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(error)
+                self?.errorSubject.accept(error)
             }
         }
     }

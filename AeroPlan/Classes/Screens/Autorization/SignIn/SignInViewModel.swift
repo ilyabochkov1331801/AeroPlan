@@ -6,6 +6,8 @@
 //
 
 import GoogleSignIn
+import RxCocoa
+import RxSwift
 
 final class SignInViewModel: NSObject, ViewModel {
     struct Transitions: ScreenTransitions {
@@ -13,11 +15,15 @@ final class SignInViewModel: NSObject, ViewModel {
         var openCreateAccount: ScreenTransition?
         var openResetPassword: ScreenTransition?
     }
+    
+    private let errorSubject = PublishRelay<AppError>()
         
     var transitions = Transitions()
     
-    var errorOccurred: ((AppError) -> Void)?
     var activity: ((Bool) -> Void)?
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
     
     private let authorizationInteractor: AuthorizationInteractor
     
@@ -30,13 +36,13 @@ extension SignInViewModel {
     func signInWith(username: String, password: String) {
         activity?(true)
         guard isUsernameTextValid(username) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid username"))
             activity?(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
+            errorSubject.accept(AuthorizationError(comment: "Invalid password"))
             activity?(false)
             return
         }
@@ -47,7 +53,7 @@ extension SignInViewModel {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
             }
         }
     }
@@ -128,11 +134,11 @@ extension SignInViewModel {
 extension SignInViewModel: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            errorOccurred?(AuthorizationError(previousError: error))
+            errorSubject.accept(AuthorizationError(previousError: error))
         }
         
         guard let userId = user?.userID else {
-            errorOccurred?(AuthorizationError(comment: "No user id"))
+            errorSubject.accept(AuthorizationError(comment: "No user id"))
             return
         }
         
@@ -141,7 +147,7 @@ extension SignInViewModel: GIDSignInDelegate {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
             }
         }
     }

@@ -32,7 +32,7 @@ final class SignInScreen: Screen<SignInViewModel> {
     }
     
     private var keyboardTracker: KeyboardTracker?
-
+    
     deinit {
         keyboardTracker?.stopTracking()
         keyboardTracker = nil
@@ -142,27 +142,33 @@ final class SignInScreen: Screen<SignInViewModel> {
         
         view.backgroundColor = Colors.background
         navigationItem.backButtonTitle = ""
-
+        
         logInWithGoogleButton.setAttributedTitle(viewModel.logInWithGoogleText, for: .normal)
         logInButton.setAttributedTitle(viewModel.logInText, for: .normal)
         forgotPasswordButton.setAttributedTitle(viewModel.forgotPasswordText, for: .normal)
         createAccountButton.setAttributedTitle(viewModel.createAccountText, for: .normal)
         
         logInWithGoogleButton.setImage(viewModel.logInWithGoogleImage, for: .normal)
-
+        
         usernameTextField.placeholder = viewModel.usernamePlaceholder
         usernameTextField.autocapitalizationType = .none
         passwordTextFiled.placeholder = viewModel.passwordPlaceholder
         passwordTextFiled.autocapitalizationType = .none
-                
+        
         titleLabel.attributedText = viewModel.titleText
         newUserLabel.attributedText = viewModel.newUserText
-
+        
         separatorImageView.image = viewModel.separatorImage
     }
     
     override func setupBinding() {
         super.setupBinding()
+        
+        viewModel.errorObservable
+            .subscribe { [weak self] error in
+                self?.showError(error)
+            }
+            .disposed(by: bag)
         
         createAccountButton.addTarget(viewModel, action: #selector(viewModel.createAccountButtonTapped), for: .touchUpInside)
         forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPasswordButtonTapped), for: .touchUpInside)

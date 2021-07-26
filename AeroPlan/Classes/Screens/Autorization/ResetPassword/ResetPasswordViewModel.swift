@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class ResetPasswordViewModel: NSObject, ViewModel {
     struct Transitions: ScreenTransitions {
@@ -15,8 +17,12 @@ final class ResetPasswordViewModel: NSObject, ViewModel {
     
     var transitions = Transitions()
     
-    var errorOccurred: ((AppError) -> Void)?
     var activity: ((Bool) -> Void)?
+    
+    private let errorSubject = PublishRelay<AppError>()
+    var errorObservable: Observable<AppError> {
+        errorSubject.asObservable()
+    }
     
     private let authorizationInteractor: AuthorizationInteractor
     
@@ -29,18 +35,20 @@ extension ResetPasswordViewModel {
     func resetPassword(email: String) {
         activity?(true)
         guard isEmailValid(email) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid email"))
             activity?(false)
-            return
+            return errorSubject.accept(AuthorizationError(comment: "Invalid email"))
         }
-        
         authorizationInteractor.resetPassword(email: email) { [weak self] result in
             self?.activity?(false)
+            guard let self = self else {
+                return
+            }
+            
             switch result {
             case .success:
                 break
-            case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+            case let .failure(error):
+                self.errorSubject.accept(AuthorizationError(previousError: error))
             }
         }
     }
