@@ -10,6 +10,9 @@ target 'AeroPlan' do
    pod 'Firebase/Analytics'
    pod 'KeychainAccess'
    pod 'Alamofire'
+   pod 'R.swift'
+   pod 'RxSwift', '~> 5'
+   pod 'RxCocoa', '~> 5'
 
    project 'AeroPlan.xcodeproj'
 end
