@@ -6,8 +6,8 @@
 //
 
 import Alamofire
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class APIDataManager {
     private let authInterceptor: AuthInterceptor

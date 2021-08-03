@@ -164,16 +164,30 @@ final class SignInScreen: Screen<SignInViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
-        viewModel.errorObservable
-            .subscribe { [weak self] error in
-                self?.showError(error)
-            }
-            .disposed(by: bag)
+
+        createAccountButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.createAccountButtonTapped()
+            })
+            .disposed(by: disposeBag)
         
-        createAccountButton.addTarget(viewModel, action: #selector(viewModel.createAccountButtonTapped), for: .touchUpInside)
-        forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPasswordButtonTapped), for: .touchUpInside)
-        logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
-        logInWithGoogleButton.addTarget(viewModel, action: #selector(viewModel.logInWithGoogleButtonTapped), for: .touchUpInside)
+        forgotPasswordButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.forgotPasswordButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        logInButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.logInButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        logInWithGoogleButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.logInWithGoogleButtonTapped()
+            })
+            .disposed(by: disposeBag)
         
         usernameTextField.validation = { [weak self] in self?.viewModel.isUsernameTextValid($0) == true }
         passwordTextFiled.validation = { [weak self] in self?.viewModel.isPasswordTextValid($0) == true }
@@ -195,7 +209,7 @@ final class SignInScreen: Screen<SignInViewModel> {
 }
 
 private extension SignInScreen {
-    @objc func logInButtonTapped() {
+    func logInButtonTapped() {
         guard let username = usernameTextField.text, let password = passwordTextFiled.text else {
             return
         }

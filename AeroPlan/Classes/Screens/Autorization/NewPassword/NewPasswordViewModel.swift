@@ -5,48 +5,46 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class NewPasswordViewModel: NSObject, ViewModel {
     struct Transitions: ScreenTransitions {
         var openSignIn: ScreenTransition?
         var openPrivacy: ScreenTransition?
     }
-    
-    private let errorSubject = PublishRelay<AppError>()
-    
+        
     var transitions = Transitions()
     
-    var errorObservable: Observable<AppError> {
-        errorSubject.asObservable()
+    private let activitySubject = PublishRelay<Bool>()
+    private let autorizationInteractor: AuthorizationInteractor
+    
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
     }
-    var activity: ((Bool) -> Void)?
     
-    private let authorizationInteractor: AuthorizationInteractor
-    
-    init(authorizationInteractor: AuthorizationInteractor) {
-        self.authorizationInteractor = authorizationInteractor
+    init(autorizationInteractor: AuthorizationInteractor) {
+        self.autorizationInteractor = autorizationInteractor
     }
 }
 
 extension NewPasswordViewModel {
     func changePassword(password: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isPasswordValid(password) else {
-            errorSubject.accept(AuthorizationError(comment: "Invalid password"))
-            activity?(false)
+            showError(AuthorizationError(comment: "Invalid password"))
+            activitySubject.accept(false)
             return
         }
         
-        authorizationInteractor.changePassword(password: password) { [weak self] result in
-            self?.activity?(false)
+        autorizationInteractor.changePassword(password: password) { [weak self] result in
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 break
             case .failure(let error):
-                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
+                self?.showError(AuthorizationError(previousAppError: error))
             }
         }
     }

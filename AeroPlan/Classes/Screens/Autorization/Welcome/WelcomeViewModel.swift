@@ -5,9 +5,9 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
+import UIKit
 
 class WelcomeViewModel: ViewModel {
     struct Transitions: ScreenTransitions {
@@ -16,14 +16,14 @@ class WelcomeViewModel: ViewModel {
         var openPrivacy: ScreenTransition?
     }
     
-    private let errorSubject = PublishRelay<AppError>()
-    
     var transitions = Transitions()
     
-    var errorObservable: Observable<AppError> {
-        errorSubject.asObservable()
+    private let activitySubject = PublishRelay<Bool>()
+    
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
     }
-    var activity: ((Bool) -> Void)?
 }
 
 extension WelcomeViewModel {
@@ -31,11 +31,11 @@ extension WelcomeViewModel {
         transitions.openPrivacy?()
     }
     
-    @objc func startAdventureButtonTapped() {
+    func startAdventureButtonTapped() {
         transitions.openHomeFlow?()
     }
     
-    @objc func signInButtonTapped() {
+    func signInButtonTapped() {
         transitions.openSignIn?()
     }
 }

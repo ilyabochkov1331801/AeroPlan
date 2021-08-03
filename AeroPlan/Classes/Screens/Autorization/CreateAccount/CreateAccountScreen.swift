@@ -131,20 +131,23 @@ final class CreateAccountScreen: Screen<CreateAccountViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
-        viewModel.errorObservable
-            .subscribe { [weak self] error in
-                self?.showError(error)
-            }
-            .disposed(by: bag)
-        
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
         emailTextField.validation = { [weak self] in self?.viewModel.isEmailTextValid($0) == true }
         passwordTextFiled.validation = { [weak self] in self?.viewModel.isPasswordTextValid($0) == true }
         usernameTextField.validation = { [weak self] in self?.viewModel.isUsernameTextValid($0) == true }
         
-        signInButton.addTarget(viewModel, action: #selector(viewModel.signInButtonTapped), for: .touchUpInside)
-        createAccountButton.addTarget(self, action: #selector(createAccountButtonTapped), for: .touchUpInside)
+        signInButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.signInButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        createAccountButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.createAccountButtonTapped()
+            })
+            .disposed(by: disposeBag)
         
         keyboardTracker = KeyboardTracker(trackNotification: { [weak self] notification in
             guard let self = self else { return }
@@ -163,7 +166,7 @@ final class CreateAccountScreen: Screen<CreateAccountViewModel> {
 }
 
 private extension CreateAccountScreen {
-    @objc func createAccountButtonTapped() {
+    func createAccountButtonTapped() {
         guard let username = usernameTextField.text,
               let password = passwordTextFiled.text,
               let email = emailTextField.text else {

@@ -94,15 +94,18 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
-        viewModel.errorObservable
-            .subscribe { [weak self] error in
-                self?.showError(error)
-            }
-            .disposed(by: bag)
-        
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
-        startAdventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureButtonTapped), for: .touchUpInside)
-        signInButton.addTarget(viewModel, action: #selector(viewModel.signInButtonTapped), for: .touchUpInside)
+        startAdventureButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.startAdventureButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        signInButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.signInButtonTapped()
+            })
+            .disposed(by: disposeBag)
     }
 }

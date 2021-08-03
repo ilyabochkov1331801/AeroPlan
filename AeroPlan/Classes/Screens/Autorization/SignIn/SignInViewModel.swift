@@ -16,16 +16,15 @@ final class SignInViewModel: NSObject, ViewModel {
         var openResetPassword: ScreenTransition?
     }
     
-    private let errorSubject = PublishRelay<AppError>()
-        
     var transitions = Transitions()
     
-    var activity: ((Bool) -> Void)?
-    var errorObservable: Observable<AppError> {
-        errorSubject.asObservable()
-    }
-    
+    private let activitySubject = PublishRelay<Bool>()
     private let authorizationInteractor: AuthorizationInteractor
+    
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
+    }
     
     init(authorizationInteractor: AuthorizationInteractor) {
         self.authorizationInteractor = authorizationInteractor
@@ -34,26 +33,26 @@ final class SignInViewModel: NSObject, ViewModel {
 
 extension SignInViewModel {
     func signInWith(username: String, password: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isUsernameTextValid(username) else {
-            errorSubject.accept(AuthorizationError(comment: "Invalid username"))
-            activity?(false)
+            showError(AuthorizationError(comment: "Invalid username"))
+            activitySubject.accept(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
-            errorSubject.accept(AuthorizationError(comment: "Invalid password"))
-            activity?(false)
+            showError(AuthorizationError(comment: "Invalid password"))
+            activitySubject.accept(false)
             return
         }
         
         authorizationInteractor.signInWith(name: username, password: password) { [weak self] result in
-            self?.activity?(false)
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
+                self?.showError(AuthorizationError(previousAppError: error))
             }
         }
     }
@@ -66,15 +65,15 @@ extension SignInViewModel {
         text.isValidPassword
     }
     
-    @objc func forgotPasswordButtonTapped() {
+    func forgotPasswordButtonTapped() {
         transitions.openResetPassword?()
     }
     
-    @objc func createAccountButtonTapped() {
+    func createAccountButtonTapped() {
         transitions.openCreateAccount?()
     }
     
-    @objc func logInWithGoogleButtonTapped() {
+    func logInWithGoogleButtonTapped() {
         GIDSignIn.sharedInstance().signIn()
     }
 }
@@ -134,11 +133,11 @@ extension SignInViewModel {
 extension SignInViewModel: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            errorSubject.accept(AuthorizationError(previousError: error))
+            showError(AuthorizationError(previousError: error))
         }
         
         guard let userId = user?.userID else {
-            errorSubject.accept(AuthorizationError(comment: "No user id"))
+            showError(AuthorizationError(comment: "No user id"))
             return
         }
         
@@ -147,7 +146,7 @@ extension SignInViewModel: GIDSignInDelegate {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorSubject.accept(AuthorizationError(previousAppError: error))
+                self?.showError(AuthorizationError(previousAppError: error))
             }
         }
     }

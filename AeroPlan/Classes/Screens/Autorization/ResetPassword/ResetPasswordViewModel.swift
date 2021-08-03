@@ -5,9 +5,8 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class ResetPasswordViewModel: NSObject, ViewModel {
     struct Transitions: ScreenTransitions {
@@ -17,29 +16,28 @@ final class ResetPasswordViewModel: NSObject, ViewModel {
     
     var transitions = Transitions()
     
-    var activity: ((Bool) -> Void)?
+    private let activitySubject = PublishRelay<Bool>()
+    private let autorizationInteractor: AuthorizationInteractor
     
-    private let errorSubject = PublishRelay<AppError>()
-    var errorObservable: Observable<AppError> {
-        errorSubject.asObservable()
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
     }
     
-    private let authorizationInteractor: AuthorizationInteractor
-    
-    init(authorizationInteractor: AuthorizationInteractor) {
-        self.authorizationInteractor = authorizationInteractor
+    init(autorizationInteractor: AuthorizationInteractor) {
+        self.autorizationInteractor = autorizationInteractor
     }
 }
 
 extension ResetPasswordViewModel {
     func resetPassword(email: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isEmailValid(email) else {
-            activity?(false)
-            return errorSubject.accept(AuthorizationError(comment: "Invalid email"))
+            activitySubject.accept(false)
+            return showError(AuthorizationError(comment: "Invalid email"))
         }
-        authorizationInteractor.resetPassword(email: email) { [weak self] result in
-            self?.activity?(false)
+        autorizationInteractor.resetPassword(email: email) { [weak self] result in
+            self?.activitySubject.accept(false)
             guard let self = self else {
                 return
             }
@@ -48,7 +46,7 @@ extension ResetPasswordViewModel {
             case .success:
                 break
             case let .failure(error):
-                self.errorSubject.accept(AuthorizationError(previousError: error))
+                self.showError(AuthorizationError(previousError: error))
             }
         }
     }

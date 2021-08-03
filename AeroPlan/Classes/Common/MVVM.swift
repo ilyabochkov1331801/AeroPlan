@@ -5,23 +5,30 @@
 //  Created by Ilya Bochkov on 27.04.21.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
+import UIKit
 
-public typealias ScreenTransition = () -> Void
-public protocol ScreenTransitions { }
+typealias ScreenTransition = () -> Void
+protocol ScreenTransitions { }
 
-public protocol ViewModel {
+protocol ViewModel: AnyObject, EventsHandler {
     associatedtype Transitions: ScreenTransitions
     
-    var errorObservable: Observable<AppError> { get }
     var transitions: Transitions { get set }
-    var activity: ((Bool) -> Void)? { get set }
+    var activity: Driver<Bool> { get }
 }
 
-open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
-    let bag = DisposeBag()
+extension Reactive where Base: ViewModel {
+    var errors: Binder<AppError> {
+        Binder(base) { viewModel, error in
+            viewModel.showError(error)
+        }
+    }
+}
+
+class Screen<ScreenViewModel: ViewModel>: UIViewController {
+    let disposeBag = DisposeBag()
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var viewModel: ScreenViewModel
@@ -61,26 +68,12 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
     }
     
     func setupBinding() {
-        viewModel.activity = { [weak self] in $0 ? self?.startActivity() : self?.endActivity() }
-    }
-    
-    func startActivity() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        view.isUserInteractionEnabled = false
-    }
-    
-    func endActivity() {
-        activityIndicator.isHidden = true
-        activityIndicator.stopAnimating()
-        view.isUserInteractionEnabled = true
-    }
-}
-
-extension Screen {
-    var showError: (AppError) -> Void {
-        return { [weak self] error in // swiftlint:disable:this implicit_return
-            self?.alertCoordinator.showError(error: error)
-        }
+        viewModel.activity
+            .do(onNext: { [weak self] isActive in
+                self?.activityIndicator.isHidden = !isActive
+                self?.view.isUserInteractionEnabled = !isActive
+            })
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
 }

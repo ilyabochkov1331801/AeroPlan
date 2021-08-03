@@ -5,9 +5,8 @@
 //  Created by Ilya Bochkov on 8.05.21.
 //
 
-import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 final class AuthorizationInteractor {
     private let apiDataManager: APIDataManager
