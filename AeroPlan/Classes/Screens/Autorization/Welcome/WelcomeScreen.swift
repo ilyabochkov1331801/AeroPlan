@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WelcomeScreen: Screen<WelcomeViewModel> {
+final class WelcomeScreen: Screen<WelcomeTransitions, WelcomeViewModel> {
     private typealias Colors = AppColors.WelcomeScreen
     private typealias Fonts = AppFonts.WelcomeScreen
         

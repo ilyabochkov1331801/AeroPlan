@@ -8,21 +8,13 @@
 import RxCocoa
 import RxSwift
 
-final class NewPasswordViewModel: NSObject, ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
-        
-    var transitions = Transitions()
-    
-    private let activitySubject = PublishRelay<Bool>()
+struct NewPasswordTransitions: ScreenTransitions {
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
+}
+
+final class NewPasswordViewModel: ViewModel<NewPasswordTransitions> {
     private let autorizationInteractor: AuthorizationInteractor
-    
-    var activity: Driver<Bool> {
-        activitySubject
-            .asDriver(onErrorJustReturn: false)
-    }
     
     init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
@@ -33,7 +25,7 @@ extension NewPasswordViewModel {
     func changePassword(password: String) {
         activitySubject.accept(true)
         guard isPasswordValid(password) else {
-            showError(AuthorizationError(comment: "Invalid password"))
+            error.onNext(AuthorizationError(comment: "Invalid password"))
             activitySubject.accept(false)
             return
         }
@@ -44,7 +36,7 @@ extension NewPasswordViewModel {
             case .success:
                 break
             case .failure(let error):
-                self?.showError(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }

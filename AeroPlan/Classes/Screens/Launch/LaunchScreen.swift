@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LaunchScreen: Screen<LaunchViewModel> {
+final class LaunchScreen: Screen<LaunchTransitions, LaunchViewModel> {
     private let label = UILabel()
     
     override func viewDidAppear(_ animated: Bool) {

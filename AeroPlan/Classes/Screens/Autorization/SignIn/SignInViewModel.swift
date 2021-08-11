@@ -9,25 +9,23 @@ import GoogleSignIn
 import RxCocoa
 import RxSwift
 
-final class SignInViewModel: NSObject, ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openCreateAccount: ScreenTransition?
-        var openResetPassword: ScreenTransition?
-    }
-    
-    var transitions = Transitions()
-    
-    private let activitySubject = PublishRelay<Bool>()
+struct SignInTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openCreateAccount: ScreenTransition?
+    var openResetPassword: ScreenTransition?
+}
+
+final class SignInViewModel: ViewModel<SignInTransitions> {
     private let authorizationInteractor: AuthorizationInteractor
-    
-    var activity: Driver<Bool> {
-        activitySubject
-            .asDriver(onErrorJustReturn: false)
-    }
+    let googleAutorizationHandler: GoogleAutorizationHandler
     
     init(authorizationInteractor: AuthorizationInteractor) {
         self.authorizationInteractor = authorizationInteractor
+        self.googleAutorizationHandler = GoogleAutorizationHandler()
+        
+        super.init()
+        
+        googleAutorizationHandler.sign = sign
     }
 }
 
@@ -35,13 +33,13 @@ extension SignInViewModel {
     func signInWith(username: String, password: String) {
         activitySubject.accept(true)
         guard isUsernameTextValid(username) else {
-            showError(AuthorizationError(comment: "Invalid username"))
+            error.onNext(AuthorizationError(comment: "Invalid username"))
             activitySubject.accept(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
-            showError(AuthorizationError(comment: "Invalid password"))
+            error.onNext(AuthorizationError(comment: "Invalid password"))
             activitySubject.accept(false)
             return
         }
@@ -52,7 +50,7 @@ extension SignInViewModel {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.showError(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }
@@ -130,14 +128,24 @@ extension SignInViewModel {
     }
 }
 
-extension SignInViewModel: GIDSignInDelegate {
+extension SignInViewModel {
+    class GoogleAutorizationHandler: NSObject, GIDSignInDelegate {
+        var sign: ((GIDSignIn, GIDGoogleUser, Error) -> Void)?
+        
+        func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+            sign?(signIn, user, error)
+        }
+    }
+}
+
+private extension SignInViewModel {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            showError(AuthorizationError(previousError: error))
+            self.error.onNext(AuthorizationError(previousError: error))
         }
         
         guard let userId = user?.userID else {
-            showError(AuthorizationError(comment: "No user id"))
+            self.error.onNext(AuthorizationError(comment: "No user id"))
             return
         }
         
@@ -146,7 +154,7 @@ extension SignInViewModel: GIDSignInDelegate {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.showError(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }

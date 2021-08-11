@@ -8,21 +8,13 @@
 import RxCocoa
 import RxSwift
 
-final class LaunchViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openAutorizationFlow: ScreenTransition?
-    }
-            
-    var transitions = Transitions()
-        
-    private let activitySubject = PublishRelay<Bool>()
+struct LaunchTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openAutorizationFlow: ScreenTransition?
+}
+
+final class LaunchViewModel: ViewModel<LaunchTransitions> {
     private let autorizationInteractor: AuthorizationInteractor
-    
-    var activity: Driver<Bool> {
-        activitySubject
-            .asDriver(onErrorJustReturn: false)
-    }
     
     init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
@@ -53,7 +45,7 @@ private extension LaunchViewModel {
             case .success:
                 completion(true)
             case .failure(let error):
-                self?.showError(error)
+                self?.error.onNext(error)
             }
         }
     }

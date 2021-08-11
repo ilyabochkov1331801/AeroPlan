@@ -6,11 +6,11 @@
 //
 
 protocol ErrorHandler {
-    func showError(_ error: AppError)
+    func handleError(_ error: AppError)
 }
 
 protocol MessagesHandler {
-    func showMessage(title: String, body: String)
+    func handleMessage(title: String, body: String)
 }
 
 protocol EventsHandler: ErrorHandler, MessagesHandler { }
@@ -18,7 +18,7 @@ protocol EventsHandler: ErrorHandler, MessagesHandler { }
 extension MessagesHandler {
     private var alertCoordinator: AlertCoordinator { .shared }
     
-    func showMessage(title: String, body: String) {
+    func handleMessage(title: String, body: String) {
         alertCoordinator.showAlert(with: title, message: body)
     }
 }
@@ -26,7 +26,7 @@ extension MessagesHandler {
 extension ErrorHandler {
     private var alertCoordinator: AlertCoordinator { .shared }
     
-    func showError(_ error: AppError) {
+    func handleError(_ error: AppError) {
         alertCoordinator.showError(error: error)
     }
 }

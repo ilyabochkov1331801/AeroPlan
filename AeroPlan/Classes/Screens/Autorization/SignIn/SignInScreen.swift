@@ -8,7 +8,7 @@
 import GoogleSignIn
 import UIKit
 
-final class SignInScreen: Screen<SignInViewModel> {
+final class SignInScreen: Screen<SignInTransitions, SignInViewModel> {
     private typealias Colors = AppColors.SignInScreen
     private typealias Fonts = AppFonts.SignInScreen
     
@@ -49,7 +49,7 @@ final class SignInScreen: Screen<SignInViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().delegate = viewModel
+        GIDSignIn.sharedInstance().delegate = viewModel.googleAutorizationHandler
         GIDSignIn.sharedInstance().presentingViewController = self
     }
     

@@ -10,30 +10,34 @@ import RxSwift
 import UIKit
 
 typealias ScreenTransition = () -> Void
-protocol ScreenTransitions { }
-
-protocol ViewModel: AnyObject, EventsHandler {
-    associatedtype Transitions: ScreenTransitions
-    
-    var transitions: Transitions { get set }
-    var activity: Driver<Bool> { get }
+protocol ScreenTransitions {
+    init()
 }
 
-extension Reactive where Base: ViewModel {
-    var errors: Binder<AppError> {
-        Binder(base) { viewModel, error in
-            viewModel.showError(error)
+class ViewModel<Transitions: ScreenTransitions>: EventsHandler {    
+    var transitions = Transitions()
+    
+    let activitySubject = PublishRelay<Bool>()
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
+    }
+    
+    var error: Binder<AppError> {
+        Binder(self) { base, error in
+            base.handleError(error)
         }
     }
 }
 
-class Screen<ScreenViewModel: ViewModel>: UIViewController {
+class Screen<Transitions: ScreenTransitions, ScreenViewModel: ViewModel<Transitions>>: UIViewController {
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+
     let disposeBag = DisposeBag()
-    let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var viewModel: ScreenViewModel
     
-    var transitions: ScreenViewModel.Transitions {
+    var transitions: Transitions {
         get { viewModel.transitions }
         set { viewModel.transitions = newValue }
     }
@@ -69,11 +73,17 @@ class Screen<ScreenViewModel: ViewModel>: UIViewController {
     
     func setupBinding() {
         viewModel.activity
-            .do(onNext: { [weak self] isActive in
-                self?.activityIndicator.isHidden = !isActive
-                self?.view.isUserInteractionEnabled = !isActive
-            })
             .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.activity
+            .map { !$0 }
+            .drive(activityIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.activity
+            .map { !$0 }
+            .drive(view.rx.isUserInteractionEnabled)
             .disposed(by: disposeBag)
     }
 }

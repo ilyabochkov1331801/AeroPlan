@@ -8,23 +8,15 @@
 import RxCocoa
 import RxSwift
 
-final class CreateAccountViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
-        
-    var transitions = Transitions()
-    
-    private let activitySubject = PublishRelay<Bool>()
+struct CreateAccountTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
+}
+
+final class CreateAccountViewModel: ViewModel<CreateAccountTransitions> {
     private let autorizationInteractor: AuthorizationInteractor
-    
-    var activity: Driver<Bool> {
-        activitySubject
-            .asDriver(onErrorJustReturn: false)
-    }
-    
+
     init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
     }
@@ -35,19 +27,19 @@ extension CreateAccountViewModel {
         activitySubject.accept(true)
         
         guard name.isValidUsername else {
-            showError(AuthorizationError(comment: "Invalid username"))
+            error.onNext(AuthorizationError(comment: "Invalid username"))
             activitySubject.accept(false)
             return
         }
         
         guard email.isValidEmail else {
-            showError(AuthorizationError(comment: "Invalid email"))
+            error.onNext(AuthorizationError(comment: "Invalid email"))
             activitySubject.accept(false)
             return
         }
         
         guard password.isValidPassword else {
-            showError(AuthorizationError(comment: "Invalid password"))
+            error.onNext(AuthorizationError(comment: "Invalid password"))
             activitySubject.accept(false)
             return
         }
@@ -58,7 +50,7 @@ extension CreateAccountViewModel {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.showError(error)
+                self?.error.onNext(error)
             }
         }
     }

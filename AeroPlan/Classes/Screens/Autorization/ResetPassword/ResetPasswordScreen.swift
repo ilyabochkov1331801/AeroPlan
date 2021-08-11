@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ResetPasswordScreen: Screen<ResetPasswordViewModel> {
+final class ResetPasswordScreen: Screen<ResetPasswordTransitions, ResetPasswordViewModel> {
     private typealias Colors = AppColors.ResetPasswordScreen
     private typealias Fonts = AppFonts.ResetPasswordScreen
     

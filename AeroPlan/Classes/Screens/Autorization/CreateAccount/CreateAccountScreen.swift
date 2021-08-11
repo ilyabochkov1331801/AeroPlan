@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CreateAccountScreen: Screen<CreateAccountViewModel> {
+final class CreateAccountScreen: Screen<CreateAccountTransitions, CreateAccountViewModel> {
     private typealias Colors = AppColors.CreateAccountScreen
     private typealias Fonts = AppFonts.CreateAccountScreen
     

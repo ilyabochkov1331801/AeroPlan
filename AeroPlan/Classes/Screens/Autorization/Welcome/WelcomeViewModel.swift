@@ -9,24 +9,13 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class WelcomeViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
-    
-    var transitions = Transitions()
-    
-    private let activitySubject = PublishRelay<Bool>()
-    
-    var activity: Driver<Bool> {
-        activitySubject
-            .asDriver(onErrorJustReturn: false)
-    }
+struct WelcomeTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
 }
 
-extension WelcomeViewModel {
+class WelcomeViewModel: ViewModel<WelcomeTransitions> {
     func termsOfConditionsTapped() {
         transitions.openPrivacy?()
     }
