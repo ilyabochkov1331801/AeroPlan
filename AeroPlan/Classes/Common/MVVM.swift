@@ -5,25 +5,39 @@
 //  Created by Ilya Bochkov on 27.04.21.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
-public typealias ScreenTransition = () -> Void
-public protocol ScreenTransitions { }
-
-public protocol ViewModel {
-    associatedtype Transitions: ScreenTransitions
-    
-    var transitions: Transitions { get set }
-    var errorOccurred: ((AppError) -> Void)? { get set }
-    var activity: ((Bool) -> Void)? { get set }
+typealias ScreenTransition = () -> Void
+protocol ScreenTransitions {
+    init()
 }
 
-open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
-    let activityIndicator = UIActivityIndicatorView(style: .large)
+class ViewModel<Transitions: ScreenTransitions>: EventsHandler {    
+    var transitions = Transitions()
+    
+    let activitySubject = PublishRelay<Bool>()
+    var activity: Driver<Bool> {
+        activitySubject
+            .asDriver(onErrorJustReturn: false)
+    }
+    
+    var error: Binder<AppError> {
+        Binder(self) { base, error in
+            base.handleError(error)
+        }
+    }
+}
+
+class Screen<Transitions: ScreenTransitions, ScreenViewModel: ViewModel<Transitions>>: UIViewController {
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
+
+    let disposeBag = DisposeBag()
     
     var viewModel: ScreenViewModel
     
-    var transitions: ScreenViewModel.Transitions {
+    var transitions: Transitions {
         get { viewModel.transitions }
         set { viewModel.transitions = newValue }
     }
@@ -58,27 +72,18 @@ open class Screen<ScreenViewModel: ViewModel>: UIViewController, AlertViewer {
     }
     
     func setupBinding() {
-        viewModel.errorOccurred = showError
-        viewModel.activity = { [weak self] in $0 ? self?.startActivity() : self?.endActivity() }
-    }
-    
-    func startActivity() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        view.isUserInteractionEnabled = false
-    }
-    
-    func endActivity() {
-        activityIndicator.isHidden = true
-        activityIndicator.stopAnimating()
-        view.isUserInteractionEnabled = true
-    }
-}
-
-extension Screen {
-    var showError: (AppError) -> Void {
-        return { [weak self] error in // swiftlint:disable:this implicit_return
-            self?.alertCoordinator.showError(error: error)
-        }
+        viewModel.activity
+            .drive(activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.activity
+            .map { !$0 }
+            .drive(activityIndicator.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.activity
+            .map { !$0 }
+            .drive(view.rx.isUserInteractionEnabled)
+            .disposed(by: disposeBag)
     }
 }

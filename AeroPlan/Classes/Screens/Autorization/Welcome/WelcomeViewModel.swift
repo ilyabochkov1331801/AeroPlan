@@ -5,31 +5,26 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
-class WelcomeViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
-    
-    var transitions = Transitions()
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
+struct WelcomeTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
 }
 
-extension WelcomeViewModel {
+class WelcomeViewModel: ViewModel<WelcomeTransitions> {
     func termsOfConditionsTapped() {
         transitions.openPrivacy?()
     }
     
-    @objc func startAdventureButtonTapped() {
+    func startAdventureButtonTapped() {
         transitions.openHomeFlow?()
     }
     
-    @objc func signInButtonTapped() {
+    func signInButtonTapped() {
         transitions.openSignIn?()
     }
 }

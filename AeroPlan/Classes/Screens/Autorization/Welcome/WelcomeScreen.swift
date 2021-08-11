@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WelcomeScreen: Screen<WelcomeViewModel> {
+final class WelcomeScreen: Screen<WelcomeTransitions, WelcomeViewModel> {
     private typealias Colors = AppColors.WelcomeScreen
     private typealias Fonts = AppFonts.WelcomeScreen
         
@@ -96,7 +96,16 @@ final class WelcomeScreen: Screen<WelcomeViewModel> {
         
         termsOfConditionsView.termsTransition = { [weak self] in self?.viewModel.termsOfConditionsTapped() }
         
-        startAdventureButton.addTarget(viewModel, action: #selector(viewModel.startAdventureButtonTapped), for: .touchUpInside)
-        signInButton.addTarget(viewModel, action: #selector(viewModel.signInButtonTapped), for: .touchUpInside)
+        startAdventureButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.startAdventureButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        signInButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.signInButtonTapped()
+            })
+            .disposed(by: disposeBag)
     }
 }

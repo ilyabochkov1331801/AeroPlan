@@ -5,22 +5,18 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
-final class CreateAccountViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
-    
-    var transitions = Transitions()
-    
+struct CreateAccountTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
+}
+
+final class CreateAccountViewModel: ViewModel<CreateAccountTransitions> {
     private let autorizationInteractor: AuthorizationInteractor
-    
+
     init(autorizationInteractor: AuthorizationInteractor) {
         self.autorizationInteractor = autorizationInteractor
     }
@@ -28,33 +24,33 @@ final class CreateAccountViewModel: ViewModel {
 
 extension CreateAccountViewModel {
     func createAccount(name: String, email: String, password: String) {
-        activity?(true)
+        activitySubject.accept(true)
         
         guard name.isValidUsername else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid username"))
+            activitySubject.accept(false)
             return
         }
         
         guard email.isValidEmail else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid email"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid email"))
+            activitySubject.accept(false)
             return
         }
         
         guard password.isValidPassword else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid password"))
+            activitySubject.accept(false)
             return
         }
         
         autorizationInteractor.createAccount(name: name, email: email, password: password) { [weak self] result in
-            self?.activity?(false)
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(error)
+                self?.error.onNext(error)
             }
         }
     }
@@ -71,7 +67,7 @@ extension CreateAccountViewModel {
         text.isValidEmail
     }
     
-    @objc func signInButtonTapped() {
+    func signInButtonTapped() {
         transitions.openSignIn?()
     }
     

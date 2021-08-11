@@ -5,7 +5,8 @@
 //  Created by Ilya Bochkov on 8.05.21.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
 final class AuthorizationInteractor {
     private let apiDataManager: APIDataManager
@@ -21,7 +22,7 @@ final class AuthorizationInteractor {
         storageDataManager.get(key: .user)
     }
     
-    func registerAnonimus(completion: @escaping (Result<User, AuthorizationError>) -> Void) {
+    func registerAnonimous(completion: @escaping (Result<User, AuthorizationError>) -> Void) {
         apiDataManager.execute(request: .registerAnon()) { [weak self] result in
             switch result {
             case .success(let user):

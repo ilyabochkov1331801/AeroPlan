@@ -6,48 +6,51 @@
 //
 
 import GoogleSignIn
+import RxCocoa
+import RxSwift
 
-final class SignInViewModel: NSObject, ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openCreateAccount: ScreenTransition?
-        var openResetPassword: ScreenTransition?
-    }
-        
-    var transitions = Transitions()
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
-    
+struct SignInTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openCreateAccount: ScreenTransition?
+    var openResetPassword: ScreenTransition?
+}
+
+final class SignInViewModel: ViewModel<SignInTransitions> {
     private let authorizationInteractor: AuthorizationInteractor
+    let googleAutorizationHandler: GoogleAutorizationHandler
     
     init(authorizationInteractor: AuthorizationInteractor) {
         self.authorizationInteractor = authorizationInteractor
+        self.googleAutorizationHandler = GoogleAutorizationHandler()
+        
+        super.init()
+        
+        googleAutorizationHandler.sign = sign
     }
 }
 
 extension SignInViewModel {
     func signInWith(username: String, password: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isUsernameTextValid(username) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid username"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid username"))
+            activitySubject.accept(false)
             return
         }
         
         guard isPasswordTextValid(password) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid password"))
+            activitySubject.accept(false)
             return
         }
         
         authorizationInteractor.signInWith(name: username, password: password) { [weak self] result in
-            self?.activity?(false)
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }
@@ -60,15 +63,15 @@ extension SignInViewModel {
         text.isValidPassword
     }
     
-    @objc func forgotPasswordButtonTapped() {
+    func forgotPasswordButtonTapped() {
         transitions.openResetPassword?()
     }
     
-    @objc func createAccountButtonTapped() {
+    func createAccountButtonTapped() {
         transitions.openCreateAccount?()
     }
     
-    @objc func logInWithGoogleButtonTapped() {
+    func logInWithGoogleButtonTapped() {
         GIDSignIn.sharedInstance().signIn()
     }
 }
@@ -125,14 +128,24 @@ extension SignInViewModel {
     }
 }
 
-extension SignInViewModel: GIDSignInDelegate {
+extension SignInViewModel {
+    class GoogleAutorizationHandler: NSObject, GIDSignInDelegate {
+        var sign: ((GIDSignIn, GIDGoogleUser, Error) -> Void)?
+        
+        func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+            sign?(signIn, user, error)
+        }
+    }
+}
+
+private extension SignInViewModel {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            errorOccurred?(AuthorizationError(previousError: error))
+            self.error.onNext(AuthorizationError(previousError: error))
         }
         
         guard let userId = user?.userID else {
-            errorOccurred?(AuthorizationError(comment: "No user id"))
+            self.error.onNext(AuthorizationError(comment: "No user id"))
             return
         }
         
@@ -141,7 +154,7 @@ extension SignInViewModel: GIDSignInDelegate {
             case .success:
                 self?.transitions.openHomeFlow?()
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }

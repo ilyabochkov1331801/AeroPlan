@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LaunchScreen: Screen<LaunchViewModel> {
+final class LaunchScreen: Screen<LaunchTransitions, LaunchViewModel> {
     private let label = UILabel()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,5 +29,9 @@ final class LaunchScreen: Screen<LaunchViewModel> {
         super.setupView()
         
         label.text = "Launch"
+    }
+    
+    override func setupBinding() {
+        super.setupBinding()
     }
 }

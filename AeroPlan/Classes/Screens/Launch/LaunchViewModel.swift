@@ -5,17 +5,15 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-final class LaunchViewModel: ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openHomeFlow: ScreenTransition?
-        var openAutorizationFlow: ScreenTransition?
-    }
-    
-    var transitions = Transitions()
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
-    
+import RxCocoa
+import RxSwift
+
+struct LaunchTransitions: ScreenTransitions {
+    var openHomeFlow: ScreenTransition?
+    var openAutorizationFlow: ScreenTransition?
+}
+
+final class LaunchViewModel: ViewModel<LaunchTransitions> {
     private let autorizationInteractor: AuthorizationInteractor
     
     init(autorizationInteractor: AuthorizationInteractor) {
@@ -34,20 +32,20 @@ final class LaunchViewModel: ViewModel {
 
 private extension LaunchViewModel {
     func checkAutorization(completion: @escaping (Bool) -> Void) {
-        activity?(true)
+        activitySubject.accept(true)
         guard autorizationInteractor.storedUser == nil else {
             completion(false)
-            activity?(false)
+            activitySubject.accept(false)
             return
         }
         
-        autorizationInteractor.registerAnonimus { [weak self] result in
-            self?.activity?(false)
+        autorizationInteractor.registerAnonimous { [weak self] result in
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 completion(true)
             case .failure(let error):
-                self?.errorOccurred?(error)
+                self?.error.onNext(error)
             }
         }
     }

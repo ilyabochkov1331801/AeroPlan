@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NewPasswordScreen: Screen<NewPasswordViewModel> {
+final class NewPasswordScreen: Screen<NewPasswordTransitions, NewPasswordViewModel> {
     private typealias Colors = AppColors.ResetPasswordScreen
     private typealias Fonts = AppFonts.ResetPasswordScreen
     
@@ -86,7 +86,11 @@ final class NewPasswordScreen: Screen<NewPasswordViewModel> {
     override func setupBinding() {
         super.setupBinding()
         
-        changePasswordButton.addTarget(self, action: #selector(changePasswordButtonTapped), for: .touchUpInside)
+        changePasswordButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.changePasswordButtonTapped()
+            })
+            .disposed(by: disposeBag)
         
         keyboardTracker = KeyboardTracker(trackNotification: { [weak self] notification in
             guard let self = self else { return }
@@ -105,7 +109,7 @@ final class NewPasswordScreen: Screen<NewPasswordViewModel> {
 }
 
 private extension NewPasswordScreen {
-    @objc func changePasswordButtonTapped() {
+    func changePasswordButtonTapped() {
         guard let password = passwordTextField.text else {
             return
         }

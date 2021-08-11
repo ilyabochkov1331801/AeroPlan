@@ -5,42 +5,40 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
-final class ResetPasswordViewModel: NSObject, ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
+struct ResetPasswordTransitions: ScreenTransitions {
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
+}
+
+final class ResetPasswordViewModel: ViewModel<ResetPasswordTransitions> {
+    private let autorizationInteractor: AuthorizationInteractor
     
-    var transitions = Transitions()
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
-    
-    private let authorizationInteractor: AuthorizationInteractor
-    
-    init(authorizationInteractor: AuthorizationInteractor) {
-        self.authorizationInteractor = authorizationInteractor
+    init(autorizationInteractor: AuthorizationInteractor) {
+        self.autorizationInteractor = autorizationInteractor
     }
 }
 
 extension ResetPasswordViewModel {
     func resetPassword(email: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isEmailValid(email) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid email"))
-            activity?(false)
-            return
+            activitySubject.accept(false)
+            return error.onNext(AuthorizationError(comment: "Invalid email"))
         }
-        
-        authorizationInteractor.resetPassword(email: email) { [weak self] result in
-            self?.activity?(false)
+        autorizationInteractor.resetPassword(email: email) { [weak self] result in
+            self?.activitySubject.accept(false)
+            guard let self = self else {
+                return
+            }
+            
             switch result {
             case .success:
                 break
-            case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+            case let .failure(error):
+                self.error.onNext(AuthorizationError(previousError: error))
             }
         }
     }

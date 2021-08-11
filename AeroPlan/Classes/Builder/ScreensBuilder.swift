@@ -29,12 +29,12 @@ final class ScreensBuilder {
     }
     
     static func makeResetPasswordScreen(resolver: DependencyResolver) -> ResetPasswordScreen {
-        let viewModel = ResetPasswordViewModel(authorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
+        let viewModel = ResetPasswordViewModel(autorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return ResetPasswordScreen(viewModel: viewModel)
     }
     
     static func makeNewPasswordScreen(resolver: DependencyResolver) -> NewPasswordScreen {
-        let viewModel = NewPasswordViewModel(authorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
+        let viewModel = NewPasswordViewModel(autorizationInteractor: InteractorsBuilder.makeAutorizationInteractor(resolver: resolver))
         return NewPasswordScreen(viewModel: viewModel)
     }
 }

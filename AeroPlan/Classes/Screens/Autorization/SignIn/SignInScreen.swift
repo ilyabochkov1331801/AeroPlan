@@ -8,7 +8,7 @@
 import GoogleSignIn
 import UIKit
 
-final class SignInScreen: Screen<SignInViewModel> {
+final class SignInScreen: Screen<SignInTransitions, SignInViewModel> {
     private typealias Colors = AppColors.SignInScreen
     private typealias Fonts = AppFonts.SignInScreen
     
@@ -32,7 +32,7 @@ final class SignInScreen: Screen<SignInViewModel> {
     }
     
     private var keyboardTracker: KeyboardTracker?
-
+    
     deinit {
         keyboardTracker?.stopTracking()
         keyboardTracker = nil
@@ -49,7 +49,7 @@ final class SignInScreen: Screen<SignInViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().delegate = viewModel
+        GIDSignIn.sharedInstance().delegate = viewModel.googleAutorizationHandler
         GIDSignIn.sharedInstance().presentingViewController = self
     }
     
@@ -142,32 +142,52 @@ final class SignInScreen: Screen<SignInViewModel> {
         
         view.backgroundColor = Colors.background
         navigationItem.backButtonTitle = ""
-
+        
         logInWithGoogleButton.setAttributedTitle(viewModel.logInWithGoogleText, for: .normal)
         logInButton.setAttributedTitle(viewModel.logInText, for: .normal)
         forgotPasswordButton.setAttributedTitle(viewModel.forgotPasswordText, for: .normal)
         createAccountButton.setAttributedTitle(viewModel.createAccountText, for: .normal)
         
         logInWithGoogleButton.setImage(viewModel.logInWithGoogleImage, for: .normal)
-
+        
         usernameTextField.placeholder = viewModel.usernamePlaceholder
         usernameTextField.autocapitalizationType = .none
         passwordTextFiled.placeholder = viewModel.passwordPlaceholder
         passwordTextFiled.autocapitalizationType = .none
-                
+        
         titleLabel.attributedText = viewModel.titleText
         newUserLabel.attributedText = viewModel.newUserText
-
+        
         separatorImageView.image = viewModel.separatorImage
     }
     
     override func setupBinding() {
         super.setupBinding()
         
-        createAccountButton.addTarget(viewModel, action: #selector(viewModel.createAccountButtonTapped), for: .touchUpInside)
-        forgotPasswordButton.addTarget(viewModel, action: #selector(viewModel.forgotPasswordButtonTapped), for: .touchUpInside)
-        logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
-        logInWithGoogleButton.addTarget(viewModel, action: #selector(viewModel.logInWithGoogleButtonTapped), for: .touchUpInside)
+
+        createAccountButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.createAccountButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        forgotPasswordButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.forgotPasswordButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        logInButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.logInButtonTapped()
+            })
+            .disposed(by: disposeBag)
+        
+        logInWithGoogleButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.logInWithGoogleButtonTapped()
+            })
+            .disposed(by: disposeBag)
         
         usernameTextField.validation = { [weak self] in self?.viewModel.isUsernameTextValid($0) == true }
         passwordTextFiled.validation = { [weak self] in self?.viewModel.isPasswordTextValid($0) == true }
@@ -189,7 +209,7 @@ final class SignInScreen: Screen<SignInViewModel> {
 }
 
 private extension SignInScreen {
-    @objc func logInButtonTapped() {
+    func logInButtonTapped() {
         guard let username = usernameTextField.text, let password = passwordTextFiled.text else {
             return
         }

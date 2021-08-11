@@ -5,42 +5,38 @@
 //  Created by Ilya Bochkov on 30.04.21.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
-final class NewPasswordViewModel: NSObject, ViewModel {
-    struct Transitions: ScreenTransitions {
-        var openSignIn: ScreenTransition?
-        var openPrivacy: ScreenTransition?
-    }
+struct NewPasswordTransitions: ScreenTransitions {
+    var openSignIn: ScreenTransition?
+    var openPrivacy: ScreenTransition?
+}
+
+final class NewPasswordViewModel: ViewModel<NewPasswordTransitions> {
+    private let autorizationInteractor: AuthorizationInteractor
     
-    var transitions = Transitions()
-    
-    var errorOccurred: ((AppError) -> Void)?
-    var activity: ((Bool) -> Void)?
-    
-    private let authorizationInteractor: AuthorizationInteractor
-    
-    init(authorizationInteractor: AuthorizationInteractor) {
-        self.authorizationInteractor = authorizationInteractor
+    init(autorizationInteractor: AuthorizationInteractor) {
+        self.autorizationInteractor = autorizationInteractor
     }
 }
 
 extension NewPasswordViewModel {
     func changePassword(password: String) {
-        activity?(true)
+        activitySubject.accept(true)
         guard isPasswordValid(password) else {
-            self.errorOccurred?(AuthorizationError(comment: "Invalid password"))
-            activity?(false)
+            error.onNext(AuthorizationError(comment: "Invalid password"))
+            activitySubject.accept(false)
             return
         }
         
-        authorizationInteractor.changePassword(password: password) { [weak self] result in
-            self?.activity?(false)
+        autorizationInteractor.changePassword(password: password) { [weak self] result in
+            self?.activitySubject.accept(false)
             switch result {
             case .success:
                 break
             case .failure(let error):
-                self?.errorOccurred?(AuthorizationError(previousAppError: error))
+                self?.error.onNext(AuthorizationError(previousAppError: error))
             }
         }
     }
